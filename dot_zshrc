@@ -3,15 +3,15 @@
 ## asdf
 . /usr/local/opt/asdf/libexec/asdf.sh
 
-# Funcs
-
 ## bookmarks
 if [ -d "$HOME/.bookmarks" ]; then
   export CDPATH=".:$HOME/.bookmarks:/"
-  alias goto="cd -P"
 fi
 
-function ba () {
+# Funcs
+
+## bookmarks
+function _add_bookmark () {
   local current_dir=$(pwd)
   cd $1
   local bookmark_name=@$2
@@ -21,7 +21,7 @@ function ba () {
   echo "success added bookmark. ($bookmark_name to $src)"
 }
 
-function bd () {
+function _delete_bookmark () {
   local bookmark_name=@$1
   local bookmark_path=~/.bookmarks/$bookmark_name
 
@@ -34,7 +34,7 @@ function bd () {
   echo -n "remove $bookmark_name?: "
   read yn
 
-  if [ ! "$yn" = "Y" -o "$yn" = "y" ]; then
+  if [ ! "$yn" = "Y" ] && [ ! "$yn" = "y" ]; then
     echo "canceled remove bookmark. ($bookmark_name)"
     return
   fi
@@ -76,8 +76,11 @@ alias dc='docker compose'
 alias tf='terraform'
 
 ## bookmarks
+alias goto="cd -P"
 alias bl="ls ~/.bookmarks/"
 alias bll="ls -l ~/.bookmarks/"
+alias ba="_add_bookmark"
+alias bd="_delete_bookmark"
 
 ## bundle
 alias be='bundle exec'

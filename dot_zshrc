@@ -1,0 +1,88 @@
+# Init
+
+## asdf
+. /usr/local/opt/asdf/libexec/asdf.sh
+
+# Funcs
+
+## bookmarks
+if [ -d "$HOME/.bookmarks" ]; then
+  export CDPATH=".:$HOME/.bookmarks:/"
+  alias goto="cd -P"
+fi
+
+function ba () {
+  local current_dir=$(pwd)
+  cd $1
+  local src=$(pwd)
+  ln -is $src ~/.bookmarks/@$2
+  cd $current_dir
+}
+
+function delete-bookmark () {
+  local selected_link="$(\ls -1 ~/.bookmarks | peco --query "$LBUFFER")"
+  if [ -n "$selected_link" ]; then
+    BUFFER="unlink ~/.bookmarks/$selected_link"
+    CURSOR=$#BUFFER
+    zle reset-prompt
+  fi
+}
+
+# Evals
+
+eval "$(direnv hook zsh)"
+
+# Aliases
+
+## cd
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+## git
+alias g='git'
+alias gb='g branch'
+alias gd='g diff'
+alias ga='g add'
+alias gc='g commit'
+alias gf='g fetch'
+alias gst='g status'
+alias gco='g checkout'
+alias gcp='g cherry-pick'
+alias grb='g rebase'
+
+## docker
+alias d='docker'
+alias dc='docker compose'
+
+## terraform
+alias tf='terraform'
+
+## bookmarks
+alias bl="ls ~/.bookmarks/"
+alias bll="ls -l ~/.bookmarks/"
+
+## bundle
+alias be='bundle exec'
+alias bi='bundle install'
+alias bu='bundle update'
+
+# Keybinds
+zle -N delete-bookmark
+bindkey '^b' delete-bookmark
+
+# Envs
+
+export EDITOR=vi
+export VISUAL=vi
+export PAGER=vi
+
+## go
+export PATH=$PATH:$(go env GOPATH)/bin
+
+
+# Load local settings
+
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+

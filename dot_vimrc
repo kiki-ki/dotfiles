@@ -1,0 +1,34 @@
+"plugin
+
+"display
+set number
+set title
+set showmatch
+syntax on
+set tabstop=2
+set expandtab
+set shiftwidth=2
+set smartindent
+set autoindent
+set laststatus=2
+
+"search
+set ignorecase
+set wrapscan
+set smartcase
+set incsearch
+set hlsearch
+
+"controll
+set clipboard+=unnamed
+
+"keybind
+inoremap <silent> jj <ESC>
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+noremap <S-j> 3j
+noremap <S-k> 3k
+
+nnoremap <S-h> ^
+nnoremap <S-l> $
+

@@ -1,103 +1,114 @@
-# Init
+#!/bin/sh
+
+### Init
 
 ## asdf
+
 . /usr/local/opt/asdf/libexec/asdf.sh
 
 ## bookmarks
+
 if [ -d "$HOME/.bookmarks" ]; then
   export CDPATH=".:$HOME/.bookmarks:/"
 fi
 
-# Funcs
+### Evals
+
+eval "$(direnv hook zsh)"
+
+### Functions
 
 ## bookmarks
-function _add_bookmark () {
-  local current_dir=$(pwd)
-  cd $1
-  local bookmark_name=@$2
-  local src=$(pwd)
-  ln -is $src ~/.bookmarks/$bookmark_name
-  cd $current_dir
+
+_add_bookmark () {
+  local current_dir="$(pwd)"
+  cd "$1" || return
+  local bookmark_name=@"$2"
+  local src="$(pwd)"
+  ln -is "$src" ~/.bookmarks/"$bookmark_name"
+  cd "$current_dir" || return
   echo "success added bookmark. ($bookmark_name to $src)"
 }
 
-function _delete_bookmark () {
-  local bookmark_name=@$1
-  local bookmark_path=~/.bookmarks/$bookmark_name
+_delete_bookmark () {
+  local bookmark_name=@"$1"
+  local bookmark_path=~/.bookmarks/"$bookmark_name"
 
-  if [ ! -L $bookmark_path ]; then
+  if [ ! -L "$bookmark_path" ]; then
     echo "no such link. ($bookmark_path)"
     echo "failed remove bookmark. ($bookmark_name)"
     return
   fi
 
-  echo -n "remove $bookmark_name?: "
-  read yn
+  printf "remove %s?: " "$bookmark_name"
+  read -r yn
 
   if [ ! "$yn" = "Y" ] && [ ! "$yn" = "y" ]; then
     echo "canceled remove bookmark. ($bookmark_name)"
     return
   fi
 
-  local src=$(readlink $bookmark_path)
-  unlink $bookmark_path
+  local src="$(readlink "$bookmark_path")"
+  unlink "$bookmark_path"
   echo "success remove bookmark. ($bookmark_name to $src)"
 }
 
-# Evals
-
-eval "$(direnv hook zsh)"
-
-# Aliases
+### Aliases
 
 ## cd
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 
 ## git
-alias g='git'
-alias gb='g branch'
-alias gd='g diff'
-alias ga='g add'
-alias gc='g commit'
-alias gf='g fetch'
-alias gst='g status'
-alias gco='g checkout'
-alias gcp='g cherry-pick'
-alias grb='g rebase'
+
+alias g="git"
+alias gb="g branch"
+alias gd="g diff"
+alias ga="g add"
+alias gc="g commit"
+alias gf="g fetch"
+alias gst="g status"
+alias gco="g checkout"
+alias gcp="g cherry-pick"
+alias grb="g rebase"
 
 ## docker
-alias d='docker'
-alias dc='docker compose'
+
+alias d="docker"
+alias dc="docker compose"
 
 ## terraform
-alias tf='terraform'
+
+alias tf="terraform"
 
 ## bookmarks
+
 alias goto="cd -P"
 alias bl="ls ~/.bookmarks/"
 alias bll="ls -l ~/.bookmarks/"
 alias ba="_add_bookmark"
 alias bd="_delete_bookmark"
 
-## bundle
-alias be='bundle exec'
-alias bi='bundle install'
-alias bu='bundle update'
+## bundler
 
-# Envs
+alias be="bundle exec"
+alias bi="bundle install"
+alias bu="bundle update"
+
+### Envs
 
 export EDITOR=vi
 export VISUAL=vi
 export PAGER=less
 
 ## go
-export PATH=$PATH:$(go env GOPATH)/bin
 
+export PATH="$PATH":"$(go env GOPATH)"/bin
 
-# Load local settings
+### Final
 
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+[ -f ~/.zshrc.local ] && . ~/.zshrc.local
 

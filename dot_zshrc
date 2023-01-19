@@ -76,7 +76,7 @@ bindkey '^b' delete-bookmark
 
 export EDITOR=vi
 export VISUAL=vi
-export PAGER=vi
+export PAGER=less
 
 ## go
 export PATH=$PATH:$(go env GOPATH)/bin

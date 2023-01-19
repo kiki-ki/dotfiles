@@ -14,18 +14,34 @@ fi
 function ba () {
   local current_dir=$(pwd)
   cd $1
+  local bookmark_name=@$2
   local src=$(pwd)
-  ln -is $src ~/.bookmarks/@$2
+  ln -is $src ~/.bookmarks/$bookmark_name
   cd $current_dir
+  echo "success added bookmark. ($bookmark_name to $src)"
 }
 
-function delete-bookmark () {
-  local selected_link="$(\ls -1 ~/.bookmarks | peco --query "$LBUFFER")"
-  if [ -n "$selected_link" ]; then
-    BUFFER="unlink ~/.bookmarks/$selected_link"
-    CURSOR=$#BUFFER
-    zle reset-prompt
+function bd () {
+  local bookmark_name=@$1
+  local bookmark_path=~/.bookmarks/$bookmark_name
+
+  if [ ! -L $bookmark_path ]; then
+    echo "no such link. ($bookmark_path)"
+    echo "failed remove bookmark. ($bookmark_name)"
+    return
   fi
+
+  echo -n "remove $bookmark_name?: "
+  read yn
+
+  if [ ! "$yn" = "Y" -o "$yn" = "y" ]; then
+    echo "canceled remove bookmark. ($bookmark_name)"
+    return
+  fi
+
+  local src=$(readlink $bookmark_path)
+  unlink $bookmark_path
+  echo "success remove bookmark. ($bookmark_name to $src)"
 }
 
 # Evals
@@ -67,10 +83,6 @@ alias bll="ls -l ~/.bookmarks/"
 alias be='bundle exec'
 alias bi='bundle install'
 alias bu='bundle update'
-
-# Keybinds
-zle -N delete-bookmark
-bindkey '^b' delete-bookmark
 
 # Envs
 

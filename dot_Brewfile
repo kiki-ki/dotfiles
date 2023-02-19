@@ -29,6 +29,5 @@ cask "karabiner-elements"
 cask "ngrok"
 cask "tableplus"
 cask "visual-studio-code"
-cask "warp"
 cask "zoom"
 

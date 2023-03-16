@@ -118,6 +118,10 @@ export VISUAL=vi
 export PAGER=less
 export ZLIB_PATH=~/.zsh
 
+## brew
+
+export PATH=/opt/homebrew/bin:$PATH
+
 ## go
 
 export PATH="$PATH":"$(go env GOPATH)"/bin

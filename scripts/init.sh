@@ -24,19 +24,13 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder ShowPathbar -bool true
 
-# Set dotfiles
+## Install tools
 
-chezmoi apply
-. ~/.zshrc
-
-# Install
-
-## brew packages
-
+git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ~/.zsh/zsh-autocomplete
+git clone --depth 1 -- https://github.com/romkatv/powerlevel10k.git ~/.zsh/powerlevel10k
 brew bundle --global
 
-## zsh plugins
+## Init
 
-git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git "$ZLIB_PATH"/zsh-autocomplete
-git clone --depth 1 -- https://github.com/romkatv/powerlevel10k.git "$ZLIB_PATH"/powerlevel10k
+. ~/.zshrc
 

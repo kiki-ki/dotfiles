@@ -27,6 +27,7 @@ fi
 
 ### Evals
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(direnv hook zsh)"
 
 ### Functions
@@ -116,11 +117,6 @@ alias bu="bundle update"
 export EDITOR=vi
 export VISUAL=vi
 export PAGER=less
-export ZLIB_PATH=~/.zsh
-
-## brew
-
-export PATH=/opt/homebrew/bin:$PATH
 
 ## go
 

@@ -1,0 +1,26 @@
+[user]
+  email = malpie0619@gmail.com
+  name = kiki-ki
+
+[core]
+  editor = vi
+  ignorecase = false
+  pager = delta
+
+[pull]
+  rebase = false 
+
+[delta]
+  navigate = true
+  light = false
+  line-numbers = true
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default
+
+[include]
+  path = ~/.gitconfig_shared
+

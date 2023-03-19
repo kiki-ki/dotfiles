@@ -1,0 +1,223 @@
+{
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [
+      80
+    ],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false
+  },
+  "[ruby]": {
+    "editor.tabSize": 2
+  },
+  "[vue]": {},
+  "cSpell.ignorePaths": [
+    "package-lock.json",
+    "node_modules",
+    "vscode-extension",
+    ".git/objects",
+    ".vscode",
+    ".vscode-insiders",
+    "settings.json"
+  ],
+  "cSpell.userWords": [
+    "appstore",
+    "Blueprinter",
+    "boid",
+    "BOXIL",
+    "entityext",
+    "firebaselib",
+    "Hoge",
+    "Jbuilder",
+    "openapi",
+    "sqllib",
+    "tencent",
+    "trtc"
+  ],
+  "dart.flutterSdkPath": ".fvm/flutter_sdk",
+  "editor.fontSize": 11,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.insertSpaces": true,
+  "editor.minimap.enabled": false,
+  "editor.minimap.renderCharacters": false,
+  "editor.suggest.showWords": false,
+  "editor.tabSize": 2,
+  "emmet.includeLanguages": {
+    "erb": "html"
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "explorer.confirmDragAndDrop": false,
+  "files.associations": {
+    "*.erb": "erb",
+    "*.golden": "json"
+  },
+  "files.autoSave": "onFocusChange",
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/coverage": true,
+    "**/CVS": true
+  },
+  "files.trimTrailingWhitespace": true,
+  "git.autofetch": true,
+  "go.alternateTools": {
+    "go-langserver": "gopls"
+  },
+  "go.autocompleteUnimportedPackages": true,
+  "go.formatTool": "goimports",
+  "go.toolsEnvVars": {
+    "GO111MODULE": "on"
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "go.useLanguageServer": true,
+  "gopls": {
+    "usePlaceholders": true
+  },
+  "grunt.autoDetect": "off",
+  "gulp.autoDetect": "off",
+  "haskell.manageHLS": "GHCup",
+  "jake.autoDetect": "off",
+  "npm.autoDetect": "off",
+  "redhat.telemetry.enabled": false,
+  "remote.SSH.configFile": "${userHome}/.ssh/config",
+  "ruby.format": "rubocop",
+  "ruby.languageServer": {
+    "logLevel": "info"
+  },
+  "ruby.lint": {
+    "rubocop": {
+      "except": [
+        "Metrics"
+      ],
+      "useBundler": true
+    }
+  },
+  "ruby.useBundler": true,
+  "ruby.useLanguageServer": true,
+  "search.exclude": {
+    "**/.git": true,
+    "**/.next": true,
+    "**/*.code-search": true,
+    "**/bower_components": true,
+    "**/node_modules": true,
+    "**/vendor/bundle": true
+  },
+  "search.useIgnoreFiles": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "solargraph.autoformat": true,
+  "solargraph.commandPath": "/Users/nakata.kai/.asdf/installs/ruby/2.7.1/bin/solargraph",
+  "solargraph.diagnostics": true,
+  "solargraph.formatting": true,
+  "terminal.external.osxExec": "iterm2.app",
+  "terminal.external.windowsExec": "",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.scrollback": 100000,
+  "typescript.tsc.autoDetect": "off",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "vim.ignorecase": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "after": [
+        "<Esc>"
+      ],
+      "before": [
+        "j",
+        "j"
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "after": [
+        "3",
+        "j"
+      ],
+      "before": [
+        "J"
+      ]
+    },
+    {
+      "after": [
+        "3",
+        "k"
+      ],
+      "before": [
+        "K"
+      ]
+    },
+    {
+      "after": [
+        "$"
+      ],
+      "before": [
+        "L"
+      ]
+    },
+    {
+      "after": [
+        "^"
+      ],
+      "before": [
+        "H"
+      ]
+    }
+  ],
+  "vim.useSystemClipboard": true,
+  "vim.visualModeKeyBindings": [
+    {
+      "after": [
+        "3",
+        "j"
+      ],
+      "before": [
+        "J"
+      ]
+    },
+    {
+      "after": [
+        "3",
+        "k"
+      ],
+      "before": [
+        "K"
+      ]
+    },
+    {
+      "after": [
+        "$"
+      ],
+      "before": [
+        "L"
+      ]
+    },
+    {
+      "after": [
+        "^"
+      ],
+      "before": [
+        "H"
+      ]
+    }
+  ],
+  "workbench.activityBar.visible": true,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#3c3c3c",
+    "activityBarBadge.background": "#16825D",
+    "activityBarBadge.foreground": "#dbdbdb",
+    "statusBar.background": "#333333",
+    "tab.activeBorder": "#909090",
+    "titleBar.activeBackground": "#333333"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.panel.defaultLocation": "right",
+  "workbench.statusBar.visible": true,
+}
+

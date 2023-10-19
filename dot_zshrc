@@ -2,8 +2,8 @@
 
 ### Init
 
-[ ! -f ~/opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
-[ ! -f ~/opt/homebrew/bin/direnv ] && eval "$(direnv hook zsh)"
+[ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+[ -f /opt/homebrew/bin/direnv ] && eval "$(direnv hook zsh)"
 
 ## autocomplete
 
@@ -20,7 +20,7 @@ fi
 
 ## asdf
 
-[ ! -f ~/opt/homebrew/bin/asdf ] && . $(brew --prefix asdf)/libexec/asdf.sh
+[ -f /opt/homebrew/bin/asdf ] && . $(brew --prefix asdf)/libexec/asdf.sh
 
 ## bookmarks
 
@@ -118,7 +118,7 @@ export PAGER=less
 
 ## go
 
-[ ! -f ~/opt/homebrew/bin/go ] && export PATH="$PATH":"$(go env GOPATH)"/bin
+[ -f /opt/homebrew/bin/go ] && export PATH="$PATH":"$(go env GOPATH)"/bin
 
 ### Final
 

@@ -1,0 +1,20 @@
+#! /usr/bin/env sh
+
+set -eu
+
+if [ "$(sudo echo hi)" != hi ]; then
+  echo "cannot use sudo."
+else
+  if [ -x "$(command -v apt-get)" ]; then
+    echo "for Debian"
+    sudo apt-get update
+    sudo apt-get install less zsh curl wget tar vim direnv snap -y
+    sudo snap install chezmoi --classic
+  fi
+
+  if [ -x "$(command -v apk)" ]; then
+    echo "Alpine 向け処理"
+    sudo apk add less zsh curl wget tar vim direnv chezmoi
+  fi
+fi
+

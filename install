@@ -8,12 +8,13 @@ else
   if [ -x "$(command -v apt-get)" ]; then
     echo "for Debian"
     sudo apt-get update
-    sudo apt-get install less zsh curl wget tar vim direnv -y
+    sudo apt-get install less zsh curl wget tar vim direnv asdf -y
     sudo sh -c "$(curl -fsLS get.chezmoi.io)" && sudo mv ./bin/chezmoi ~/../../usr/bin
   fi
 
   if [ -x "$(command -v apk)" ]; then
     echo "for Alpine"
-    sudo apk add less zsh curl wget tar vim direnv chezmoi
+    sudo apk add less zsh curl wget tar vim direnv asdf chezmoi
   fi
 fi
+

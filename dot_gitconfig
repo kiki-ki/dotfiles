@@ -5,15 +5,10 @@
 [core]
   editor = vi
   ignorecase = false
-  pager = delta
+  pager = less
 
 [pull]
   rebase = false 
-
-[delta]
-  navigate = true
-  light = false
-  line-numbers = true
 
 [merge]
   conflictstyle = diff3

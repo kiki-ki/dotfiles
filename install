@@ -16,5 +16,7 @@ else
     echo "for Alpine"
     sudo apk add less zsh curl wget tar vim direnv asdf chezmoi
   fi
+
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
 fi
 

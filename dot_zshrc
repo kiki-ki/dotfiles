@@ -110,6 +110,10 @@ alias be="bundle exec"
 alias bi="bundle install"
 alias bu="bundle update"
 
+## k8s
+
+alias k="kubectl"
+
 ### Envs
 
 export EDITOR=vi

@@ -19,6 +19,7 @@ defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 
 ## Finder
 
+defaults write -g ApplePressAndHoldEnabled -bool false
 defaults write com.apple.finder AppleShowAllFiles -bool true
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write com.apple.finder ShowStatusBar -bool true

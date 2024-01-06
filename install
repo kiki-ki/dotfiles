@@ -3,21 +3,21 @@
 set -eu
 
 if [ "$(sudo echo hi)" != hi ]; then
-  echo "cannot use sudo."
+  echo "Cannot use sudo."
 else
   if [ -x "$(command -v apt-get)" ]; then
-    echo "for Debian"
     sudo apt-get update
-    sudo apt-get install less zsh curl wget tar vim direnv asdf -y
-    sudo sh -c "$(curl -fsLS get.chezmoi.io)" && sudo mv ./bin/chezmoi ~/../../usr/bin
+    sudo apt-get install build-essential curl file git procps -y
   fi
 
-  if [ -x "$(command -v apk)" ]; then
-    echo "for Alpine"
-    sudo apk add less zsh curl wget tar vim direnv asdf chezmoi
+  if [ -x "$(command -v brew)"]; then
+    echo "Skip Homebrew command installation."
+  else
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
 
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
+  brew bundle --file ~/.Brewfile.ubuntu
+
   asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
   asdf install nodejs latest
 fi

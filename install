@@ -5,20 +5,16 @@ set -eu
 if [ "$(sudo echo hi)" != hi ]; then
   echo "Cannot use sudo."
 else
-  if (type "apt-get" > /dev/null 2>&1); then
-    echo "apt-get command is not found. skip apt-get installation step"
-  else
-    echo "execute apt-get installation step"
-    sudo apt-get update
-    sudo apt-get install build-essential curl file git procps -y
-  fi
+  sudo apt-get update
+  sudo apt-get install build-essential curl file git procps -y
 
   if (type "brew" > /dev/null 2>&1); then
-    echo "brew command is not found. execute brew command installtion"
+    echo "execute brew installtion step"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    brew bundle --file ~/.Brewfile.ubuntu
+  else
+    echo "skip brew installtion step"
   fi
-
-  brew bundle --file ~/.Brewfile.ubuntu
 
   asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
   asdf install nodejs latest

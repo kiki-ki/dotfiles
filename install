@@ -5,14 +5,16 @@ set -eu
 if [ "$(sudo echo hi)" != hi ]; then
   echo "Cannot use sudo."
 else
-  if [ -x "$(command -v apt-get)" ]; then
+  if (type "apt-get" > /dev/null 2>&1); then
+    echo "apt-get command is not found. skip apt-get installation step"
+  else
+    echo "execute apt-get installation step"
     sudo apt-get update
     sudo apt-get install build-essential curl file git procps -y
   fi
 
-  if [ -x "$(command -v brew)"]; then
-    echo "Skip Homebrew command installation."
-  else
+  if (type "brew" > /dev/null 2>&1); then
+    echo "brew command is not found. execute brew command installtion"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
 

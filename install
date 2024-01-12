@@ -12,9 +12,9 @@ else
     echo "skip brew installtion step"
   else
     echo "execute brew installtion step"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
 
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew bundle --file ~/.Brewfile.ubuntu
 
   asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git

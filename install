@@ -13,6 +13,7 @@ else
   else
     echo "execute brew installtion step"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    source ~/.zshrc
   fi
 
   brew bundle --file ~/.Brewfile.ubuntu

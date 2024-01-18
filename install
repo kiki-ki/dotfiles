@@ -6,14 +6,14 @@ if [ "$(sudo echo hi)" != hi ]; then
   echo "Cannot use sudo."
 else
   sudo apt-get update
-  sudo apt-get install build-essential curl file git procps zsh -y
+  sudo apt-get install build-essential curl file git procps -y
 
   if (type "brew" > /dev/null 2>&1); then
     echo "skip brew installtion step"
   else
     echo "execute brew installtion step"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    source ~/.zshrc
+    . ~/.zshrc
   fi
 
   brew bundle --file ~/.Brewfile.ubuntu

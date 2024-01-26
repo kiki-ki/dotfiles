@@ -74,6 +74,11 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+## ls
+
+alias la="ls -a"
+alias ll="ls -l"
+
 ## git
 
 alias g="git"

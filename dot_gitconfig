@@ -28,3 +28,6 @@
 [include]
   path = ~/.gitconfig_shared
 
+[alias]
+	pushf = push --force-with-lease --force-if-includes
+

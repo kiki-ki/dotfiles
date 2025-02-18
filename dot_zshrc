@@ -20,7 +20,9 @@ fi
 
 ## asdf
 
-[ -f /opt/homebrew/bin/asdf ] && . $(brew --prefix asdf)/libexec/asdf.sh
+if [ -f /opt/homebrew/bin/asdf ]; then
+  export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+fi
 
 ## bookmarks
 

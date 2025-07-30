@@ -5,21 +5,25 @@ set -eu
 if [ "$(sudo echo hi)" != hi ]; then
   echo "Cannot use sudo."
 else
-  sudo apt-get update
-  sudo apt-get install awscli build-essential curl file git grep jq less procps vim zsh openssh-server -y
+  sudo apt-get update && sudo apt-get install -y \
+    awscli \
+    build-essential \
+    curl \
+    file \
+    git \
+    grep \
+    jq \
+    less \
+    procps \
+    vim \
+    zsh \
+    openssh-server
+
+  # setting for sshd
   sudo mkdir /var/run/sshd
   sudo /usr/sbin/sshd
 
-  if (type "brew" > /dev/null 2>&1); then
-    echo "skip brew installtion step"
-  else
-    echo "execute brew installtion step"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    . ~/.zshrc
-  fi
-
-  brew bundle --file ~/.Brewfile.ubuntu
-  asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-  asdf install nodejs latest
+  # install other tools
+  sh -c "$(curl -fsLS get.chezmoi.io)"
 fi
 

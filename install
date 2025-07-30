@@ -19,11 +19,16 @@ else
     zsh \
     openssh-server
 
-  # setting for sshd
+  # ssd setting
   sudo mkdir /var/run/sshd
   sudo /usr/sbin/sshd
 
   # install other tools
-  sh -c "$(curl -fsLS get.chezmoi.io)"
+  sudo BINDIR=/usr/bin sh -c "$(curl -fsLS get.chezmoi.io)"
+
+  # shell
+  if [ -x "$(command -v zsh)" ]; then
+    sudo chsh -s $(which zsh) $USER
+  fi
 fi
 

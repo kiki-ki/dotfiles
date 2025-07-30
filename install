@@ -6,7 +6,9 @@ if [ "$(sudo echo hi)" != hi ]; then
   echo "Cannot use sudo."
 else
   sudo apt-get update
-  sudo apt-get install awscli build-essential curl file git grep jq less procps vim zsh -y
+  sudo apt-get install awscli build-essential curl file git grep jq less procps vim zsh openssh-server -y
+  sudo mkdir /var/run/sshd
+  sudo /usr/sbin/sshd
 
   if (type "brew" > /dev/null 2>&1); then
     echo "skip brew installtion step"

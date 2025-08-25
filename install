@@ -24,7 +24,10 @@ else
   sudo /usr/sbin/sshd
 
   # install other tools
+  ## chezmoi
   sudo BINDIR=/usr/bin sh -c "$(curl -fsLS get.chezmoi.io)"
+  ## uv
+  sudo BINDIR=/usr/bin sh -c "$(curl -fsLS https://astral.sh/uv/install.sh)"
 
   # shell
   if [ -x "$(command -v zsh)" ]; then

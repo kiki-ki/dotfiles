@@ -26,10 +26,11 @@ else
   # install other tools
   sudo env BINDIR="/usr/bin" sh -c "$(curl -fsLS get.chezmoi.io)"
   sudo env UV_INSTALL_DIR="/usr/bin" sh -c "$(curl -LsSf https://astral.sh/uv/install.sh)"
+  sudo env PNPM_HOME="/usr/bin" sh -c "$(curl -LsSf https://get.pnpm.io/install.sh)"
 
   # shell
   if [ -x "$(command -v zsh)" ]; then
-    sudo chsh -s $(which zsh) $USER
+    sudo chsh -s $(which zsh) $(whoami)
   fi
 fi
 

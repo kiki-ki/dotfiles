@@ -28,6 +28,10 @@ else
   sudo env UV_INSTALL_DIR="/usr/bin" sh -c "$(curl -LsSf https://astral.sh/uv/install.sh)"
   sudo env PNPM_HOME="/usr/bin" sh -c "$(curl -LsSf https://get.pnpm.io/install.sh)"
 
+  if [ -x "$(command -v pnpm)"]; then
+    pnpm config set --location=global minimumReleaseAge 4320 # 3days
+  fi
+
   # shell
   if [ -x "$(command -v zsh)" ]; then
     sudo chsh -s $(which zsh) $(whoami)

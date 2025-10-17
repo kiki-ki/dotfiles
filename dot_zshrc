@@ -10,54 +10,16 @@
 
 . ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
+## rura
+
+export CDPATH=".:$HOME/.rura"
+alias rura!="cd -P"
+
 ## asdf
 
 if [ -f /opt/homebrew/bin/asdf ]; then
   export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 fi
-
-## bookmarks
-
-if [ -d "$HOME/.bookmarks" ]; then
-  export CDPATH=".:$HOME/.bookmarks:/"
-fi
-
-### Functions
-
-## bookmarks
-
-_add_bookmark () {
-  local current_dir="$(pwd)"
-  cd "$1" || return
-  local bookmark_name=@"$2"
-  local src="$(pwd)"
-  ln -is "$src" ~/.bookmarks/"$bookmark_name"
-  cd "$current_dir" || return
-  echo "success added bookmark. ($bookmark_name to $src)"
-}
-
-_delete_bookmark () {
-  local bookmark_name=@"$1"
-  local bookmark_path=~/.bookmarks/"$bookmark_name"
-
-  if [ ! -L "$bookmark_path" ]; then
-    echo "no such link. ($bookmark_path)"
-    echo "failed remove bookmark. ($bookmark_name)"
-    return
-  fi
-
-  printf "remove %s?: " "$bookmark_name"
-  read -r yn
-
-  if [ ! "$yn" = "Y" ] && [ ! "$yn" = "y" ]; then
-    echo "canceled remove bookmark. ($bookmark_name)"
-    return
-  fi
-
-  local src="$(readlink "$bookmark_path")"
-  unlink "$bookmark_path"
-  echo "success remove bookmark. ($bookmark_name to $src)"
-}
 
 ### Aliases
 
@@ -95,14 +57,6 @@ alias dc="docker compose"
 ## terraform
 
 alias tf="terraform"
-
-## bookmarks
-
-alias goto="cd -P"
-alias bl="ls ~/.bookmarks/"
-alias bll="ls -l ~/.bookmarks/"
-alias ba="_add_bookmark"
-alias bd="_delete_bookmark"
 
 ## bundler
 

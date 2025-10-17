@@ -4,19 +4,11 @@
 
 [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 [ -f /opt/homebrew/bin/direnv ] && eval "$(direnv hook zsh)"
+[ -f /opt/homebrew/bin/starship ] && eval "$(starship init zsh)"
 
 ## autocomplete
 
 . ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-
-## powerlivel10k
-
-. ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
-# shellcheck disable=SC2296
-if [ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]; then
-  . "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-[ ! -f ~/.p10k.zsh ] || . ~/.p10k.zsh
 
 ## asdf
 

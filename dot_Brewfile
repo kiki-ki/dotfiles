@@ -16,6 +16,7 @@ brew "grep"
 brew "jq"
 brew "less"
 brew "shellcheck"
+brew "starship"
 brew "tree"
 
 cask "ankerwork"

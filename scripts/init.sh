@@ -28,7 +28,6 @@ defaults write com.apple.finder ShowPathbar -bool true
 ## Install tools
 
 git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ~/.zsh/zsh-autocomplete
-git clone --depth 1 -- https://github.com/romkatv/powerlevel10k.git ~/.zsh/powerlevel10k
 brew bundle --global
 
 ## Init

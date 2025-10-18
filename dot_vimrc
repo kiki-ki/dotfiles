@@ -1,10 +1,13 @@
-"plugin
+"theme
+set termguicolors
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
 
 "display
+syntax on
 set number
 set title
 set showmatch
-syntax on
 set tabstop=2
 set expandtab
 set shiftwidth=2
@@ -24,7 +27,6 @@ set clipboard+=unnamed
 
 "keybind
 inoremap <silent> jj <ESC>
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 noremap <S-j> 3j
 noremap <S-k> 3k

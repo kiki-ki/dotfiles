@@ -10,6 +10,10 @@
 
 . ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
+## fzf
+
+. <(fzf --zsh)
+
 ## rura
 
 export CDPATH=".:$HOME/.rura"
@@ -73,6 +77,11 @@ alias k="kubectl"
 export EDITOR=vi
 export VISUAL=vi
 export PAGER=less
+
+export FZF_DEFAULT_OPTS='
+  --height 40% --layout=reverse --border
+  --preview "bat --color=always --style=numbers --line-range=:500 {}"
+'
 
 ## go
 

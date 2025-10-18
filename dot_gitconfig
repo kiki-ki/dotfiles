@@ -5,25 +5,13 @@
 [core]
   editor = vi
   ignorecase = false
-  pager = less
+  pager = "bat --paging=always"
 
 [pull]
   rebase = false 
 
 [merge]
   conflictstyle = diff3
-
-[diff]
-  tool = difftastic
-
-[difftool]
-  prompt = false
-
-[difftool "difftastic"]
-  cmd = difft "$LOCAL" "$REMOTE"
-
-[pager]
-  difftool = true
 
 [include]
   path = ~/.gitconfig_shared

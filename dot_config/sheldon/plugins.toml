@@ -7,3 +7,6 @@ github = "zsh-users/zsh-autosuggestions"
 github = "zdharma-continuum/fast-syntax-highlighting"
 use = ["*.plugin.zsh"]
 
+[plugins.rura]
+github = "kiki-ki/rura"
+

@@ -11,9 +11,9 @@ if command -v direnv >/dev/null 2>&1; then
 fi
 
 # sheldon
+autoload -U compinit; compinit
 export SHELDON_DATA_DIR="$HOME/.config/sheldon"
 eval "$(sheldon source)"
-autoload -U compinit; compinit
 
 # fzf
 export FZF_DEFAULT_OPTS=$(cat <<'EOF'
@@ -32,10 +32,6 @@ EOF
 export FZF_CTRL_R_OPTS="--no-preview"
 
 . <(fzf --zsh)
-
-# rura
-export CDPATH=".:$HOME/.rura"
-alias rr="cd -P"
 
 # asdf
 if command -v asdf >/dev/null 2>&1; then

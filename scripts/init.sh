@@ -25,10 +25,6 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder ShowPathbar -bool true
 
-## Install tools
-
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/kiki-ki/rura/main/install.sh)"
-
 brew bundle --global
 
 ## Init

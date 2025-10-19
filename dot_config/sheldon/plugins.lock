@@ -20,6 +20,14 @@ apply = ["source"]
 
 [plugins.hooks]
 
+[[plugins]]
+name = "rura"
+source_dir = "/Users/nakatakai/.config/sheldon/repos/github.com/kiki-ki/rura"
+files = ["/Users/nakatakai/.config/sheldon/repos/github.com/kiki-ki/rura/rura.plugin.zsh"]
+apply = ["source"]
+
+[plugins.hooks]
+
 [templates]
 PATH = 'export PATH="{{ dir }}:$PATH"'
 path = 'path=( "{{ dir }}" $path )'

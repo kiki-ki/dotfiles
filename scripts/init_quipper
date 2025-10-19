@@ -31,13 +31,15 @@ else
   sudo env PNPM_HOME="/usr/bin" sh -c "$(curl -LsSf https://get.pnpm.io/install.sh)"
   sudo env BIN_DIR="/usr/bin" sh -c "$(curl -sS https://starship.rs/install.sh)"
   sudo env BIN_DIR="/usr/bin" sh -c "$(curl -fsSL https://raw.githubusercontent.com/kiki-ki/rura/main/install.sh)"
+  sudo sh -c "$(curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh)" installer --repo rossmacarthur/sheldon --to /usr/bin
+  sudo sh -c "curl --proto '=https' -fLsS https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz | tar xz -C /usr/bin eza"
 
-  if [ -x "$(command -v pnpm)"]; then
+  if command -v pnpm >/dev/null 2>&1; then
     pnpm config set --location=global minimumReleaseAge 4320 # 3days
   fi
 
   # shell
-  if [ -x "$(command -v zsh)" ]; then
+  if command -v zsh >/dev/null 2>&1; then
     sudo chsh -s $(which zsh) $(whoami)
   fi
 fi

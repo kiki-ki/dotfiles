@@ -1,46 +1,68 @@
 #!/bin/sh
 
-### Init
+### Init ###
 
 [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
-[ -f /opt/homebrew/bin/direnv ] && eval "$(direnv hook zsh)"
-[ -f /opt/homebrew/bin/starship ] && eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 
-## autocomplete
+if command -v direnv >/dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+fi
 
-. ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# sheldon
+export SHELDON_DATA_DIR="$HOME/.config/sheldon"
+eval "$(sheldon source)"
+autoload -U compinit; compinit
 
-## fzf
+# fzf
+export FZF_DEFAULT_OPTS=$(cat <<'EOF'
+--height '80%'
+--reverse
+--border=rounded
+--preview '
+  if [ -d {} ]; then
+    eza --tree --level=2 --git --color=always {}
+  else
+    bat --color=always --style=numbers,grid --line-range=:500 {}
+  fi
+'
+EOF
+)
+export FZF_CTRL_R_OPTS="--no-preview"
 
 . <(fzf --zsh)
 
-## rura
-
+# rura
 export CDPATH=".:$HOME/.rura"
-alias rura!="cd -P"
+alias rr="cd -P"
 
-## asdf
-
-if [ -f /opt/homebrew/bin/asdf ]; then
+# asdf
+if command -v asdf >/dev/null 2>&1; then
   export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 fi
 
-### Aliases
+## go
+if command -v go >/dev/null 2>&1; then
+  export PATH="$PATH":"$(go env GOPATH)"/bin
+fi
 
-## cd
+### Aliases ###
 
+# cd
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-## ls
+# cat
+alias cat="bat --style=plain --paging=never"
 
-alias la="ls -a"
-alias ll="ls -l"
+# ls
+alias l='eza --git'
+alias ll='eza --git --long --header --all'
+alias lt='eza --git --tree --level=2'
 
-## git
-
+# git
 alias g="git"
 alias gb="g branch"
 alias gd="g diff"
@@ -53,41 +75,28 @@ alias gco="g checkout"
 alias gcp="g cherry-pick"
 alias grb="g rebase"
 
-## docker
-
+# docker
 alias d="docker"
 alias dc="docker compose"
 
-## terraform
-
+# terraform
 alias tf="terraform"
 
-## bundler
-
+# bundler
 alias be="bundle exec"
 alias bi="bundle install"
 alias bu="bundle update"
 
-## k8s
-
+# k8s
 alias k="kubectl"
 
-### Envs
+### Envs ###
 
 export EDITOR=vi
 export VISUAL=vi
 export PAGER=less
 
-export FZF_DEFAULT_OPTS='
-  --height 40% --layout=reverse --border
-  --preview "bat --color=always --style=numbers --line-range=:500 {}"
-'
-
-## go
-
-[ -f /opt/homebrew/bin/go ] && export PATH="$PATH":"$(go env GOPATH)"/bin
-
-### Final
+### Final ###
 
 [ -f ~/.zshrc.local ] && . ~/.zshrc.local
 

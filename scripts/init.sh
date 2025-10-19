@@ -27,7 +27,6 @@ defaults write com.apple.finder ShowPathbar -bool true
 
 ## Install tools
 
-git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ~/.zsh/zsh-autocomplete
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/kiki-ki/rura/main/install.sh)"
 
 brew bundle --global

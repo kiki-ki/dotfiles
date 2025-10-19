@@ -1,20 +1,7 @@
 {
-  "[dart]": {
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.rulers": [
-      80
-    ],
-    "editor.selectionHighlight": false,
-    "editor.suggest.snippetsPreventQuickSuggestions": false,
-    "editor.suggestSelection": "first",
-    "editor.tabCompletion": "onlySnippets",
-    "editor.wordBasedSuggestions": false
-  },
   "[ruby]": {
     "editor.tabSize": 2
   },
-  "[vue]": {},
   "cSpell.ignorePaths": [
     "package-lock.json",
     "node_modules",
@@ -38,7 +25,6 @@
     "tencent",
     "trtc"
   ],
-  "dart.flutterSdkPath": ".fvm/flutter_sdk",
   "editor.fontSize": 11,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
@@ -122,91 +108,8 @@
   "terminal.integrated.scrollback": 100000,
   "typescript.tsc.autoDetect": "off",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "vim.ignorecase": true,
-  "vim.insertModeKeyBindings": [
-    {
-      "after": [
-        "<Esc>"
-      ],
-      "before": [
-        "j",
-        "j"
-      ]
-    }
-  ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "after": [
-        "3",
-        "j"
-      ],
-      "before": [
-        "J"
-      ]
-    },
-    {
-      "after": [
-        "3",
-        "k"
-      ],
-      "before": [
-        "K"
-      ]
-    },
-    {
-      "after": [
-        "$"
-      ],
-      "before": [
-        "L"
-      ]
-    },
-    {
-      "after": [
-        "^"
-      ],
-      "before": [
-        "H"
-      ]
-    }
-  ],
-  "vim.useSystemClipboard": true,
-  "vim.visualModeKeyBindings": [
-    {
-      "after": [
-        "3",
-        "j"
-      ],
-      "before": [
-        "J"
-      ]
-    },
-    {
-      "after": [
-        "3",
-        "k"
-      ],
-      "before": [
-        "K"
-      ]
-    },
-    {
-      "after": [
-        "$"
-      ],
-      "before": [
-        "L"
-      ]
-    },
-    {
-      "after": [
-        "^"
-      ],
-      "before": [
-        "H"
-      ]
-    }
-  ],
+  "vim.vimrc.enable": true,
+  "vim.vimrc.path": "~/.vimrc",
   "workbench.activityBar.visible": true,
   "workbench.colorCustomizations": {
     "activityBar.background": "#3c3c3c",

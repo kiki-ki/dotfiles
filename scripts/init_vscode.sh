@@ -1,7 +1,7 @@
 #!/bin/sh
 
 init_settings () {
-  local source_dir="$HOME"/vscode_settings
+  local source_dir="$HOME"/.config/vscode
   local deploy_dir="$HOME"/Library/Application\ Support/Code/User/
 
   cat "$source_dir"/settings.json > "$deploy_dir"/settings.json

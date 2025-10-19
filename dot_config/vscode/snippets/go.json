@@ -6,8 +6,8 @@
 		],
 		"description": "Log output to console"
 	},
-	"table driven test(for Human interface)": {
-		"prefix": "tdt-hi",
+	"table driven test": {
+		"prefix": "tdt",
 		"body": [
 			"func Test$1Service_$2(t *testing.T) {",
 			"\tctx := context.Background()",
@@ -44,32 +44,5 @@
 			"}",
 		],
 		"description": "table driben test for Human interface"
-	},
-	"handler(for Human interface)": {
-		"prefix": "han-hi",
-		"body": [
-			"func (h *Handler) $1(c echo.Context) error {",
-			"\tctx := c.Request().Context()",
-			"",
-			"\t_, err := h.getLoginUser(c)",
-			"\tif err != nil {",
-			"\t\treturn err",
-			"\t}",
-			"",
-			"\tinput := &$2.$3Input{}",
-			"",
-			"\tif err := h.BindValidate(c, input); err != nil {",
-			"\t\treturn err",
-			"\t}",
-			"",
-			"\tres, err := h.$2Service.$3(ctx, input)",
-			"\tif err != nil {",
-			"\t\treturn err",
-			"\t}",
-			"",
-			"\treturn c.JSON(http.StatusOK, res)",
-			"}",
-		],
-		"description": "handler for Human interface"
 	},
 }

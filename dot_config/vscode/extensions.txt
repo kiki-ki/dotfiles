@@ -1,12 +1,8 @@
 42crunch.vscode-openapi
 4ops.terraform
-augusterame.zls-vscode
 bung87.rails
 bung87.vscode-gemfile
 castwide.solargraph
-dariofuzinato.vue-peek
-dart-code.dart-code
-dart-code.flutter
 davidanson.vscode-markdownlint
 dbaeumer.vscode-eslint
 eamodio.gitlens
@@ -26,8 +22,6 @@ ms-vscode-remote.vscode-remote-extensionpack
 ms-vscode.remote-explorer
 ms-vscode.remote-server
 ms-vsliveshare.vsliveshare
-nash.awesome-flutter-snippets
-octref.vetur
 pkief.material-icon-theme
 rebornix.ruby
 redhat.vscode-yaml
@@ -40,7 +34,6 @@ styled-components.vscode-styled-components
 tomoki1207.pdf
 tyriar.sort-lines
 vscodevim.vim
-vue.volar
 wingrunr21.vscode-ruby
 yzhang.markdown-all-in-one
 

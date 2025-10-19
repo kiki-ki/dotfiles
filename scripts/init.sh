@@ -25,7 +25,7 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder ShowPathbar -bool true
 
-brew bundle --global
+brew bundle --global --file=~/.config/Brewfile
 
 ## Init
 

@@ -5,10 +5,10 @@
 [core]
   editor = vi
   ignorecase = false
-  pager = "bat --paging=always"
+  pager = "sh -c 'if command -v bat >/dev/null 2>&1; then bat --paging=always; else less; fi'"
 
 [pull]
-  rebase = false 
+  rebase = false
 
 [merge]
   conflictstyle = diff3
@@ -18,4 +18,3 @@
 
 [alias]
   pushf = push --force-with-lease --force-if-includes
-

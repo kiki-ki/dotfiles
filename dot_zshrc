@@ -51,7 +51,9 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 # cat
-alias cat="bat --style=plain --paging=never"
+if command -v bat >/dev/null 2>&1; then
+  alias cat="bat --style=plain --paging=never"
+fi
 
 # ls
 alias l='eza --git'

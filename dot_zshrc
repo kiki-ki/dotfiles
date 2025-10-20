@@ -12,7 +12,6 @@ fi
 
 # sheldon
 autoload -U compinit; compinit
-export SHELDON_DATA_DIR="$HOME/.config/sheldon"
 eval "$(sheldon source)"
 
 # fzf

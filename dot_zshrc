@@ -51,6 +51,10 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 # cat
+if command -v batcat >/dev/null 2>&1; then
+  alias bat="batcat"
+fi
+
 if command -v bat >/dev/null 2>&1; then
   alias cat="bat --style=plain --paging=never"
 fi

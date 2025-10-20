@@ -29,23 +29,23 @@ else
     zsh \
     openssh-server
 
+  # shell
+  if command -v zsh >/dev/null 2>&1; then
+    sudo chsh -s $(which zsh) $(whoami)
+  fi
+
   # ssd setting
   sudo mkdir /var/run/sshd
   sudo /usr/sbin/sshd
 
   # install other tools
-  sudo env BINDIR="/usr/bin" sh -c "$(curl -fsLS get.chezmoi.io)"
   sudo env UV_INSTALL_DIR="/usr/bin" sh -c "$(curl -LsSf https://astral.sh/uv/install.sh)"
   sudo env PNPM_HOME="/usr/bin" sh -c "$(curl -LsSf https://get.pnpm.io/install.sh)"
-  sudo env BIN_DIR="/usr/bin" sh -c "$(curl -sS https://starship.rs/install.sh)"
+  sudo sh -c "$(curl -sS https://starship.rs/install.sh)" -- --yes --bin-dir /usr/bin
   curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | sudo bash -s -- --repo rossmacarthur/sheldon --to /usr/bin
+  sudo env BINDIR="/usr/bin" sh -c "$(curl -fsLS get.chezmoi.io)"
 
   if command -v pnpm >/dev/null 2>&1; then
     pnpm config set --location=global minimumReleaseAge 4320 # 3days
-  fi
-
-  # shell
-  if command -v zsh >/dev/null 2>&1; then
-    sudo chsh -s $(which zsh) $(whoami)
   fi
 fi

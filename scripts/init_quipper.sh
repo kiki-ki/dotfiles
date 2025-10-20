@@ -11,7 +11,6 @@ else
     bat \
     build-essential \
     curl \
-    eza \
     file \
     fzf \
     git \
@@ -38,7 +37,7 @@ else
   sudo sh -c "$(curl -sS https://starship.rs/install.sh)" -- --yes --bin-dir /usr/bin
   curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | sudo bash -s -- --repo rossmacarthur/sheldon --to /usr/bin
   curl -L "https://github.com/eza-community/eza/releases/latest/download/eza_aarch64-unknown-linux-gnu.tar.gz" | sudo tar xz -C /usr/bin/
-  sudo chmod +x /usr/bin/ez
+  sudo chmod +x /usr/bin/eza
   sudo env BINDIR="/usr/bin" sh -c "$(curl -fsLS get.chezmoi.io)"
 
   if command -v pnpm >/dev/null 2>&1; then

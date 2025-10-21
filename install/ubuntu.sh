@@ -5,7 +5,7 @@ set -eu
 if [ "$(sudo echo hi)" != hi ]; then
   echo "Cannot use sudo."
 else
-  local bin_dir="/usr/bin"
+  bin_dir="/usr/bin"
 
   # install apt packages
   sudo apt-get update && sudo apt-get install -y \

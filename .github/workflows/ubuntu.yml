@@ -5,17 +5,9 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "install/ubuntu.sh"
-      - "setup.sh"
-      - ".github/workflows/test-ubuntu.yml"
   pull_request:
     branches:
       - main
-    paths:
-      - "install/ubuntu.sh"
-      - "setup.sh"
-      - ".github/workflows/test-ubuntu.yml"
 
 jobs:
   test:

@@ -4,19 +4,21 @@ set -eu
 
 echo "🚀 Starting dotfiles setup..."
 
-local dotfiles_repo="kiki-ki/dotfiles"
-local os_type="$(uname)"
-local type=""
+dotfiles_repo="kiki-ki/dotfiles"
+os_type="$(uname)"
+type=""
 
-if [ "$os_name" = "Darwin" ]; then
+if [ "$os_type" = "Darwin" ]; then
   type="macos"
-elif [ "$os_name" = "Linux" ]; then
+elif [ "$os_type" = "Linux" ]; then
   type="ubuntu"
-  if command -v curl >/dev/null 2>&1; then
+  # curl がなければインストール
+  if ! command -v curl >/dev/null 2>&1; then
+    echo "Installing curl..."
     sudo apt-get update && sudo apt-get install -y curl
   fi
 else
-  echo "error: Unsupported OS: ${os_name}"
+  echo "error: Unsupported OS: ${os_type}"
   exit 1
 fi
 

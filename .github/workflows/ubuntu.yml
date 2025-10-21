@@ -1,0 +1,55 @@
+name: "ubuntu"
+permissions: {}
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "install/ubuntu.sh"
+      - "setup.sh"
+      - ".github/workflows/test-ubuntu.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "install/ubuntu.sh"
+      - "setup.sh"
+      - ".github/workflows/test-ubuntu.yml"
+
+jobs:
+  test:
+    name: Test Ubuntu Setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run setup.sh
+        env:
+          CI: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH_NAME="${{ github.head_ref || github.ref_name }}"
+          URL="https://raw.githubusercontent.com/kiki-ki/dotfiles/${BRANCH_NAME}/setup.sh"
+          echo "Downloading setup.sh from ${URL}"
+          bash -ce "$(curl -fsSL ${URL})"
+
+      - name: Verify installation
+        run: |
+          set -e
+
+          if command -v chezmoi &> /dev/null; then
+            echo "ok: chezmoi installed"
+          else
+            echo "error: chezmoi not found"
+            exit 1
+          fi
+
+          if [ -f ~/.zshrc ]; then
+            echo "ok: .zshrc exists"
+          else
+            echo "error: .zshrc not found"
+            exit 1
+          fi
+
+          echo "ok: All verification checks passed"

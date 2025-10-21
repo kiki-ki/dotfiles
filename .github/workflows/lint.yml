@@ -1,11 +1,9 @@
+name: "lint"
+permissions: {}
 on:
   push:
     branches:
       - main
-
-name: "CI"
-permissions: {}
-
 jobs:
   shellcheck:
     name: ShellCheck

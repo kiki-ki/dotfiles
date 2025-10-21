@@ -24,7 +24,7 @@ else
 
   # shell
   if command -v zsh >/dev/null 2>&1; then
-    sudo chsh -s $(which zsh) $(whoami)
+    sudo chsh -s "$(which zsh)" "$(whoami)"
   fi
 
   # ssd setting

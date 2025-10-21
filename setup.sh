@@ -23,9 +23,9 @@ else
 fi
 
 echo "Installing dotfiles from repository: ${dotfiles_repo}"
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply "$dotfiles_repo"
+sh -ce "$(curl -fsLS get.chezmoi.io)" -- init --apply "$dotfiles_repo"
 
 echo "Running ${type} installation script..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/${dotfiles_repo}/main/install/${type}.sh)"
+sh -ce "$(curl -fsSL https://raw.githubusercontent.com/${dotfiles_repo}/main/install/${type}.sh)"
 
 echo "✅ Setup completed!"

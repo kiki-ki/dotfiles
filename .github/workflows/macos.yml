@@ -20,10 +20,32 @@ jobs:
           CI: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set -x  # デバッグモード
           BRANCH_NAME="${{ github.head_ref || github.ref_name }}"
           URL="https://raw.githubusercontent.com/kiki-ki/dotfiles/${BRANCH_NAME}/setup.sh"
           echo "Downloading setup.sh from ${URL}"
           bash -ce "$(curl -fsSL ${URL})"
+
+      - name: Debug - Check environment
+        if: always()
+        run: |
+          echo "=== PATH ==="
+          echo $PATH
+          echo ""
+          echo "=== Which chezmoi ==="
+          which chezmoi || echo "chezmoi not found in PATH"
+          echo ""
+          echo "=== Which brew ==="
+          which brew || echo "brew not found in PATH"
+          echo ""
+          echo "=== Check ~/.local/bin ==="
+          ls -la ~/.local/bin/ 2>/dev/null || echo "~/.local/bin not found"
+          echo ""
+          echo "=== Home directory ==="
+          ls -la ~/ | head -20
+          echo ""
+          echo "=== Chezmoi directory ==="
+          ls -la ~/.local/share/chezmoi/ 2>/dev/null || echo "chezmoi dir not found"
 
       - name: Verify installation
         run: |

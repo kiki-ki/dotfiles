@@ -25,15 +25,19 @@ set smartcase
 set incsearch
 set hlsearch
 
-"controll
-set clipboard+=unnamed
-
 "keybind
 inoremap <silent> jj <ESC>
 
-noremap <S-j> 3j
-noremap <S-k> 3k
+nnoremap J 3j
+vnoremap J 3j
+nnoremap K 3k
+vnoremap K 3k
 
-nnoremap <S-h> ^
-nnoremap <S-l> $
+nnoremap H ^
+vnoremap H ^
+nnoremap L $
+vnoremap L $
 
+vnoremap y "+y
+nnoremap p "+p
+vnoremap P "+P

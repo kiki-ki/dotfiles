@@ -1,10 +1,13 @@
+name: "lint"
+permissions: {}
+
 on:
   push:
     branches:
       - main
-
-name: "CI"
-permissions: {}
+  pull_request:
+    branches:
+      - main
 
 jobs:
   shellcheck:
@@ -16,4 +19,3 @@ jobs:
         uses: ludeeus/action-shellcheck@master
         env:
           SHELLCHECK_OPTS: -e SC1090 -e SC1091 -e SC2155 -e SC3043
-

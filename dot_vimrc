@@ -1,4 +1,3 @@
-set runtimepath-=~/.vim
 set runtimepath^=$HOME/.config/vim
 
 "theme

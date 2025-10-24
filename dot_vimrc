@@ -1,5 +1,5 @@
 set runtimepath-=~/.vim
-set runtimepath^=$HOME/.config/vim
+set runtimepath^=~/.config/vim
 
 "theme
 set termguicolors

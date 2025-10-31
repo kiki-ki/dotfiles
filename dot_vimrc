@@ -38,6 +38,9 @@ vnoremap H ^
 nnoremap L $
 vnoremap L $
 
-vnoremap y "+y
-nnoremap p "+p
-vnoremap P "+P
+if getenv('REMOTE_CONTAINERS') != 'true'
+  vnoremap y "+y
+  nnoremap p "+p
+  vnoremap P "+P
+endif
+

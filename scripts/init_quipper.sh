@@ -20,6 +20,10 @@ else
     vim \
     zsh
 
+  if command -v batcat >/dev/null 2>&1 && ! command -v bat >/dev/null 2>&1; then
+    sudo ln -s "$(which batcat)" /usr/local/bin/bat
+  fi
+
   # shell
   if command -v zsh >/dev/null 2>&1; then
     sudo chsh -s "$(which zsh)" "$(whoami)"

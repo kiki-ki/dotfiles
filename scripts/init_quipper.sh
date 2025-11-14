@@ -12,7 +12,6 @@ else
     build-essential \
     curl \
     file \
-    fzf \
     git \
     grep \
     jq \
@@ -25,6 +24,12 @@ else
   if command -v zsh >/dev/null 2>&1; then
     sudo chsh -s "$(which zsh)" "$(whoami)"
   fi
+
+  # fzf
+  if [ ! -d "~/.fzf" ]; then
+    sudo git clone --depth 1 https://github.com/junegunn/fzf.git "~/.fzf"
+    sudo "~/.fzf/install" --all
+  fi
 
   # install other tools
   sudo env UV_INSTALL_DIR="/usr/bin" sh -c "$(curl -LsSf https://astral.sh/uv/install.sh)"

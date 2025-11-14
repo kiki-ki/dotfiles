@@ -19,17 +19,12 @@ else
     less \
     procps \
     vim \
-    zsh \
-    openssh-server
+    zsh
 
   # shell
   if command -v zsh >/dev/null 2>&1; then
     sudo chsh -s "$(which zsh)" "$(whoami)"
   fi
-
-  # ssd setting
-  sudo mkdir /var/run/sshd
-  sudo /usr/sbin/sshd
 
   # install other tools
   sudo env UV_INSTALL_DIR="/usr/bin" sh -c "$(curl -LsSf https://astral.sh/uv/install.sh)"
@@ -44,3 +39,4 @@ else
     pnpm config set --location=global minimumReleaseAge 4320 # 3days
   fi
 fi
+

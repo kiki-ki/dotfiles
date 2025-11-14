@@ -1,5 +1,15 @@
+scriptencoding utf-8
+
 set runtimepath-=~/.vim
 set runtimepath^=~/.config/vim
+
+"highlight idegraphic spaces (VSCode style)
+augroup highlightIdegraphicSpace
+  autocmd!
+  autocmd Colorscheme * highlight IdeographicSpace ctermbg=236 guibg=#3c3836
+  autocmd VimEnter,WinEnter * call matchadd('IdeographicSpace', '　')
+  autocmd VimEnter,WinEnter * call matchadd('IdeographicSpace', '[\u00A0\u2000-\u200B\uFEFF]')
+augroup END
 
 "theme
 set termguicolors

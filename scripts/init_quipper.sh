@@ -29,7 +29,7 @@ else
   if [ ! -d "$HOME/.fzf" ]; then
     sudo git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
     sudo "$HOME/.fzf/install" --all
-  fi
+  fi
 
   # install other tools
   sudo env UV_INSTALL_DIR="/usr/bin" sh -c "$(curl -LsSf https://astral.sh/uv/install.sh)"

@@ -44,4 +44,3 @@ else
     pnpm config set --location=global minimumReleaseAge 4320 # 3days
   fi
 fi
-

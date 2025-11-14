@@ -30,7 +30,9 @@ EOF
 )
 export FZF_CTRL_R_OPTS="--no-preview"
 
-. <(fzf --zsh)
+if command -v fzf >/dev/null 2>&1; then
+  . <(fzf --zsh)
+fi
 
 # asdf
 if command -v asdf >/dev/null 2>&1; then

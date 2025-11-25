@@ -16,6 +16,7 @@ else
     grep \
     jq \
     less \
+    lsof \
     procps \
     vim \
     zsh

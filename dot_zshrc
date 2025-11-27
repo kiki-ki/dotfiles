@@ -39,10 +39,29 @@ if command -v asdf >/dev/null 2>&1; then
   export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 fi
 
-## go
+# go
 if command -v go >/dev/null 2>&1; then
   export PATH="$PATH":"$(go env GOPATH)"/bin
 fi
+
+### Functions ###
+
+function _gum_commit() {
+  TYPE=$(gum choose "feat" "fix" "chore" "docs" "style" "refactor" "perf" "test") || return
+  SCOPE=$(gum input --placeholder "scope") || return
+
+  if [ -n "$SCOPE" ]; then
+    SCOPE="($SCOPE)"
+  fi
+
+  SUMMARY=$(gum input --placeholder "Summary of this change") || return
+
+  if [ -z "$SUMMARY" ]; then 
+    return 1 
+  fi
+
+  git commit -m "$TYPE$SCOPE: $SUMMARY"
+}
 
 ### Aliases ###
 
@@ -66,7 +85,7 @@ alias g="git"
 alias gb="g branch"
 alias gd="g diff"
 alias ga="g add"
-alias gc="g commit"
+alias gc="_gum_commit"
 alias gf="g fetch"
 alias gst="g status"
 alias gco="g checkout"

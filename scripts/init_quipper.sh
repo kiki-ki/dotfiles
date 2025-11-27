@@ -5,6 +5,12 @@ set -eu
 if [ "$(sudo echo hi)" != hi ]; then
   echo "Cannot use sudo."
 else
+  sudo mkdir -p /etc/apt/keyrings
+
+  # add charm repository list
+  curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
+  echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list
+
   # install apt packages
   sudo apt-get update && sudo apt-get install -y \
     awscli \
@@ -14,6 +20,7 @@ else
     file \
     git \
     grep \
+    gum \
     jq \
     less \
     lsof \

@@ -3,18 +3,22 @@ scriptencoding utf-8
 set runtimepath-=~/.vim
 set runtimepath^=~/.config/vim
 
-"highlight idegraphic spaces (VSCode style)
+"highlight idegraphic spaces
 augroup highlightIdegraphicSpace
   autocmd!
-  autocmd Colorscheme * highlight IdeographicSpace ctermbg=236 guibg=#3c3836
+  autocmd Colorscheme * highlight IdeographicSpace ctermbg=0 guibg=#073642
   autocmd VimEnter,WinEnter * call matchadd('IdeographicSpace', '　')
   autocmd VimEnter,WinEnter * call matchadd('IdeographicSpace', '[\u00A0\u2000-\u200B\uFEFF]')
 augroup END
 
+"show invisible characters
+set list
+set listchars=tab:»-,trail:·,extends:»,precedes:«,nbsp:%
+
 "theme
 set termguicolors
-let g:gruvbox_contrast_dark = 'hard'
-colorscheme gruvbox
+set background=dark
+colorscheme solarized
 
 "display
 syntax on

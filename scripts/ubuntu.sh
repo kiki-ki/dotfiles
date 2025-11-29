@@ -1,9 +1,9 @@
-#! /usr/bin/env sh
-
+#!/bin/bash
 set -eu
 
-if [ "$(sudo echo hi)" != hi ]; then
-  echo "Cannot use sudo."
+if ! sudo -v; then
+  echo "sudo access required."
+  exit 1
 else
   sudo apt-get update
   sudo apt-get install -y curl gpg
@@ -49,7 +49,6 @@ else
   curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | sudo bash -s -- --repo rossmacarthur/sheldon --to /usr/bin
   curl -L "https://github.com/eza-community/eza/releases/latest/download/eza_aarch64-unknown-linux-gnu.tar.gz" | sudo tar xz -C /usr/bin/
   sudo chmod +x /usr/bin/eza
-  sudo env BINDIR="/usr/bin" sh -c "$(curl -fsLS get.chezmoi.io)"
 
   if command -v pnpm >/dev/null 2>&1; then
     COREPACK_ENABLE_DOWNLOAD_PROMPT=0 pnpm config set --location=global minimumReleaseAge 4320 # 3days

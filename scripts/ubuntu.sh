@@ -1,9 +1,9 @@
-#! /usr/bin/env sh
-
+#!/bin/bash
 set -eu
 
-if [ "$(sudo echo hi)" != hi ]; then
-  echo "Cannot use sudo."
+if ! sudo -v; then
+  echo "sudo access required."
+  exit 1
 else
   sudo apt-get update
   sudo apt-get install -y curl gpg

@@ -52,9 +52,7 @@ vnoremap H ^
 nnoremap L $
 vnoremap L $
 
-if getenv('REMOTE_CONTAINERS') != 'true'
-  vnoremap y "+y
-  nnoremap p "+p
-  vnoremap P "+P
+"clipboard
+if has('clipboard')
+  set clipboard=unnamed,unnamedplus
 endif
-

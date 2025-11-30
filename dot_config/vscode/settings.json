@@ -53,6 +53,7 @@
     "**/CVS": true
   },
   "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
   "git.autofetch": true,
   "go.alternateTools": {
     "go-langserver": "gopls"
@@ -109,6 +110,7 @@
   "typescript.tsc.autoDetect": "off",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vim.vimrc.enable": true,
+  "vim.useSystemClipboard": true,
   "vim.vimrc.path": "~/.vimrc",
   "workbench.activityBar.visible": true,
   "workbench.colorCustomizations": {
@@ -121,6 +123,5 @@
   },
   "workbench.iconTheme": "material-icon-theme",
   "workbench.panel.defaultLocation": "right",
-  "workbench.statusBar.visible": true,
+  "workbench.statusBar.visible": true
 }
-

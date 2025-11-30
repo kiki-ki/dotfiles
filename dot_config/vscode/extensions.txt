@@ -35,4 +35,3 @@ tyriar.sort-lines
 vscodevim.vim
 wingrunr21.vscode-ruby
 yzhang.markdown-all-in-one
-

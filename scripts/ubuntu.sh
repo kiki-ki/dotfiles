@@ -47,6 +47,7 @@ else
   sudo env PNPM_HOME="/usr/bin" sh -c "$(curl -LsSf https://get.pnpm.io/install.sh)"
   sudo sh -c "$(curl -sS https://starship.rs/install.sh)" -- --yes --bin-dir /usr/bin
   curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | sudo bash -s -- --repo rossmacarthur/sheldon --to /usr/bin
+  curl -sfL https://raw.githubusercontent.com/kiki-ki/go-qo/main/install.sh | sudo env BINDIR=/usr/bin sh
 
   ARCH=$(uname -m)
   curl -fL "https://github.com/eza-community/eza/releases/latest/download/eza_$ARCH-unknown-linux-gnu.tar.gz" | sudo tar xz -C /usr/bin/ eza

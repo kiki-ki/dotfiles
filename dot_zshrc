@@ -11,8 +11,8 @@ if command -v direnv >/dev/null 2>&1; then
 fi
 
 # sheldon
-autoload -U compinit; compinit
 eval "$(sheldon source)"
+autoload -U compinit; compinit
 
 # fzf
 export FZF_DEFAULT_OPTS=$(cat <<'EOF'

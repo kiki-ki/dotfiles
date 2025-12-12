@@ -9,7 +9,7 @@ else
   sudo apt-get install -y curl gpg
 
   sudo mkdir -p /etc/apt/keyrings # set apt repository list
-  curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
+  curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor --yes -o /etc/apt/keyrings/charm.gpg
   echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list # charm repository for gum
 
   sudo apt-get install -y \
@@ -50,7 +50,7 @@ else
   curl -sfL https://raw.githubusercontent.com/kiki-ki/go-qo/main/install.sh | sudo env BINDIR=/usr/bin sh
 
   ARCH=$(uname -m)
-  curl -fL "https://github.com/eza-community/eza/releases/latest/download/eza_$ARCH-unknown-linux-gnu.tar.gz" | sudo tar xz -C /usr/bin/ eza
+  curl -fL "https://github.com/eza-community/eza/releases/latest/download/eza_$ARCH-unknown-linux-gnu.tar.gz" | sudo tar xz -C /usr/bin/
   sudo chmod +x /usr/bin/eza
 
   if command -v pnpm >/dev/null 2>&1; then

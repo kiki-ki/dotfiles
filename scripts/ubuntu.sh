@@ -9,7 +9,7 @@ else
   sudo apt-get install -y curl gpg
 
   sudo mkdir -p /etc/apt/keyrings # set apt repository list
-  curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
+  curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor --yes -o /etc/apt/keyrings/charm.gpg
   echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list # charm repository for gum
 
   sudo apt-get install -y \
@@ -35,22 +35,24 @@ else
   if command -v zsh >/dev/null 2>&1; then
     sudo chsh -s "$(which zsh)" "$(whoami)"
   fi
-
   # fzf
   if [ ! -d "$HOME/.fzf" ]; then
     git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
     "$HOME/.fzf/install" --all
+  fi
+  # sheldon
+  if ! command -v sheldon >/dev/null 2>&1; then
+    curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | sudo bash -s -- --repo rossmacarthur/sheldon --to /usr/bin
   fi
 
   # install other tools
   sudo env UV_INSTALL_DIR="/usr/bin" sh -c "$(curl -LsSf https://astral.sh/uv/install.sh)"
   sudo env PNPM_HOME="/usr/bin" sh -c "$(curl -LsSf https://get.pnpm.io/install.sh)"
   sudo sh -c "$(curl -sS https://starship.rs/install.sh)" -- --yes --bin-dir /usr/bin
-  curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | sudo bash -s -- --repo rossmacarthur/sheldon --to /usr/bin
   curl -sfL https://raw.githubusercontent.com/kiki-ki/go-qo/main/install.sh | sudo env BINDIR=/usr/bin sh
 
   ARCH=$(uname -m)
-  curl -fL "https://github.com/eza-community/eza/releases/latest/download/eza_$ARCH-unknown-linux-gnu.tar.gz" | sudo tar xz -C /usr/bin/ eza
+  curl -fL "https://github.com/eza-community/eza/releases/latest/download/eza_$ARCH-unknown-linux-gnu.tar.gz" | sudo tar xz -C /usr/bin/
   sudo chmod +x /usr/bin/eza
 
   if command -v pnpm >/dev/null 2>&1; then

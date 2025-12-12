@@ -35,18 +35,20 @@ else
   if command -v zsh >/dev/null 2>&1; then
     sudo chsh -s "$(which zsh)" "$(whoami)"
   fi
-
   # fzf
   if [ ! -d "$HOME/.fzf" ]; then
     git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
     "$HOME/.fzf/install" --all
+  fi
+  # sheldon
+  if ! command -v sheldon >/dev/null 2>&1; then
+    curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | sudo bash -s -- --repo rossmacarthur/sheldon --to /usr/bin
   fi
 
   # install other tools
   sudo env UV_INSTALL_DIR="/usr/bin" sh -c "$(curl -LsSf https://astral.sh/uv/install.sh)"
   sudo env PNPM_HOME="/usr/bin" sh -c "$(curl -LsSf https://get.pnpm.io/install.sh)"
   sudo sh -c "$(curl -sS https://starship.rs/install.sh)" -- --yes --bin-dir /usr/bin
-  curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | sudo bash -s -- --repo rossmacarthur/sheldon --to /usr/bin
   curl -sfL https://raw.githubusercontent.com/kiki-ki/go-qo/main/install.sh | sudo env BINDIR=/usr/bin sh
 
   ARCH=$(uname -m)

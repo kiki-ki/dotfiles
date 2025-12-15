@@ -22,7 +22,6 @@ brew "tree"
 
 cask "ankerwork"
 cask "clipy"
-cask "docker-desktop"
 cask "gcloud-cli"
 cask "google-chrome"
 cask "iterm2"
@@ -31,3 +30,4 @@ cask "krisp"
 cask "ngrok"
 cask "tableplus"
 cask "visual-studio-code"
+

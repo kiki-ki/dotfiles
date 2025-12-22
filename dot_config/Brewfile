@@ -22,6 +22,7 @@ brew "tree"
 
 cask "ankerwork"
 cask "clipy"
+cask "claude-code"
 cask "gcloud-cli"
 cask "google-chrome"
 cask "iterm2"

@@ -5,7 +5,7 @@
 [core]
   editor = vi
   ignorecase = false
-  pager = "sh -c 'if command -v bat >/dev/null 2>&1; then bat --paging=always; else less; fi'"
+  pager = less
 
 [pull]
   rebase = false

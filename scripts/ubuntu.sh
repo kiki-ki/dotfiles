@@ -1,6 +1,3 @@
-#!/bin/bash
-set -eu
-
 LOCAL_BIN="$HOME/.local/bin"
 
 mkdir -p "$LOCAL_BIN"

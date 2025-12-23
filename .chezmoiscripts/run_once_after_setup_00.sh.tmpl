@@ -1,8 +1,8 @@
 #!/bin/bash
 set -eu
 
-{{- if eq .chezmoi.os "darwin" -}}
+{{ if eq .chezmoi.os "darwin" -}}
 {{ include "scripts/macos.sh" }}
-{{- else if eq .chezmoi.os "linux" -}}
+{{ else if eq .chezmoi.os "linux" -}}
 {{ include "scripts/ubuntu.sh" }}
-{{- end -}}
+{{ end -}}

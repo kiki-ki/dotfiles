@@ -1,6 +1,3 @@
-#!/bin/bash
-set -eu
-
 echo "🚀 start: setup for macOS..."
 
 if [ "$SHELL" != "$(which zsh)" ]; then

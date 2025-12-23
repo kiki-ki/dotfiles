@@ -1,13 +1,20 @@
+# local bin setting
 LOCAL_BIN="$HOME/.local/bin"
-
 mkdir -p "$LOCAL_BIN"
 export PATH="$LOCAL_BIN:$PATH"
+
+# work in tmp directory
+TMP_DIR=$(mktemp -d)
+trap 'rm -rf "$TMP_DIR"' EXIT
+cd "$TMP_DIR"
 
 if ! sudo -v; then
   echo "sudo access required."
   exit 1
 else
   echo "🚀 start: setup for ubuntu..."
+
+  ARCH=$(uname -m)
 
   sudo apt-get update
   sudo apt-get install -y curl gpg
@@ -20,7 +27,6 @@ else
   fi
 
   sudo apt-get install -y \
-    awscli \
     bat \
     build-essential \
     file \
@@ -31,6 +37,7 @@ else
     less \
     lsof \
     procps \
+    unzip \
     vim \
     zsh
 
@@ -50,6 +57,13 @@ else
   if [ ! -d "$HOME/.fzf" ]; then
     git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
     "$HOME/.fzf/install" --all
+  fi
+
+  # awscli
+  if ! command -v aws >/dev/null 2>&1; then
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-$ARCH.zip" -o "awscliv2.zip"
+    unzip -q awscliv2.zip
+    ./aws/install --update --bin-dir "$LOCAL_BIN" --install-dir "$HOME/.local/aws-cli"
   fi
 
   # sheldon
@@ -79,7 +93,6 @@ else
 
   # eza
   if ! command -v eza >/dev/null 2>&1; then
-    ARCH=$(uname -m)
     curl -fL "https://github.com/eza-community/eza/releases/latest/download/eza_$ARCH-unknown-linux-gnu.tar.gz" | tar xz -C "$LOCAL_BIN"
     chmod +x "$LOCAL_BIN/eza"
   fi

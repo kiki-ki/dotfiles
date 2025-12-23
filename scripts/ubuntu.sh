@@ -10,6 +10,8 @@ if ! sudo -v; then
   echo "sudo access required."
   exit 1
 else
+  echo "🚀 start: setup for ubuntu..."
+
   sudo apt-get update
   sudo apt-get install -y curl gpg
 

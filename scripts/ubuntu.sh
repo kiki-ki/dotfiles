@@ -1,12 +1,9 @@
+# shellcheck shell=bash
+
 # local bin setting
 LOCAL_BIN="$HOME/.local/bin"
 mkdir -p "$LOCAL_BIN"
 export PATH="$LOCAL_BIN:$PATH"
-
-# work in tmp directory
-TMP_DIR=$(mktemp -d)
-trap 'rm -rf "$TMP_DIR"' EXIT
-cd "$TMP_DIR"
 
 if ! sudo -v; then
   echo "sudo access required."
@@ -43,13 +40,13 @@ else
 
   # bat
   if command -v batcat >/dev/null 2>&1 && ! command -v bat >/dev/null 2>&1; then
-    ln -s "$(which batcat)" "$LOCAL_BIN/bat"
+    ln -s "$(command -v batcat)" "$LOCAL_BIN/bat"
   fi
 
   # shell
   if command -v zsh >/dev/null 2>&1; then
-    if [ "$SHELL" != "$(which zsh)" ]; then
-       sudo chsh -s "$(which zsh)" "$(whoami)"
+    if [ "$SHELL" != "$(command -v zsh)" ]; then
+       sudo chsh -s "$(command -v zsh)" "$(whoami)"
     fi
   fi
 
@@ -64,6 +61,7 @@ else
     curl "https://awscli.amazonaws.com/awscli-exe-linux-$ARCH.zip" -o "awscliv2.zip"
     unzip -q awscliv2.zip
     ./aws/install --update --bin-dir "$LOCAL_BIN" --install-dir "$HOME/.local/aws-cli"
+    rm -rf awscliv2.zip aws
   fi
 
   # sheldon
@@ -105,5 +103,7 @@ else
   if command -v pnpm >/dev/null 2>&1; then
     COREPACK_ENABLE_DOWNLOAD_PROMPT=0 pnpm config set --location=global minimumReleaseAge 4320
   fi
+
+  echo "✅ completed: setup for ubuntu"
 fi
 

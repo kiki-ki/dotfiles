@@ -1,7 +1,9 @@
+# shellcheck shell=bash
+
 echo "🚀 start: setup for macOS..."
 
-if [ "$SHELL" != "$(which zsh)" ]; then
-  chsh -s "$(which zsh)"
+if [ "$SHELL" != "$(command -v zsh)" ]; then
+  chsh -s "$(command -v zsh)"
 fi
 
 ### Homebrew ###
@@ -24,7 +26,7 @@ echo "completed: install homebrew and packages"
 echo "start: set macOS defaults"
 
 # Base
-sudo chflags nohidden ~/Library
+chflags nohidden ~/Library
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 
 # Finder
@@ -53,8 +55,13 @@ vscode_settings () {
   done < "$source_dir"/extensions.txt
 }
 
-echo "start: vscode settings"
-vscode_settings
-echo "completed: vscode settings"
+read -rp "Sync vscode settings? [y/N]: " yn
+if [[ "$yn" =~ ^[Yy]$ ]]; then
+  echo "start: vscode settings"
+  vscode_settings
+  echo "completed: vscode settings"
+else
+  echo "skipped: vscode settings"
+fi
 
 echo "✅ completed: setup for macOS"

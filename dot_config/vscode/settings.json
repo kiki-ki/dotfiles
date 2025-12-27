@@ -1,30 +1,4 @@
 {
-  "[ruby]": {
-    "editor.tabSize": 2
-  },
-  "cSpell.ignorePaths": [
-    "package-lock.json",
-    "node_modules",
-    "vscode-extension",
-    ".git/objects",
-    ".vscode",
-    ".vscode-insiders",
-    "settings.json"
-  ],
-  "cSpell.userWords": [
-    "appstore",
-    "Blueprinter",
-    "boid",
-    "BOXIL",
-    "entityext",
-    "firebaselib",
-    "Hoge",
-    "Jbuilder",
-    "openapi",
-    "sqllib",
-    "tencent",
-    "trtc"
-  ],
   "editor.fontSize": 11,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
@@ -34,9 +8,6 @@
   "editor.minimap.renderCharacters": false,
   "editor.suggest.showWords": false,
   "editor.tabSize": 2,
-  "emmet.includeLanguages": {
-    "erb": "html"
-  },
   "emmet.triggerExpansionOnTab": true,
   "explorer.confirmDragAndDrop": false,
   "files.associations": {
@@ -69,7 +40,6 @@
     "usePlaceholders": true
   },
   "grunt.autoDetect": "off",
-  "gulp.autoDetect": "off",
   "haskell.manageHLS": "GHCup",
   "jake.autoDetect": "off",
   "npm.autoDetect": "off",
@@ -78,14 +48,6 @@
   "ruby.format": "rubocop",
   "ruby.languageServer": {
     "logLevel": "info"
-  },
-  "ruby.lint": {
-    "rubocop": {
-      "except": [
-        "Metrics"
-      ],
-      "useBundler": true
-    }
   },
   "ruby.useBundler": true,
   "ruby.useLanguageServer": true,
@@ -99,11 +61,7 @@
   },
   "search.useIgnoreFiles": true,
   "security.workspace.trust.untrustedFiles": "open",
-  "solargraph.autoformat": true,
-  "solargraph.commandPath": "/Users/nakata.kai/.asdf/installs/ruby/2.7.1/bin/solargraph",
-  "solargraph.diagnostics": true,
-  "solargraph.formatting": true,
-  "terminal.external.osxExec": "iterm2.app",
+  "terminal.external.osxExec": "Ghostty.app",
   "terminal.external.windowsExec": "",
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.scrollback": 100000,
@@ -113,15 +71,9 @@
   "vim.useSystemClipboard": true,
   "vim.vimrc.path": "~/.vimrc",
   "workbench.activityBar.visible": true,
-  "workbench.colorCustomizations": {
-    "activityBar.background": "#3c3c3c",
-    "activityBarBadge.background": "#16825D",
-    "activityBarBadge.foreground": "#dbdbdb",
-    "statusBar.background": "#333333",
-    "tab.activeBorder": "#909090",
-    "titleBar.activeBackground": "#333333"
-  },
+  "workbench.colorTheme": "GitHub Dark",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.panel.defaultLocation": "right",
   "workbench.statusBar.visible": true
 }
+

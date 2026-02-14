@@ -1,4 +1,8 @@
 theme = Github Dark
+keybind = global:opt+space=toggle_quick_terminal
+quick-terminal-screen = mouse
+quick-terminal-size = 30%
+quick-terminal-position = left
 font-family = Menlo
 font-size = 12
 shell-integration = zsh

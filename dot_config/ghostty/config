@@ -1,15 +1,24 @@
+### Appearance
 theme = Github Dark
+background-opacity = 0.70
+background-blur-radius = 20
+
+### Font
+font-family = Menlo
+font-size = 12
+
+### Cursor
+cursor-opacity = 0.8
+cursor-style = block
+cursor-color = #a5d6ff
+
+### Quick Terminal
 keybind = global:opt+space=toggle_quick_terminal
 quick-terminal-screen = mouse
 quick-terminal-size = 30%
 quick-terminal-position = left
-font-family = Menlo
-font-size = 12
+
+### System
 shell-integration = zsh
 shell-integration-features = no-cursor
 confirm-close-surface = false
-background-opacity = 0.70
-background-blur-radius = 20
-cursor-opacity = 0.8
-cursor-style = block
-cursor-color = #a5d6ff

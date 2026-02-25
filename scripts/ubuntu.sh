@@ -100,6 +100,14 @@ else
     curl -fsSL https://claude.ai/install.sh | env DOWNLOAD_DIR="$LOCAL_BIN" bash
   fi
 
+  if ! command -v cctx >/dev/null 2>&1; then
+    CCTX_URL=$(curl -s https://api.github.com/repos/nwiizo/cctx/releases/latest | grep "browser_download_url.*$ARCH-unknown-linux-gnu.tar.gz" | cut -d '"' -f 4)
+    if [ -n "$CCTX_URL" ]; then
+      curl -fL "$CCTX_URL" | tar xz -C "$LOCAL_BIN"
+      chmod +x "$LOCAL_BIN/cctx"
+    fi
+  fi
+
   if command -v pnpm >/dev/null 2>&1; then
     COREPACK_ENABLE_DOWNLOAD_PROMPT=0 pnpm config set --location=global minimumReleaseAge 4320
   fi

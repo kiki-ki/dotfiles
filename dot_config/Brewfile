@@ -3,7 +3,7 @@ cask_args appdir: "/Applications"
 tap "heroku/brew"
 tap "homebrew/bundle"
 
-brew "asdf"
+brew "mise"
 brew "awscli"
 brew "bat"
 brew "direnv"

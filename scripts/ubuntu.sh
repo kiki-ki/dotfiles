@@ -102,8 +102,7 @@ else
 
   # cctx
   if ! command -v cctx >/dev/null 2>&1; then
-    curl -fL "https://github.com/nwiizo/cctx/releases/latest/download/$ARCH-unknown-linux-gnu.tar.gz" | tar xz -C "$LOCAL_BIN"
-    chmod +x "$LOCAL_BIN/cctx"
+    curl -sfL https://raw.githubusercontent.com/nwiizo/cctx/main/install.sh | env BINDIR="$LOCAL_BIN" sh
   fi
 
   # pnpm

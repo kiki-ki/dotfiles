@@ -100,9 +100,14 @@ else
     curl -fsSL https://claude.ai/install.sh | env DOWNLOAD_DIR="$LOCAL_BIN" bash
   fi
 
+  # cargo
+  if ! command -v cargo >/dev/null 2>&1; then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
+  fi
+
   # cctx
   if ! command -v cctx >/dev/null 2>&1; then
-    curl -sfL https://raw.githubusercontent.com/nwiizo/cctx/main/install.sh | env BINDIR="$LOCAL_BIN" sh
+    "$HOME/.cargo/bin/cargo" install cctx
   fi
 
   # pnpm

@@ -101,11 +101,8 @@ else
   fi
 
   if ! command -v cctx >/dev/null 2>&1; then
-    CCTX_URL=$(curl -s https://api.github.com/repos/nwiizo/cctx/releases/latest | grep "browser_download_url.*$ARCH-unknown-linux-gnu.tar.gz" | cut -d '"' -f 4)
-    if [ -n "$CCTX_URL" ]; then
-      curl -fL "$CCTX_URL" | tar xz -C "$LOCAL_BIN"
-      chmod +x "$LOCAL_BIN/cctx"
-    fi
+    curl -fL "https://github.com/nwiizo/cctx/releases/latest/download/cctx-$ARCH-unknown-linux-gnu.tar.gz" | tar xz -C "$LOCAL_BIN"
+    chmod +x "$LOCAL_BIN/cctx"
   fi
 
   if command -v pnpm >/dev/null 2>&1; then

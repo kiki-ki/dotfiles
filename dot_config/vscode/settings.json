@@ -64,6 +64,7 @@
   "terminal.external.osxExec": "Ghostty.app",
   "terminal.external.windowsExec": "",
   "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.scrollback": 100000,
   "typescript.tsc.autoDetect": "off",
   "typescript.updateImportsOnFileMove.enabled": "always",

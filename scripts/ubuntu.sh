@@ -113,6 +113,12 @@ else
   # pnpm
   if command -v pnpm >/dev/null 2>&1; then
     COREPACK_ENABLE_DOWNLOAD_PROMPT=0 pnpm config set --location=global minimumReleaseAge 4320
+
+    # playwright-cli
+    if ! command -v playwright-cli >/dev/null 2>&1; then
+      pnpm add -g @playwright/cli@latest
+      sudo "$LOCAL_BIN/playwright-cli" install --with-deps chromium
+    fi
   fi
 
   echo "✅ completed: setup for ubuntu"

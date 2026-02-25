@@ -4,6 +4,7 @@
 LOCAL_BIN="$HOME/.local/bin"
 mkdir -p "$LOCAL_BIN"
 export PATH="$LOCAL_BIN:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 if ! sudo -v; then
   echo "sudo access required."
@@ -107,18 +108,19 @@ else
 
   # cctx
   if ! command -v cctx >/dev/null 2>&1; then
-    "$HOME/.cargo/bin/cargo" install cctx
+    cargo install cctx --force
   fi
 
   # pnpm
   if command -v pnpm >/dev/null 2>&1; then
     COREPACK_ENABLE_DOWNLOAD_PROMPT=0 pnpm config set --location=global minimumReleaseAge 4320
 
-    # playwright-cli
-    if ! command -v playwright-cli >/dev/null 2>&1; then
-      pnpm add -g @playwright/cli@latest
-      sudo "$LOCAL_BIN/playwright-cli" install --with-deps chromium
-    fi
+  fi
+
+  # playwright-cli
+  if ! command -v playwright-cli >/dev/null 2>&1; then
+    pnpm add -g @playwright/cli@latest
+    sudo "$LOCAL_BIN/playwright-cli" install --with-deps chromium
   fi
 
   echo "✅ completed: setup for ubuntu"

@@ -19,6 +19,10 @@ fi
 
 brew bundle --file=~/.config/Brewfile
 
+echo "start: mise install"
+mise install
+echo "completed: mise install"
+
 echo "completed: install homebrew and packages"
 
 ### MacOS Defaults settings ###

@@ -26,16 +26,12 @@
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
   "git.autofetch": true,
-  "go.alternateTools": {
-    "go-langserver": "gopls"
-  },
   "go.autocompleteUnimportedPackages": true,
   "go.formatTool": "goimports",
   "go.toolsEnvVars": {
     "GO111MODULE": "on"
   },
   "go.toolsManagement.autoUpdate": true,
-  "go.useLanguageServer": true,
   "gopls": {
     "usePlaceholders": true
   },
@@ -50,7 +46,6 @@
     "logLevel": "info"
   },
   "ruby.useBundler": true,
-  "ruby.useLanguageServer": true,
   "search.exclude": {
     "**/.git": true,
     "**/.next": true,

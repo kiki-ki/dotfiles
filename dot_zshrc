@@ -1,4 +1,4 @@
-#!/bin/sh
+# shellcheck shell=zsh
 
 export PATH="$HOME/.local/bin:$PATH"
 

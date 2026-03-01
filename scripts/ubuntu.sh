@@ -72,33 +72,33 @@ else
 
   # uv
   if ! command -v uv >/dev/null 2>&1; then
-    curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR="$LOCAL_BIN" sh
+    curl --proto '=https' --tlsv1.2 -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR="$LOCAL_BIN" sh
   fi
 
   # pnpm
   if ! command -v pnpm >/dev/null 2>&1; then
-    curl -fsSL https://get.pnpm.io/install.sh | env PNPM_HOME="$LOCAL_BIN" sh -
+    curl --proto '=https' --tlsv1.2 -fsSL https://get.pnpm.io/install.sh | env PNPM_HOME="$LOCAL_BIN" sh -
   fi
 
   # starship
   if ! command -v starship >/dev/null 2>&1; then
-    sh -c "$(curl -sS https://starship.rs/install.sh)" -- --yes --bin-dir "$LOCAL_BIN"
+    sh -c "$(curl --proto '=https' --tlsv1.2 -sS https://starship.rs/install.sh)" -- --yes --bin-dir "$LOCAL_BIN"
   fi
 
   # go-qo
   if ! command -v qo >/dev/null 2>&1; then
-    curl -sfL https://raw.githubusercontent.com/kiki-ki/go-qo/main/install.sh | env BINDIR="$LOCAL_BIN" sh
+    curl --proto '=https' --tlsv1.2 -sfL https://raw.githubusercontent.com/kiki-ki/go-qo/main/install.sh | env BINDIR="$LOCAL_BIN" sh
   fi
 
   # eza
   if ! command -v eza >/dev/null 2>&1; then
-    curl -fL "https://github.com/eza-community/eza/releases/latest/download/eza_$ARCH-unknown-linux-gnu.tar.gz" | tar xz -C "$LOCAL_BIN"
+    curl --proto '=https' --tlsv1.2 -fL "https://github.com/eza-community/eza/releases/latest/download/eza_$ARCH-unknown-linux-gnu.tar.gz" | tar xz -C "$LOCAL_BIN"
     chmod +x "$LOCAL_BIN/eza"
   fi
 
   # claude code
   if ! command -v claude >/dev/null 2>&1; then
-    curl -fsSL https://claude.ai/install.sh | env DOWNLOAD_DIR="$LOCAL_BIN" bash
+    curl --proto '=https' --tlsv1.2 -fsSL https://claude.ai/install.sh | env DOWNLOAD_DIR="$LOCAL_BIN" bash
   fi
 
   # cargo

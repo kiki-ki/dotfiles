@@ -70,6 +70,30 @@ function _gum_commit() {
   git commit -m "$TYPE$SCOPE: $SUMMARY"
 }
 
+function wtj() {
+  local branch="${1:-}"
+  local dir safe_branch session_name
+  dir=$(basename "$PWD")
+  if [ -z "$branch" ]; then
+    local NEW="[+ new branch]"
+    local choice
+    choice=$(printf "%s\n%s\n" "$NEW" "$(git branch --format='%(refname:short)')" | gum choose --header "Select or create worktree") || return
+    if [ "$choice" = "$NEW" ]; then
+      branch=$(gum input --placeholder "new branch name") || return
+      [ -z "$branch" ] && return 1
+      wt switch -c "$branch" || return
+    else
+      branch="$choice"
+      wt switch "$branch" || return
+    fi
+  else
+    wt switch -c "$branch" || return
+  fi
+  safe_branch="${branch//\//-}"
+  session_name="${dir}#${safe_branch}"
+  zellij attach --create "$session_name"
+}
+
 ### Aliases ###
 
 # cd

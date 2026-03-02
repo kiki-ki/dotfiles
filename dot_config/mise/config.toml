@@ -2,6 +2,9 @@
 node = "22.14.0"
 pnpm = "latest"
 rust = "stable"
+
+"cargo:cargo-binstall" = "latest"
 "cargo:cctx" = "latest"
 "cargo:worktrunk" = "latest"
 "cargo:zellij" = "latest"
+"cargo:yazi-build" = "latest"

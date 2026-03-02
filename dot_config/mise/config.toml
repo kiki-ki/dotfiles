@@ -1,10 +1,19 @@
+[settings]
+disable_backends = ["asdf", "vfox"]
+
 [tools]
 node = "22.14.0"
 pnpm = "latest"
-rust = "stable"
 
-"ubi:cargo-bins/cargo-binstall" = "latest"
-"ubi:nwiizo/cctx" = "latest"
-"ubi:max-sixty/worktrunk" = "latest"
-"ubi:zellij-org/zellij" = "latest"
-"ubi:sxyazi/yazi" = "latest"
+"aqua:zellij-org/zellij" = "0.43.1"
+"aqua:sxyazi/yazi" = "26.1.22"
+"aqua:starship/starship" = "1.24.2"
+"aqua:junegunn/fzf" = "0.70.0"
+"aqua:cli/cli" = "2.87.3"
+"aqua:charmbracelet/gum" = "0.17.0"
+"aqua:direnv/direnv" = "2.37.1"
+"aqua:rossmacarthur/sheldon" = "0.8.5"
+
+"github:nwiizo/cctx" = "latest"
+"github:max-sixty/worktrunk" = { version = "latest", exe = "wt" }
+

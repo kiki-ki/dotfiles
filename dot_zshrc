@@ -137,6 +137,9 @@ alias bu="bundle update"
 # k8s
 alias k="kubectl"
 
+# zelli
+alias zj="zellij"
+
 ### Envs ###
 
 export EDITOR=vi

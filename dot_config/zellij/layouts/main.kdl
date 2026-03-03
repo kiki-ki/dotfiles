@@ -14,7 +14,7 @@ layout {
             pane size="60%" name="files" command="yazi"
             pane size="40%" split_direction="horizontal" {
                 pane size="60%" focus=true name="claude" command="claude"
-                pane size="40%" name="terminal"
+                pane size="40%" name="terminal" command="zsh"
             }
         }
     }

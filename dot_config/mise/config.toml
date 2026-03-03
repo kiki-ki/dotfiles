@@ -4,6 +4,9 @@ disable_backends = ["asdf", "vfox"]
 [tools]
 node = "22.14.0"
 pnpm = "latest"
+rust = "latest"
+
+"cargo:cctx" = "latest"
 
 "aqua:zellij-org/zellij" = "0.43.1"
 "aqua:sxyazi/yazi" = "26.1.22"
@@ -14,6 +17,5 @@ pnpm = "latest"
 "aqua:direnv/direnv" = "2.37.1"
 "aqua:rossmacarthur/sheldon" = "0.8.5"
 
-"github:nwiizo/cctx" = "latest"
 "github:max-sixty/worktrunk" = { version = "latest", exe = "wt" }
 

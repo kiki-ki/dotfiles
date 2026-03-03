@@ -38,7 +38,7 @@ else
     sudo apt-get update -y
     sudo apt-get install -y mise
   fi
-  eval "$(mise activate bash)"
+  export PATH="$HOME/.local/share/mise/shims:$PATH"
   mise install
 
   # bat

@@ -16,6 +16,8 @@ rust = "latest"
 "aqua:charmbracelet/gum" = "0.17.0"
 "aqua:direnv/direnv" = "2.37.1"
 "aqua:rossmacarthur/sheldon" = "0.8.5"
+"aqua:sharkdp/fd" = "10.3.0"
+"aqua:BurntSushi/ripgrep" = "15.1.0"
 
 "github:max-sixty/worktrunk" = { version = "latest", exe = "wt" }
 

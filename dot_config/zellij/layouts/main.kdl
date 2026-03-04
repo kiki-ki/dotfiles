@@ -10,12 +10,12 @@ layout {
     }
 
     tab name="main" focus=true {
-        pane split_direction="vertical" {
-            pane size="60%" name="files" command="yazi"
-            pane size="40%" split_direction="horizontal" {
-                pane size="60%" focus=true name="claude" command="claude"
-                pane size="40%" name="terminal" command="zsh"
+        pane split_direction="horizontal" {
+            pane size="70%" split_direction="vertical" {
+                pane size="70%" focus=true name="editor" command="zsh"
+                pane size="30%" name="claude" command="claude"
             }
+            pane size="30%" name="terminal" command="zsh"
         }
     }
 }

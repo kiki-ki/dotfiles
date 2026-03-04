@@ -8,8 +8,8 @@ rust = "latest"
 
 "cargo:cctx" = "latest"
 
+"aqua:neovim/neovim" = "0.11.6"
 "aqua:zellij-org/zellij" = "0.43.1"
-"aqua:sxyazi/yazi" = "26.1.22"
 "aqua:starship/starship" = "1.24.2"
 "aqua:junegunn/fzf" = "0.70.0"
 "aqua:cli/cli" = "2.87.3"

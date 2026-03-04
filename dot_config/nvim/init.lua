@@ -164,6 +164,7 @@ require("lazy").setup({
     opts = {
       window = { width = 30 },
       filesystem = {
+        follow_current_file = { enabled = true, leave_dirs_open = false },
         filtered_items = {
           visible      = true,
           hide_dotfiles  = false,
@@ -173,7 +174,7 @@ require("lazy").setup({
     },
     config = function(_, opts)
       require("neo-tree").setup(opts)
-      vim.cmd("Neotree show")
+      vim.cmd("Neotree filesystem reveal left")
     end,
   },
 

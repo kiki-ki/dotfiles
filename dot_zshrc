@@ -70,10 +70,37 @@ function _gum_commit() {
   git commit -m "$TYPE$SCOPE: $SUMMARY"
 }
 
+function _zellij_attach_branch() {
+  local branch="${1}"
+  local safe_branch session_name
+  safe_branch="${branch//\//-}"
+  safe_branch="${safe_branch:0:30}"
+  session_name="$(basename "$PWD")#${safe_branch}"
+  zellij attach --create "$session_name"
+}
+
+function gsj() {
+  local branch="${1:-}"
+  if [ -z "$branch" ]; then
+    local NEW="[+ new branch]"
+    local choice
+    choice=$(printf "%s\n%s\n" "$NEW" "$(git branch --format='%(refname:short)')" | gum choose --header "Select or create branch") || return
+    if [ "$choice" = "$NEW" ]; then
+      branch=$(gum input --placeholder "new branch name") || return
+      [ -z "$branch" ] && return 1
+      git switch -c "$branch" || return
+    else
+      branch="$choice"
+      git switch "$branch" || return
+    fi
+  else
+    git switch -c "$branch" || return
+  fi
+  _zellij_attach_branch "$branch"
+}
+
 function wtj() {
   local branch="${1:-}"
-  local dir safe_branch session_name
-  dir=$(basename "$PWD")
   if [ -z "$branch" ]; then
     local NEW="[+ new branch]"
     local choice
@@ -89,9 +116,7 @@ function wtj() {
   else
     wt switch -c "$branch" || return
   fi
-  safe_branch="${branch//\//-}"
-  session_name="${dir}#${safe_branch}"
-  zellij attach --create "$session_name"
+  _zellij_attach_branch "$branch"
 }
 
 ### Aliases ###
@@ -119,7 +144,7 @@ alias ga="g add"
 alias gc="_gum_commit"
 alias gf="g fetch"
 alias gst="g status"
-alias gco="g checkout"
+alias gs="g switch"
 alias gcp="g cherry-pick"
 
 # docker

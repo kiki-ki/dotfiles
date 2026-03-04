@@ -88,6 +88,19 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   end,
 })
 
+-- refresh neo-tree git status (debounced)
+local neotree_refresh_timer = vim.uv.new_timer()
+vim.api.nvim_create_augroup("NeoTreeGitRefresh", { clear = true })
+vim.api.nvim_create_autocmd({ "BufWritePost", "FocusGained" }, {
+  group = "NeoTreeGitRefresh",
+  callback = function()
+    neotree_refresh_timer:stop()
+    neotree_refresh_timer:start(500, 0, vim.schedule_wrap(function()
+      pcall(require("neo-tree.sources.manager").refresh, "filesystem")
+    end))
+  end,
+})
+
 -- LSP keybindings
 vim.api.nvim_create_augroup("LspKeymaps", { clear = true })
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -174,7 +187,7 @@ require("lazy").setup({
     },
     config = function(_, opts)
       require("neo-tree").setup(opts)
-      vim.cmd("Neotree filesystem reveal left")
+      vim.cmd("Neotree show")
     end,
   },
 
@@ -277,3 +290,6 @@ cmp.setup({
   }),
   sources = cmp.config.sources({ { name = "nvim_lsp" } }),
 })
+
+
+

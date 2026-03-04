@@ -138,14 +138,15 @@ alias lt='eza --git --tree --level=2'
 
 # git
 alias g="git"
-alias gb="g branch"
-alias gd="g diff"
-alias ga="g add"
 alias gc="_gum_commit"
-alias gf="g fetch"
-alias gst="g status"
-alias gs="g switch"
-alias gcp="g cherry-pick"
+alias gb="git branch"
+alias gd="git diff"
+alias ga="git add"
+alias gf="git fetch"
+alias gst="git status"
+alias gs="git switch"
+alias gco="git checkout"
+alias gcp="git cherry-pick"
 
 # docker
 alias d="docker"

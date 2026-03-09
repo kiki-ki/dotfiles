@@ -5,7 +5,6 @@
   "editor.formatOnType": true,
   "editor.insertSpaces": true,
   "editor.minimap.enabled": false,
-  "editor.minimap.renderCharacters": false,
   "editor.suggest.showWords": false,
   "editor.tabSize": 2,
   "emmet.triggerExpansionOnTab": true,
@@ -26,27 +25,20 @@
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
   "git.autofetch": true,
-  "github.copilot.chat.welcomeMessage": "never",
-  "go.autocompleteUnimportedPackages": true,
   "go.formatTool": "goimports",
-  "go.toolsEnvVars": {
-    "GO111MODULE": "on"
-  },
   "go.toolsManagement.autoUpdate": true,
   "gopls": {
     "usePlaceholders": true
   },
   "grunt.autoDetect": "off",
-  "haskell.manageHLS": "GHCup",
   "jake.autoDetect": "off",
   "npm.autoDetect": "off",
   "redhat.telemetry.enabled": false,
   "remote.SSH.configFile": "${userHome}/.ssh/config",
-  "ruby.format": "rubocop",
-  "ruby.languageServer": {
-    "logLevel": "info"
+  "rubyLsp.formatter": "rubocop",
+  "rubyLsp.rubyVersionManager": {
+    "identifier": "mise"
   },
-  "ruby.useBundler": true,
   "search.exclude": {
     "**/.git": true,
     "**/.next": true,
@@ -58,7 +50,6 @@
   "search.useIgnoreFiles": true,
   "security.workspace.trust.untrustedFiles": "open",
   "terminal.external.osxExec": "Ghostty.app",
-  "terminal.external.windowsExec": "",
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.scrollback": 100000,
@@ -67,10 +58,7 @@
   "vim.vimrc.enable": true,
   "vim.useSystemClipboard": true,
   "vim.vimrc.path": "~/.vimrc",
-  "workbench.activityBar.visible": true,
   "workbench.colorTheme": "GitHub Dark",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.panel.defaultLocation": "right",
-  "workbench.statusBar.visible": true,
-  "workbench.view.extension.github-vscode-chat.visible": false
+  "workbench.panel.defaultLocation": "right"
 }

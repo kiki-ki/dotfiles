@@ -25,7 +25,16 @@ vim.opt.softtabstop   = 2
 vim.opt.expandtab     = true
 vim.opt.shiftwidth    = 2
 vim.opt.smartindent   = true
-vim.opt.clipboard     = "unnamed,unnamedplus"
+if vim.env.SSH_TTY ~= nil or vim.env.SSH_CONNECTION ~= nil then
+  local osc52 = require("vim.ui.clipboard.osc52")
+  vim.g.clipboard = {
+    name  = "OSC 52",
+    copy  = { ["+"] = osc52.copy("+"),  ["*"] = osc52.copy("*") },
+    paste = { ["+"] = osc52.paste("+"), ["*"] = osc52.paste("*") },
+  }
+else
+  vim.opt.clipboard = "unnamed,unnamedplus"
+end
 vim.opt.swapfile      = false
 vim.opt.autoread      = true
 vim.opt.updatetime    = 500

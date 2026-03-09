@@ -26,12 +26,17 @@ vim.opt.expandtab     = true
 vim.opt.shiftwidth    = 2
 vim.opt.smartindent   = true
 vim.opt.clipboard = "unnamed,unnamedplus"
--- SSH 環境ではヤンク時に OSC 52 でローカルターミナルへ転送
+-- SSH 環境では $SSH_TTY に直接 OSC 52 を書き込む（Zellij もバイパス）
 if vim.env.SSH_TTY ~= nil then
   vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
-      local copy = require("vim.ui.clipboard.osc52").copy("+")
-      copy(vim.v.event.regcontents)
+      local text = table.concat(vim.v.event.regcontents, "\n")
+      local encoded = vim.base64.encode(text)
+      local f = io.open(vim.env.SSH_TTY, "w")
+      if f then
+        f:write("\027]52;c;" .. encoded .. "\007")
+        f:close()
+      end
     end,
   })
 end

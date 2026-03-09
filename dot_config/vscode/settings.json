@@ -26,6 +26,7 @@
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
   "git.autofetch": true,
+  "github.copilot.chat.welcomeMessage": "never",
   "go.autocompleteUnimportedPackages": true,
   "go.formatTool": "goimports",
   "go.toolsEnvVars": {
@@ -70,6 +71,6 @@
   "workbench.colorTheme": "GitHub Dark",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.panel.defaultLocation": "right",
-  "workbench.statusBar.visible": true
+  "workbench.statusBar.visible": true,
+  "workbench.view.extension.github-vscode-chat.visible": false
 }
-

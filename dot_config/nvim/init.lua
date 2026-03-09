@@ -25,15 +25,15 @@ vim.opt.softtabstop   = 2
 vim.opt.expandtab     = true
 vim.opt.shiftwidth    = 2
 vim.opt.smartindent   = true
-if vim.env.SSH_TTY ~= nil or vim.env.SSH_CONNECTION ~= nil then
-  local osc52 = require("vim.ui.clipboard.osc52")
-  vim.g.clipboard = {
-    name  = "OSC 52",
-    copy  = { ["+"] = osc52.copy("+"),  ["*"] = osc52.copy("*") },
-    paste = { ["+"] = osc52.paste("+"), ["*"] = osc52.paste("*") },
-  }
-else
-  vim.opt.clipboard = "unnamed,unnamedplus"
+vim.opt.clipboard = "unnamed,unnamedplus"
+-- SSH 環境ではヤンク時に OSC 52 でローカルターミナルへ転送
+if vim.env.SSH_TTY ~= nil then
+  vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+      local copy = require("vim.ui.clipboard.osc52").copy("+")
+      copy(vim.v.event.regcontents)
+    end,
+  })
 end
 vim.opt.swapfile      = false
 vim.opt.autoread      = true

@@ -166,20 +166,10 @@ alias k="kubectl"
 # zelli
 alias zj="zellij"
 
-if command -v nvim >/dev/null 2>&1; then
-  alias vi=nvim
-  alias vim=nvim
-fi
-
 ### Envs ###
 
-if command -v nvim >/dev/null 2>&1; then
-  export EDITOR=nvim
-  export VISUAL=nvim
-else
-  export EDITOR=vi
-  export VISUAL=vi
-fi
+export EDITOR=vi
+export VISUAL=vi
 export PAGER=less
 
 ### Final ###

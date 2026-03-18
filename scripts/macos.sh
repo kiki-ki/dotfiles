@@ -17,7 +17,7 @@ if ! command -v brew >/dev/null 2>&1; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
-brew bundle --file=~/.config/Brewfile
+brew bundle --file=~/.config/Brewfile --cleanup
 
 echo "start: mise install"
 mise install
@@ -44,29 +44,41 @@ echo "completed: set macOS defaults"
 
 ### VSCode settings ###
 
-vscode_settings () {
-  local source_dir="$HOME/.config/vscode"
-  local deploy_dir="$HOME/Library/Application Support/Code/User/"
+echo "start: vscode settings"
 
-  mkdir -p "$deploy_dir"
-  cat "$source_dir"/settings.json > "$deploy_dir"/settings.json
-  cat "$source_dir"/keybindings.json > "$deploy_dir"/keybindings.json
+vscode_source_dir="$HOME/.config/vscode"
+vscode_deploy_dir="$HOME/Library/Application Support/Code/User/"
 
-  while read -r line; do
-    if [ -n "$line" ]; then
-      code --install-extension "$line" --force || true
+mkdir -p "$vscode_deploy_dir"
+cat "$vscode_source_dir"/settings.json > "$vscode_deploy_dir"/settings.json
+cat "$vscode_source_dir"/keybindings.json > "$vscode_deploy_dir"/keybindings.json
+
+# Install declared extensions
+declared_extensions=()
+while read -r line; do
+  if [ -n "$line" ]; then
+    code --install-extension "$line" --force || true
+    declared_extensions+=("$(echo "$line" | tr '[:upper:]' '[:lower:]')")
+  fi
+done < "$vscode_source_dir"/extensions.txt
+
+# Uninstall extensions not in the list
+while read -r ext; do
+  ext_lower="$(echo "$ext" | tr '[:upper:]' '[:lower:]')"
+  found=false
+  for d in "${declared_extensions[@]}"; do
+    if [ "$d" = "$ext_lower" ]; then
+      found=true
+      break
     fi
-  done < "$source_dir"/extensions.txt
-}
+  done
+  if [ "$found" = false ]; then
+    echo "Uninstalling unlisted extension: $ext"
+    code --uninstall-extension "$ext" || true
+  fi
+done < <(code --list-extensions)
 
-read -rp "Sync vscode settings? [y/N]: " yn
-if [[ "$yn" =~ ^[Yy]$ ]]; then
-  echo "start: vscode settings"
-  vscode_settings
-  echo "completed: vscode settings"
-else
-  echo "skipped: vscode settings"
-fi
+echo "completed: vscode settings"
 
 echo "✅ completed: setup for macOS"
 

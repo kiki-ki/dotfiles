@@ -18,4 +18,3 @@ rust = "latest"
 "aqua:BurntSushi/ripgrep" = "15.1.0"
 
 "github:max-sixty/worktrunk" = { version = "latest", exe = "wt" }
-

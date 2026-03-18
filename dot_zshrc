@@ -6,6 +6,10 @@ export PATH="$HOME/.local/bin:$PATH"
 
 [ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate zsh)"
+fi
+
 eval "$(starship init zsh)"
 
 if command -v direnv >/dev/null 2>&1; then
@@ -34,11 +38,6 @@ export FZF_CTRL_R_OPTS="--no-preview"
 
 if command -v fzf >/dev/null 2>&1; then
   . <(fzf --zsh)
-fi
-
-# mise
-if command -v mise >/dev/null 2>&1; then
-  eval "$(mise activate zsh)"
 fi
 
 # go

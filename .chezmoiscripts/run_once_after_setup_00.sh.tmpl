@@ -1,6 +1,9 @@
 #!/bin/bash
 set -eu
 
+{{ range glob (joinPath .chezmoi.sourceDir "dot_config/**/*.*") -}}
+# hash: {{ trimPrefix (printf "%s/" $.chezmoi.sourceDir) . | include | sha256sum }}
+{{ end -}}
 {{ if eq .chezmoi.os "darwin" -}}
 {{ include "scripts/macos.sh" }}
 {{ else if eq .chezmoi.os "linux" -}}

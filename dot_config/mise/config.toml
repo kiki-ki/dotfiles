@@ -2,19 +2,19 @@
 disable_backends = ["asdf", "vfox"]
 
 [tools]
-node = "22.14.0"
+node = "latest"
 pnpm = "latest"
 rust = "latest"
 
 "cargo:cctx" = "latest"
 
-"aqua:starship/starship" = "1.24.2"
-"aqua:junegunn/fzf" = "0.70.0"
-"aqua:cli/cli" = "2.87.3"
-"aqua:charmbracelet/gum" = "0.17.0"
-"aqua:direnv/direnv" = "2.37.1"
-"aqua:rossmacarthur/sheldon" = "0.8.5"
-"aqua:sharkdp/fd" = "10.3.0"
-"aqua:BurntSushi/ripgrep" = "15.1.0"
+"aqua:starship/starship" = "latest"
+"aqua:junegunn/fzf" = "latest"
+"aqua:cli/cli" = "latest"
+"aqua:charmbracelet/gum" = "latest"
+"aqua:direnv/direnv" = "latest"
+"aqua:rossmacarthur/sheldon" = "latest"
+"aqua:sharkdp/fd" = "latest"
+"aqua:BurntSushi/ripgrep" = "latest"
 
 "github:max-sixty/worktrunk" = { version = "latest", exe = "wt" }

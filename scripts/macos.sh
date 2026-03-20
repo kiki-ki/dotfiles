@@ -17,6 +17,7 @@ if ! command -v brew >/dev/null 2>&1; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
+brew update
 brew bundle --file=~/.config/Brewfile --cleanup
 
 echo "start: mise install"

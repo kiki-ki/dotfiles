@@ -6,7 +6,7 @@ DIM = '\033[2m'
 CYAN = '\033[36m'
 GREEN = '\033[32m'
 YELLOW = '\033[33m'
-BLUE = '\033[34m'
+MAGENTA = '\033[95m'
 RINGS = ['○', '◔', '◑', '◕', '●']
 SEP = f' {DIM}|{R} '
 
@@ -54,7 +54,7 @@ directory = os.path.basename(val('workspace', 'current_dir') or '')
 duration_ms = int(val('cost', 'total_duration_ms'))
 
 print(SEP.join([
-  f'{BLUE}{model}{R}',
+  f'{MAGENTA}{model}{R}',
   f'{CYAN}{directory}{git_info()}{R}',
   fmt_duration(duration_ms),
 ]))

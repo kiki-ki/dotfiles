@@ -16,11 +16,14 @@ def gradient(pct):
     return f'\033[38;2;{int(pct * 5.1)};200;80m'
   return f'\033[38;2;255;{max(int(200 - (pct - 50) * 4), 0)};60m'
 
+
 def ring(label, pct):
-  return f'{DIM}{label}{R} {gradient(pct)}{RINGS[min(int(pct / 25), 4)]} {round(pct)}%{R}'
+  return f'{label} {gradient(pct)}{RINGS[min(int(pct / 25), 4)]} {round(pct)}%{R}'
+
 
 def run(cmd):
   return subprocess.check_output(cmd, text=True, stderr=subprocess.DEVNULL).strip()
+
 
 def git_info():
   try:
@@ -39,9 +42,19 @@ def git_info():
 
 
 def fmt_duration(ms):
-  return f'{DIM}{ms // 60000}m{(ms % 60000) // 1000}s{R}'
+  s = ms // 1000
+  d, s = divmod(s, 86400)
+  h, s = divmod(s, 3600)
+  m, s = divmod(s, 60)
+  if d:
+    return f'{d}d{h}h'
+  if h:
+    return f'{h}h{m}m'
+  return f'{m}m{s}s'
+
 
 data = json.load(sys.stdin)
+
 
 def val(*keys):
   d = data
@@ -49,21 +62,21 @@ def val(*keys):
     d = d.get(k, {}) if isinstance(d, dict) else {}
   return d or 0
 
+
 model = val('model', 'display_name') or 'Claude'
 directory = os.path.basename(val('workspace', 'current_dir') or '')
-duration_ms = int(val('cost', 'total_duration_ms'))
 
 print(SEP.join([
   f'{MAGENTA}{model}{R}',
   f'{CYAN}{directory}{git_info()}{R}',
-  fmt_duration(duration_ms),
+  fmt_duration(int(val('cost', 'total_duration_ms'))),
 ]))
 
 metrics = [ring('ctx', val('context_window', 'used_percentage'))]
 for key, label in [('five_hour', '5h'), ('seven_day', '7d')]:
-  pct = data.get('rate_limits', {}).get(key, {}).get('used_percentage')
-  if pct is not None:
+  pct = val('rate_limits', key, 'used_percentage')
+  if pct:
     metrics.append(ring(label, pct))
-metrics.append(f'{DIM}${val("cost", "total_cost_usd"):.2f}{R}')
+metrics.append(f'${val("cost", "total_cost_usd"):.2f}')
 
 print(SEP.join(metrics))

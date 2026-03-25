@@ -1,8 +1,29 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "permissions": {
-    "defaultMode": "default",
-    "allow": []
+    "deny": [
+      "Bash(curl *|*bash*)",
+      "Bash(curl *|*sh*)",
+      "Bash(wget *|*bash*)",
+      "Bash(wget *|*sh*)",
+      "Bash(git push --force*)",
+      "Bash(git push *--force*)",
+      "Bash(git push *--delete*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean -f*)",
+      "Bash(git branch -D *)",
+      "Bash(git restore .)",
+      "Bash(rm -rf /*)",
+      "Bash(rm -rf ~*)",
+      "Bash(sudo *)",
+      "Bash(chmod *)",
+      "Bash(chown *)",
+      "Edit(~/.ssh/**)",
+      "Edit(~/.aws/**)",
+      "Edit(~/.kube/**)",
+      "Edit(~/.gnupg/**)",
+      "Edit(/etc/**)"
+    ]
   },
   "language": "Japanese",
   "statusLine": {

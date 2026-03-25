@@ -14,6 +14,7 @@ brew "kubernetes-cli"
 brew "less"
 brew "mise"
 brew "shellcheck"
+brew "stern"
 brew "tree"
 
 cask "ankerwork"

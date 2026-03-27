@@ -1,3 +1,4 @@
+#!/bin/bash
 # shellcheck shell=bash
 
 # local bin setting

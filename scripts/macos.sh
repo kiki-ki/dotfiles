@@ -1,3 +1,4 @@
+#!/bin/bash
 # shellcheck shell=bash
 
 echo "🚀 start: setup for macOS..."

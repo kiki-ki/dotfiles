@@ -69,6 +69,52 @@ function _gum_commit() {
   git commit -m "$TYPE$SCOPE: $SUMMARY"
 }
 
+function _cc_session_preview() {
+  local sid=$1 title=$2 h=$3
+  jq -r "select(.sessionId == \"$sid\") | [.project, (.timestamp/1000 | strftime(\"%Y-%m-%d %H:%M\")), .display] | @tsv" "$h" | {
+    IFS=$'\t' read -r project date _
+    printf '\033[1m📁 %s\033[0m\n📅 %s\n📝 %s\n─────────────────────────────\n' "$project" "$date" "$title"
+    cut -f3
+  }
+}
+
+function _cc_sessions() {
+  local h="$HOME/.claude/history.jsonl"
+  local base="$HOME/.claude/projects"
+  local since=$(( $(date +%s) - 30 * 86400 ))
+
+  local titles=$(rg --no-filename '"type":"custom-title"' "$base" 2>/dev/null \
+    | jq -rs 'map({ (.sessionId): .customTitle }) | add // {}')
+
+  local selected
+  selected=$(jq -rs --argjson since "${since}000" --argjson titles "$titles" '
+    [ .[] | select(.timestamp >= $since) ] |
+    group_by(.sessionId) |
+    map({
+      sid: .[0].sessionId,
+      project: (.[0].project | split("/") | last),
+      full_project: .[0].project,
+      date: (.[0].timestamp / 1000 | strftime("%Y-%m-%d")),
+      title: $titles[.[0].sessionId]
+    }) |
+    map(select(.title)) |
+    sort_by(.date) | reverse[] |
+    "\(.project)  \(.date)  \(.title)\t\(.sid)\t\(.full_project)\t\(.title)"
+  ' "$h" \
+    | fzf \
+        --with-nth=1 \
+        --delimiter='\t' \
+        --preview "$(typeset -f _cc_session_preview); _cc_session_preview \"\$(cut -f2 <<< {})\" \"\$(cut -f4 <<< {})\" \"$h\"" \
+        --preview-window=right:50%:wrap \
+        --header "Claude Code sessions (last 30 days)")
+
+  if [[ -n "$selected" ]]; then
+    local sid=$(cut -f2 <<< "$selected")
+    local cwd=$(cut -f3 <<< "$selected")
+    cd "$cwd" && claude --resume "$sid"
+  fi
+}
+
 ### Aliases ###
 
 # cd
@@ -114,7 +160,8 @@ alias bu="bundle update"
 alias k="kubectl"
 
 # claude
-alias claude-skip-permission="claude --dangerously-skip-permissions"
+alias cc-skip-permission="claude --dangerously-skip-permissions"
+alias cc-sessions="_cc_sessions"
 
 ### Envs ###
 

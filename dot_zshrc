@@ -113,6 +113,9 @@ alias bu="bundle update"
 # k8s
 alias k="kubectl"
 
+# claude
+alias claude-skip-permission="claude --dangerously-skip-permissions"
+
 ### Envs ###
 
 export EDITOR=vi

@@ -99,7 +99,6 @@
       "Edit(/etc/**)"
     ]
   },
-  "defaultMode": "auto",
   "language": "Japanese",
   "statusLine": {
     "type": "command",

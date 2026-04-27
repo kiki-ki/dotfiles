@@ -63,7 +63,9 @@
       "Bash(cut *)",
       "Bash(tee *)",
       "Bash(true)",
-      "Bash(test *)"
+      "Bash(test *)",
+      "Bash(rm -f /tmp/*)",
+      "Bash(rm -f /var/folders/*)"
     ],
     "deny": [
       "Bash(curl *|*bash*)",
@@ -88,7 +90,7 @@
       "Bash(find *-execdir *)",
       "Bash(find *-delete*)",
       "Bash(rm -r*)",
-      "Bash(rm -f*)",
+      "Bash(rm -fr*)",
       "Bash(sudo *)",
       "Bash(chmod *)",
       "Bash(chown *)",
@@ -99,6 +101,7 @@
       "Edit(/etc/**)"
     ]
   },
+  "model": "claude-sonnet-4-6",
   "language": "Japanese",
   "statusLine": {
     "type": "command",

@@ -4,6 +4,7 @@ disable_backends = ["asdf", "vfox"]
 [tools]
 node = "latest"
 pnpm = "latest"
+python = "latest"
 rust = "latest"
 
 "cargo:cctx" = "latest"

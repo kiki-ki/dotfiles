@@ -10,3 +10,5 @@ use = ["*.plugin.zsh"]
 [plugins.rura]
 github = "kiki-ki/rura"
 
+[plugins.cclog]
+github = "choplin/cclog"

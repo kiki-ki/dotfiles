@@ -99,7 +99,8 @@
       "Edit(~/.kube/**)",
       "Edit(~/.gnupg/**)",
       "Edit(/etc/**)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
   "model": "opus",
   "language": "Japanese",

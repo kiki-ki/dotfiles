@@ -101,7 +101,7 @@
       "Edit(/etc/**)"
     ]
   },
-  "model": "claude-sonnet-4-6",
+  "model": "opus",
   "language": "Japanese",
   "statusLine": {
     "type": "command",

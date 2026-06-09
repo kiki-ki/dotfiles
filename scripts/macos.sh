@@ -19,7 +19,7 @@ if ! command -v brew >/dev/null 2>&1; then
 fi
 
 brew update
-brew bundle --file=~/.config/Brewfile --cleanup
+brew bundle --file=~/.config/Brewfile
 
 echo "start: mise install"
 mise install

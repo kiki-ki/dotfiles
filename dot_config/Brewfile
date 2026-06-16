@@ -21,7 +21,6 @@ brew "tree"
 
 cask "ankerwork"
 cask "clipy"
-cask "claude-code"
 cask "gcloud-cli"
 cask "ghostty"
 cask "google-chrome"

@@ -103,7 +103,6 @@
     "defaultMode": "auto"
   },
   "model": "opus",
-  "outputStyle": "tech-snufkin",
   "language": "Japanese",
   "statusLine": {
     "type": "command",

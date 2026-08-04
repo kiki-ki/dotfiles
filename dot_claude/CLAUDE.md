@@ -27,7 +27,9 @@
 
 ## プルリクエスト / イシュー
 
-- PR を作成するときは `/creating-github-pr` スキル、issue を起票するときは `/creating-github-issue` スキルに従うこと
+- PR は `gh pr create --draft` で必ず draft として作成し、作成後に PR URL をユーザーに伝えること
+- PR タイトルは Conventional Commits の形式に従う: `type(scope): summary`（簡潔に）
+- issue を起票するときは `/creating-github-issue` スキルに従うこと
 - `gh` で issue や PR に書き込むとき（作成・コメント・編集）、ユーザーや team へのメンションをしない（`@username`、`@org/team` を含めない）
   - 本文中にハンドル名を書く必要がある場合はバッククォートで囲むか言い換える
 - `gh` で issue や PR に書き込むとき、`--body "$(cat <<'EOF' ... EOF)"` の本文では backtick / `$` / `\` をエスケープしない（シングルクォート heredoc は本文を完全リテラル扱いするため）

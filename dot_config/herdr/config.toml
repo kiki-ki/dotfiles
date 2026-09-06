@@ -1,0 +1,18 @@
+[theme]
+name = "terminal"
+
+[keys]
+open_worktree = "prefix+shift+o"
+
+[ui]
+agent_panel_sort = "spaces"
+hide_tab_bar_when_single_tab = true
+status_indicators = "symbols"
+
+[ui.sidebar.agents.rows_by_agent]
+claude = [["state_icon", "workspace"], [{ token = "terminal_title_stripped", dim = true }]]
+
+[experimental]
+switch_ascii_input_source_in_prefix = true
+reveal_hidden_cursor_for_cjk_ime = true
+cjk_ime_agents = ["claude"]

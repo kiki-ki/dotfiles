@@ -52,6 +52,8 @@ echo "completed: set macOS defaults"
 
 echo "start: vscode settings"
 
+export NODE_NO_WARNINGS=1
+
 vscode_source_dir="$HOME/.config/vscode"
 vscode_deploy_dir="$HOME/Library/Application Support/Code/User/"
 

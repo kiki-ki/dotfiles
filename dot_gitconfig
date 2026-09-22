@@ -6,6 +6,7 @@
   editor = vi
   ignorecase = false
   pager = less
+  hooksPath = ~/.config/git/hooks
 
 [pull]
   rebase = false

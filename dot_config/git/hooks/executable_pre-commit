@@ -1,7 +1,8 @@
 #!/bin/sh
-# core.hooksPath で全リポジトリのフックを横取りするため、リポジトリ固有の
-# .git/hooks/pre-commit があれば先に実行して従来の挙動を保つ。
-# なお git rev-parse --git-path hooks は core.hooksPath 自体を返すため使えない。
+# core.hooksPath takes over hooks for every repository, so run the repository's
+# own pre-commit first to preserve its behaviour.
+# git rev-parse --git-path hooks cannot be used here: it resolves to
+# core.hooksPath itself, which would make this hook call itself recursively.
 set -e
 
 repo_hook="$(git rev-parse --git-dir)/hooks/pre-commit"
@@ -9,7 +10,7 @@ if [ -x "$repo_hook" ]; then
   "$repo_hook" "$@"
 fi
 
-# gitleaks 未導入の環境でコミットを止めない
+# Do not block commits where gitleaks is not installed
 command -v gitleaks >/dev/null 2>&1 || exit 0
 
 gitleaks git --staged --no-banner --redact --verbose

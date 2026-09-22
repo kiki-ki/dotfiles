@@ -26,4 +26,5 @@ jobs:
       - name: Install chezmoi
         run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin"
       - name: Check the source state renders and applies
-        run: "$HOME/.local/bin/chezmoi" --source . --destination "$(mktemp -d)" apply --dry-run
+        run: |
+          "$HOME/.local/bin/chezmoi" --source . --destination "$(mktemp -d)" apply --dry-run

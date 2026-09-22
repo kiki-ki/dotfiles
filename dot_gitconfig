@@ -6,15 +6,13 @@
   editor = vi
   ignorecase = false
   pager = less
+  hooksPath = ~/.config/git/hooks
 
 [pull]
   rebase = false
 
 [merge]
   conflictstyle = diff3
-
-[init]
-  templateDir = ~/.config/git/template
 
 [fetch]
   prune = true

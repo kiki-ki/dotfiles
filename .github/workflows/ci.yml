@@ -3,8 +3,6 @@ on:
     branches:
       - main
   pull_request:
-    branches:
-      - main
 
 name: "CI"
 permissions: {}
@@ -14,8 +12,18 @@ jobs:
     name: ShellCheck
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Run ShellCheck
-        uses: ludeeus/action-shellcheck@master
+        uses: ludeeus/action-shellcheck@00cae500b08a931fb5698e11e79bfbd38e612a38 # 2.0.0
         env:
           SHELLCHECK_OPTS: -e SC1090 -e SC1091 -e SC2155 -e SC3043
+
+  chezmoi:
+    name: chezmoi
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install chezmoi
+        run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin"
+      - name: Check the source state renders and applies
+        run: "$HOME/.local/bin/chezmoi" --source . --destination "$(mktemp -d)" apply --dry-run

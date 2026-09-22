@@ -1,7 +1,6 @@
 cask_args appdir: "/Applications"
 
 tap "heroku/brew"
-tap "homebrew/bundle"
 
 brew "awscli"
 brew "bat"

@@ -1,0 +1,9 @@
+#!/bin/sh
+# `pre-commit init-templatedir` bakes absolute paths for the config file and the
+# bundled interpreter into the hook it generates, so its output cannot be shared
+# between machines. Resolving $HOME at run time keeps this file portable.
+exec pre-commit hook-impl \
+  --config="$HOME/.config/pre-commit/config.yaml" \
+  --hook-type=pre-commit \
+  --hook-dir "$(dirname "$0")" \
+  -- "$@"

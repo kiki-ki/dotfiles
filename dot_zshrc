@@ -50,6 +50,15 @@ if command -v wt >/dev/null 2>&1; then
   eval "$(command wt config shell init zsh)"
 fi
 
+### History ###
+
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=100000
+export SAVEHIST=100000
+
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+
 ### Functions ###
 
 function _gum_commit() {

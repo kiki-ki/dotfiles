@@ -1,5 +1,7 @@
 [settings]
 disable_backends = ["asdf", "vfox"]
+lockfile = true
+lockfile_platforms = ["macos-arm64", "linux-x64", "linux-arm64"]
 
 [tools]
 node = "latest"
@@ -16,7 +18,6 @@ rust = "latest"
 "aqua:direnv/direnv" = "latest"
 "aqua:herdrdev/herdr" = "latest"
 "aqua:rossmacarthur/sheldon" = "latest"
-"aqua:sharkdp/fd" = "latest"
 "aqua:BurntSushi/ripgrep" = "latest"
 
 "github:max-sixty/worktrunk" = { version = "latest", exe = "wt" }

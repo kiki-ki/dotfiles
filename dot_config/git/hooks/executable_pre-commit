@@ -10,7 +10,8 @@ if [ -x "$repo_hook" ]; then
   "$repo_hook" "$@"
 fi
 
-# Do not block commits where gitleaks is not installed
-command -v gitleaks >/dev/null 2>&1 || exit 0
+# command -v is not enough: a mise shim exists on PATH even when no version is
+# resolved for the current config, and running it then fails.
+gitleaks version >/dev/null 2>&1 || exit 0
 
 gitleaks git --staged --no-banner --redact --verbose

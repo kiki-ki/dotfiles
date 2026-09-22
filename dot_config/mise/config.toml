@@ -1,6 +1,7 @@
 [settings]
 disable_backends = ["asdf", "vfox"]
 lockfile = true
+lockfile_platforms = ["macos-arm64", "linux-x64", "linux-arm64"]
 
 [tools]
 node = "latest"

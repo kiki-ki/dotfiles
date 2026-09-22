@@ -25,6 +25,14 @@ if ! command -v claude >/dev/null 2>&1; then
   curl -fsSL https://claude.ai/install.sh | bash
 fi
 
+# Upstream ships prebuilt binaries. The Homebrew formula has no bottle for this
+# configuration and would build mise from source through rust and llvm, which
+# takes hours.
+export PATH="$HOME/.local/bin:$PATH"
+if ! command -v mise >/dev/null 2>&1; then
+  curl https://mise.run | sh
+fi
+
 echo "start: mise install"
 mise install
 echo "completed: mise install"

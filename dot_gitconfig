@@ -13,6 +13,32 @@
 [merge]
   conflictstyle = diff3
 
+[fetch]
+  prune = true
+
+[push]
+  autoSetupRemote = true
+
+[rebase]
+  autostash = true
+  autosquash = true
+
+[rerere]
+  enabled = true
+
+[diff]
+  algorithm = histogram
+  colorMoved = default
+
+[branch]
+  sort = -committerdate
+
+[column]
+  ui = auto
+
+[commit]
+  verbose = true
+
 [include]
   path = ~/.gitconfig_shared
 

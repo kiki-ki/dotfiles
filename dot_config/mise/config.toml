@@ -16,7 +16,6 @@ rust = "latest"
 "aqua:direnv/direnv" = "latest"
 "aqua:herdrdev/herdr" = "latest"
 "aqua:rossmacarthur/sheldon" = "latest"
-"aqua:sharkdp/fd" = "latest"
 "aqua:BurntSushi/ripgrep" = "latest"
 
 "github:max-sixty/worktrunk" = { version = "latest", exe = "wt" }

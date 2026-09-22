@@ -1,7 +1,5 @@
 cask_args appdir: "/Applications"
 
-tap "heroku/brew"
-
 brew "awscli"
 brew "bat"
 brew "eza"

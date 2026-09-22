@@ -1,0 +1,12 @@
+#!/bin/bash
+set -eu
+
+# Regenerate the template whenever the shared config changes.
+# config: {{ include "dot_config/pre-commit/config.yaml" | sha256sum }}
+
+# mise installs pre-commit in setup_00; skip quietly if it is not there yet.
+command -v pre-commit >/dev/null 2>&1 || exit 0
+
+pre-commit init-templatedir \
+  -c "$HOME/.config/pre-commit/config.yaml" \
+  "$HOME/.config/git/template"

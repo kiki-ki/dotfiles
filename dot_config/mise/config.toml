@@ -1,5 +1,6 @@
 [settings]
 disable_backends = ["asdf", "vfox"]
+lockfile = true
 
 [tools]
 node = "latest"

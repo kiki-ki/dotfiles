@@ -36,3 +36,21 @@
   - 本文中にハンドル名を書く必要がある場合はバッククォートで囲むか言い換える
 - `gh` で issue や PR に書き込むとき、`--body "$(cat <<'EOF' ... EOF)"` の本文では backtick / `$` / `\` をエスケープしない（シングルクォート heredoc は本文を完全リテラル扱いするため）
 - issue や PR の本文で他の issue や PR を参照するときは、`#123` のような短縮形ではなく完全な URL（`https://github.com/owner/repo/issues/123` 等）で記載すること
+
+## 原則
+
+以下の場面に来たら、該当する `~/.claude/skills/<name>/SKILL.md` を Read してから従うこと（Skill ツールでは呼べない）。
+
+| 名前 | 要約 | いつ適用するか |
+|---|---|---|
+| principle-laziness-protocol | 削除と最小の変更に寄せる | リファクタするとき、diff の大きさを評価するとき、抽象化・レイヤー・シグナルの引き回しを足したくなったとき |
+| principle-subtract-before-you-add | 先に消してから作る | 追加・リファクタ・書き直しの順番を決めるとき |
+| principle-prove-it-works | 代理指標ではなく本物で確かめる | 作業を終えて完了と言う前に |
+| principle-fix-root-causes | 症状ではなく根本原因で直す | デバッグするとき |
+| principle-sequence-verifiable-units | 検証できる小さな単位の列にする | 複数ステップの作業をするとき、コミットや PR の積み方を決めるとき |
+| principle-encode-lessons-in-structure | 繰り返す指示を仕組みにする | 同じ指示を二度書こうとしているとき、同じ訂正が繰り返されているとき |
+| principle-foundational-thinking | データ構造と足場を先に決める | ロジックを書く前、型やデータ構造を選ぶとき、足場と機能の順番を決めるとき |
+| principle-model-the-domain | ドメインを構造に埋め込む | 状態を持つロジックを書くとき、分岐や同じ形の前提が散らばっているとき |
+| principle-minimize-reader-load | 辿るレイヤーと保持する状態を減らす | 追いにくいコードをレビューしたり形を整えたりするとき |
+| principle-build-the-lever | 作業をする・証明する道具を作る | 自明でない作業（編集、移行、分析、チェック）をするとき |
+| principle-guard-the-context-window | 大量の出力はサブエージェントに回す | 大きな出力、長いファイル、同じものの再読、ファンアウトの計画のとき |

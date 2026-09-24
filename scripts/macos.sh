@@ -19,7 +19,8 @@ if ! command -v brew >/dev/null 2>&1; then
 fi
 
 brew update
-brew bundle --file=~/.config/Brewfile
+# Reruns on any dot_config change, where upgrades can mean hours of source builds
+brew bundle install --no-upgrade --file=~/.config/Brewfile
 
 if ! command -v claude >/dev/null 2>&1; then
   curl -fsSL https://claude.ai/install.sh | bash

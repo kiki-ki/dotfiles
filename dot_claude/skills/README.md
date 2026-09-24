@@ -42,4 +42,3 @@ pstack 由来のスキルは [NOTICE](NOTICE) と [LICENSE-pstack](LICENSE-pstac
 | スキル | 説明 |
 |---|---|
 | creating-github-issue | GitHub issue を起票する |
-| ponytail | 動く最も怠惰な解決策に寄せる（外部から vendor） |

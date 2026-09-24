@@ -1,9 +1,9 @@
 ---
-name: creating-github-issue
+name: work-create-github-issue
 description: GitHub issue を起票する。「issue 作って」「起票して」などで発動する。
 ---
 
-# creating-github-issue
+# work-create-github-issue
 
 issue の役割は、起票者の頭の中にしかない文脈を着手する人へ引き渡すこと。
 本文だけを読んで「着手でき、close の判断ができる」状態を目指す。
@@ -22,6 +22,7 @@ issue の役割は、起票者の頭の中にしかない文脈を着手する�
 ## ルール
 
 - タイトルは `scope: summary`（scope は対象のサービス・コンポーネント名）
+- タイトルと本文の言語は、起票先リポジトリの既存の issue に合わせる。英語なら下のテンプレートの見出しも英語にする
 
 ## 本文テンプレート
 

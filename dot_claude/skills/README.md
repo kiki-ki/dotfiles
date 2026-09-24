@@ -4,7 +4,7 @@ Claude Code のユーザースキル。chezmoi で `~/.claude/skills/` に反映
 
 スキルは「原則 → メタスキル → 作業スキル」の層で管理し、層は名前の prefix で表す。1 スキル 1 責務。必要になったものだけを足す。
 
-pstack 由来のスキルは [NOTICE](NOTICE) と [LICENSE-pstack](LICENSE-pstack) を参照。いずれも `disable-model-invocation: true` で、原則は `~/.claude/CLAUDE.md` の索引から読み、メタスキルと作業スキルは `/<name>` で呼ぶ。
+pstack 由来のスキルは [NOTICE](NOTICE) と [LICENSE-pstack](LICENSE-pstack) を参照。pstack 由来のスキルはいずれも `disable-model-invocation: true` で、原則は `~/.claude/CLAUDE.md` の索引から読み、メタスキルと作業スキルは `/<name>` で呼ぶ。
 
 ## principle-*: 原則
 
@@ -36,9 +36,5 @@ pstack 由来のスキルは [NOTICE](NOTICE) と [LICENSE-pstack](LICENSE-pstac
 |---|---|
 | work-blast-radius | 変更が diff の外で壊しうるものを探し、安全の根拠をコードを動かして証明する |
 | work-no-comments | コードをなぞるだけのコメントを、書いた本人とは別の目で判定して取り除く |
+| work-create-github-issue | 着手する人に文脈を引き渡す GitHub issue を起票する |
 
-## その他
-
-| スキル | 説明 |
-|---|---|
-| creating-github-issue | GitHub issue を起票する |

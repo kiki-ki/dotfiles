@@ -19,9 +19,7 @@ if ! command -v brew >/dev/null 2>&1; then
 fi
 
 brew update
-# This script reruns whenever anything under dot_config changes, so upgrading
-# here would tie every config tweak to package upgrades, some of which build
-# from source for hours. Upgrade explicitly with `brew upgrade` instead.
+# Reruns on any dot_config change, where upgrades can mean hours of source builds
 brew bundle install --no-upgrade --file=~/.config/Brewfile
 
 if ! command -v claude >/dev/null 2>&1; then

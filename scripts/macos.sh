@@ -19,7 +19,10 @@ if ! command -v brew >/dev/null 2>&1; then
 fi
 
 brew update
-brew bundle --file=~/.config/Brewfile
+# This script reruns whenever anything under dot_config changes, so upgrading
+# here would tie every config tweak to package upgrades, some of which build
+# from source for hours. Upgrade explicitly with `brew upgrade` instead.
+brew bundle install --no-upgrade --file=~/.config/Brewfile
 
 if ! command -v claude >/dev/null 2>&1; then
   curl -fsSL https://claude.ai/install.sh | bash

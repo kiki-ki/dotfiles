@@ -15,8 +15,6 @@ Claude Code のユーザースキル。chezmoi で `~/.claude/skills/` に反映
 | principle-fix-root-causes | 症状ではなく根本原因で直す |
 | principle-sequence-verifiable-units | 作業とコミットを、検証できる小さな単位の列にする |
 | principle-encode-lessons-in-structure | 繰り返す指示を lint・hook・スクリプトなどの仕組みにする |
-| principle-foundational-thinking | ロジックの前にデータ構造と足場を決め、ドメインを構造に埋め込む |
-| principle-minimize-reader-load | 読み手が辿るレイヤーと保持する状態を減らす |
 | principle-build-the-lever | 手作業の代わりに、作業をする・証明する道具を作る |
 | principle-guard-the-context-window | 大量の出力はサブエージェントに回し、繰り返し実行するものは費用を先に見積もる |
 
@@ -25,8 +23,6 @@ Claude Code のユーザースキル。chezmoi で `~/.claude/skills/` に反映
 | スキル | 説明 |
 |---|---|
 | meta-reflect | セッションから学びを抽出し、仕組み・スキル・CLAUDE.md への修正に振り分ける |
-| meta-create-verification | プロジェクト専用の検証スキル `.claude/skills/verify-<app>/` を生成する |
-| meta-maintain-verification | 検証スキルの地図を点検し、古くなった地図だけを直す |
 
 ## work-*: 作業スキル
 

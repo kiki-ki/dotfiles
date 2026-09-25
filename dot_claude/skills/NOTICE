@@ -5,16 +5,14 @@ pstack is distributed under the MIT License; see LICENSE-pstack.
 
 These skills are translated into Japanese and modified: Cursor-specific paths,
 models, agents, and dependencies on other pstack skills were removed or
-replaced, and some skills were renamed.
+replaced, and some skills were renamed or merged.
 
-  principle-laziness-protocol         <- principle-laziness-protocol
-  principle-subtract-before-you-add   <- principle-subtract-before-you-add
+  principle-laziness-protocol         <- principle-laziness-protocol + principle-subtract-before-you-add
   principle-prove-it-works            <- principle-prove-it-works
   principle-fix-root-causes           <- principle-fix-root-causes
   principle-sequence-verifiable-units <- principle-sequence-verifiable-units
   principle-encode-lessons-in-structure <- principle-encode-lessons-in-structure
-  principle-foundational-thinking     <- principle-foundational-thinking
-  principle-model-the-domain          <- principle-model-the-domain
+  principle-foundational-thinking     <- principle-foundational-thinking + principle-model-the-domain
   principle-minimize-reader-load      <- principle-minimize-reader-load
   principle-build-the-lever           <- principle-build-the-lever
   principle-guard-the-context-window  <- principle-guard-the-context-window

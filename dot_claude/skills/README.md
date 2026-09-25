@@ -10,14 +10,12 @@ pstack 由来のスキルは [NOTICE](NOTICE) と [LICENSE-pstack](LICENSE-pstac
 
 | スキル | 説明 |
 |---|---|
-| principle-laziness-protocol | 削除と、問題を解く最小の変更に寄せる |
-| principle-subtract-before-you-add | 先に消し、単純になった土台の上に作る |
-| principle-prove-it-works | 完了と言う前に、代理指標ではなく本物で確かめる |
+| principle-laziness-protocol | 先に消し、問題を解く最小の変更に寄せる |
+| principle-prove-it-works | 完了と言う前に、代理指標ではなく本物で確かめ、結果を示す |
 | principle-fix-root-causes | 症状ではなく根本原因で直す |
 | principle-sequence-verifiable-units | 作業とコミットを、検証できる小さな単位の列にする |
 | principle-encode-lessons-in-structure | 繰り返す指示を lint・hook・スクリプトなどの仕組みにする |
-| principle-foundational-thinking | ロジックの前にデータ構造と足場を決める |
-| principle-model-the-domain | ドメインを条件分岐ではなく構造に埋め込む |
+| principle-foundational-thinking | ロジックの前にデータ構造と足場を決め、ドメインを構造に埋め込む |
 | principle-minimize-reader-load | 読み手が辿るレイヤーと保持する状態を減らす |
 | principle-build-the-lever | 手作業の代わりに、作業をする・証明する道具を作る |
 | principle-guard-the-context-window | 大量の出力はサブエージェントに回し、要約だけを持つ |

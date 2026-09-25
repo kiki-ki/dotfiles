@@ -21,4 +21,4 @@ disable-model-invocation: true
 
 **バランス:** 基準は繰り返しではなく自明さだ。一度きりの作業でも、道具があることで作業を確かめられるようになるなら道具を作る価値がある。[principle-laziness-protocol](../principle-laziness-protocol/SKILL.md) に従い、仕事をする・証明する最小のスクリプトを作る。フレームワークは作らない。
 
-繰り返す指示を永続的なガードレールに変える [principle-encode-lessons-in-structure](../principle-encode-lessons-in-structure/SKILL.md) とは別物で、こちらは目の前の作業のスループットとレビューのしやすさの話だ。検証そのもののスクリプト化は [principle-prove-it-works](../principle-prove-it-works/SKILL.md) を参照。
+繰り返す指示を永続的なガードレールに変える [principle-encode-lessons-in-structure](../principle-encode-lessons-in-structure/SKILL.md) とは別物で、こちらは目の前の作業のスループットとレビューのしやすさの話だ。

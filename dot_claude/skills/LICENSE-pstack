@@ -1,11 +1,6 @@
-This directory vendors the "ponytail" skill from:
-  https://github.com/dietrichgebert/ponytail
-  skills/ponytail/SKILL.md @ b6c04480c03e8db2f035751d7c46289779ec3362
-SKILL.md is an unmodified copy, distributed under the MIT License below.
-
 MIT License
 
-Copyright (c) 2026 DietrichGebert
+Copyright (c) 2026 Lauren Tan
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

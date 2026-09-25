@@ -1,6 +1,6 @@
 ---
 name: work-japanese-technical-writing
-description: "日本語でドキュメント・README・設計メモ・ADR・PR 本文・issue・コミットメッセージを書くとき、またはそれらを見直す・直すよう頼まれたときに使う。読み手と文書の種類を決め、結論を先に書き、日本語の文の規則と AI っぽい表現の一覧で見直す。会話の返答には使わない。"
+description: "日本語でドキュメント・README・設計メモ・ADR・PR 本文・issue を書くとき、またはそれらを見直す・直すよう頼まれたときに使う。読み手と文書の種類を決め、結論を先に書き、日本語の文の規則と AI っぽい表現の一覧で見直す。会話の返答には使わない。"
 ---
 
 # work-japanese-technical-writing

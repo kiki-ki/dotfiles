@@ -8,8 +8,6 @@ Claude Code のユーザースキル。chezmoi で `~/.claude/skills/` に反映
 - `meta-`: スキルや CLAUDE.md、hook などの設定を直す
 - `work-`: 特定の作業の手順
 
-どのスキルも description の「いつ使うか」で発火し、`/<name>` で明示的に呼ぶこともできる。description には、発火させたい場面を先頭に書く。
-
 | スキル | 説明 |
 |---|---|
 | principle-laziness-protocol | 先に消し、問題を解く最小の変更に寄せる |

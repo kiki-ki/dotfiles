@@ -5,3 +5,4 @@ CLAUDE.md
 .github/
 .gitignore
 scripts/
+.claude/skills/synced

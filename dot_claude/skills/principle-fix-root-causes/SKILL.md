@@ -1,7 +1,6 @@
 ---
 name: principle-fix-root-causes
 description: "デバッグするときに適用する。各症状を根本原因まで辿ってそこで直す。まず再現し、根本に届くまで「なぜ」を繰り返し、クラッシュを黙らせる nil チェックのようなガードを足さない。"
-disable-model-invocation: true
 ---
 
 # Fix Root Causes

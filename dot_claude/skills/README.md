@@ -4,7 +4,9 @@ Claude Code のユーザースキル。chezmoi で `~/.claude/skills/` に反映
 
 スキルは「原則 → メタスキル → 作業スキル」の層で管理し、層は名前の prefix で表す。1 スキル 1 責務。必要になったものだけを足す。
 
-pstack 由来のスキルは [NOTICE](NOTICE) と [LICENSE-pstack](LICENSE-pstack) を参照。pstack 由来のスキルはいずれも `disable-model-invocation: true` で、原則は `~/.claude/CLAUDE.md` の索引から読み、メタスキルと作業スキルは `/<name>` で呼ぶ。
+pstack 由来のスキルは [NOTICE](NOTICE) と [LICENSE-pstack](LICENSE-pstack) を参照。
+
+どのスキルも description の「いつ使うか」で発火する。`/<name>` で明示的に呼ぶこともできる。description を書くときは、発火させたい場面を先頭に置く。
 
 ## principle-*: 原則
 

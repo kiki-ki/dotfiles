@@ -1,7 +1,6 @@
 ---
 name: principle-build-the-lever
 description: "一括作業に限らず、自明でない作業（編集、移行、分析、チェック）すべてに適用する。手作業の代わりに、それを行う・証明する道具（codemod、スクリプト、ジェネレータ、サブエージェントが従うスキル）を作る。道具はレビュアーが再実行できる成果物になる。"
-disable-model-invocation: true
 ---
 
 # Build the Lever

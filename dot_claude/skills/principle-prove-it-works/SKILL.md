@@ -1,7 +1,6 @@
 ---
 name: principle-prove-it-works
 description: "作業を終えて完了と言う前に適用する。代理指標や自己申告や「コンパイルが通った」ではなく、本物（機能を実際に動かす、実際の値を読む、diff を見る）で確かめ、その結果を示す。"
-disable-model-invocation: true
 ---
 
 # Prove It Works

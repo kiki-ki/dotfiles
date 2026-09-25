@@ -1,7 +1,6 @@
 ---
 name: principle-guard-the-context-window
 description: "コンテキストが埋まりつつあるとき、つまり大きな出力、長いファイル、同じものの再読、ファンアウトの計画のときに適用する。大量のものはサブエージェントに回し、メインのスレッドには生のデータではなく要約を置く。"
-disable-model-invocation: true
 ---
 
 # Guard the Context Window

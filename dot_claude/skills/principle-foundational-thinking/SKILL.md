@@ -1,7 +1,6 @@
 ---
 name: principle-foundational-thinking
 description: "ロジックを書く前（中心となる型やデータ構造を選ぶ、足場と機能の順番を決める、並行するアクターが何を共有するかを考える）と、状態を持つロジックを書くとき、分岐や同じ形の前提がファイルをまたいで散らばっているときに適用する。データ構造を正しくし、ドメインを条件分岐ではなく構造に埋め込む。"
-disable-model-invocation: true
 ---
 
 # Foundational Thinking

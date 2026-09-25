@@ -1,7 +1,6 @@
 ---
 name: principle-sequence-verifiable-units
 description: "複数ステップの作業（一斉置換、移行、似た編集の連続）と、コミットや PR の積み方を決めるときに適用する。作業をそれぞれ検証可能な状態で終わる小さな単位に分け、次へ進む前に確かめ、レビュアーに対して順序そのものが証明になるように届ける。"
-disable-model-invocation: true
 ---
 
 # Sequence Verifiable Units

@@ -24,7 +24,7 @@ pstack 由来のスキルは [NOTICE](NOTICE) と [LICENSE-pstack](LICENSE-pstac
 
 | スキル | 説明 |
 |---|---|
-| meta-reflect | セッションから学びを抽出し、スキルの修正か仕組みでの担保に振り分ける |
+| meta-reflect | セッションから学びを抽出し、仕組み・スキル・CLAUDE.md への修正に振り分ける |
 | meta-create-verification | プロジェクト専用の検証スキル `.claude/skills/verify-<app>/` を生成する |
 | meta-maintain-verification | 検証スキルの地図を点検し、古くなった地図だけを直す |
 

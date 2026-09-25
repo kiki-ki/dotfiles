@@ -19,7 +19,7 @@ Claude Code のユーザースキル。chezmoi で `~/.claude/skills/` に反映
 | principle-guard-the-context-window | 大量の出力はサブエージェントに回し、繰り返し実行するものは費用を先に見積もる |
 | meta-reflect | セッションから学びを見つけ、仕組み・スキル・CLAUDE.md への修正に振り分ける |
 | work-no-comments | コードをなぞるだけのコメントを、書いた本人とは別の目で判定して取り除く |
-| work-technical-writing | 文書を、読み手と文書の種類を決めて書き、読み手に必要十分かと AI っぽい表現の一覧で見直す |
+| work-technical-writing | 読み手が一度読めば判断や作業に移れる文書を、過不足のない量で書く |
 | work-create-github-issue | 着手する人に文脈を引き渡す GitHub issue を起票する |
 
 ## 出典

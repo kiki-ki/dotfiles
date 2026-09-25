@@ -25,4 +25,4 @@ Claude Code のユーザースキル。chezmoi で `~/.claude/skills/` に反映
 ## 出典
 
 - principle-*、meta-reflect、work-no-comments は [pstack](https://github.com/cursor/plugins/tree/main/pstack)（Lauren Tan、MIT、コミット `12d587df`）を翻訳・改変したもの。ライセンス全文は [LICENSE-pstack](LICENSE-pstack)。
-- work-technical-writing は、pstack の technical-writing・unslop と、公開されている日本語の文章スキル（fujita-pineal/claude-skills、usadamasa/japanese-writer、gonta223/humanizer-ja、coji/natural-japanese）、blader/humanizer、Google developer documentation style guide の考え方を参考に書き起こしたもの。
+- work-technical-writing は、pstack の technical-writing・unslop と、公開されている日本語の文章スキル（fujita-pineal/claude-skills、usadamasa/japanese-writer、gonta223/humanizer-ja、coji/natural-japanese）の考え方を参考に書き起こしたもの。

@@ -22,3 +22,4 @@ rust = "latest"
 "aqua:BurntSushi/ripgrep" = "latest"
 
 "github:max-sixty/worktrunk" = { version = "latest", exe = "wt" }
+"github:seachicken/gh-poi" = { version = "latest", bin = "gh-poi" }

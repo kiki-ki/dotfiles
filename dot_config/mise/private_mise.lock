@@ -210,6 +210,26 @@ checksum = "sha256:10731a850214dc4114d37a788e075a9c97123dc88841537c617c7118965c5
 url = "https://github.com/max-sixty/worktrunk/releases/download/v0.28.1/worktrunk-aarch64-apple-darwin.tar.xz"
 url_api = "https://api.github.com/repos/max-sixty/worktrunk/releases/assets/364023401"
 
+[[tools."github:seachicken/gh-poi"]]
+version = "0.18.4"
+backend = "github:seachicken/gh-poi"
+specifiers = ["latest"]
+
+[tools."github:seachicken/gh-poi"."platforms.linux-arm64"]
+checksum = "sha256:7d5984c23394ac4ec8553ea47e6eae4a863b7bf1a76e4bb20808aad5ee4856bc"
+url = "https://github.com/seachicken/gh-poi/releases/download/v0.18.4/linux-arm64"
+url_api = "https://api.github.com/repos/seachicken/gh-poi/releases/assets/536208774"
+
+[tools."github:seachicken/gh-poi"."platforms.linux-x64"]
+checksum = "sha256:63bc1afe9feff0383ead063e709be7e8d7e1dab8cc620a0d0cf856ef8ab222ba"
+url = "https://github.com/seachicken/gh-poi/releases/download/v0.18.4/linux-amd64"
+url_api = "https://api.github.com/repos/seachicken/gh-poi/releases/assets/536208769"
+
+[tools."github:seachicken/gh-poi"."platforms.macos-arm64"]
+checksum = "sha256:0e66db364daf243825f61c3a5b53c948b897bbfc78a70196397ddd58025118f7"
+url = "https://github.com/seachicken/gh-poi/releases/download/v0.18.4/darwin-arm64"
+url_api = "https://api.github.com/repos/seachicken/gh-poi/releases/assets/536208782"
+
 [[tools.node]]
 version = "22.14.0"
 backend = "core:node"

@@ -18,7 +18,7 @@ Claude Code のユーザースキル。chezmoi で `~/.claude/skills/` に反映
 | principle-foundational-thinking | ロジックの前にデータ構造と足場を決め、ドメインを構造に埋め込む |
 | principle-minimize-reader-load | 読み手が辿るレイヤーと保持する状態を減らす |
 | principle-build-the-lever | 手作業の代わりに、作業をする・証明する道具を作る |
-| principle-guard-the-context-window | 大量の出力はサブエージェントに回し、要約だけを持つ |
+| principle-guard-the-context-window | 大量の出力はサブエージェントに回し、繰り返し実行するものは費用を先に見積もる |
 
 ## meta-*: メタスキル（スキルを作る・直す）
 

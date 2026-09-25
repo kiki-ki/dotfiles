@@ -19,7 +19,6 @@ replaced, and some skills were renamed or merged.
   meta-reflect                        <- reflect
   meta-create-verification            <- create-verification-skill
   meta-maintain-verification          <- maintain-verification-skill
-  work-blast-radius                   <- blast-radius
   work-no-comments                    <- no-comments (incorporating the rules of the Comment Sicko agent)
 
 principle-laziness-protocol also incorporates ideas from the ponytail skill by

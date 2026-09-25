@@ -32,7 +32,6 @@ pstack 由来のスキルは [NOTICE](NOTICE) と [LICENSE-pstack](LICENSE-pstac
 
 | スキル | 説明 |
 |---|---|
-| work-blast-radius | 変更が diff の外で壊しうるものを探し、安全の根拠をコードを動かして証明する |
 | work-no-comments | コードをなぞるだけのコメントを、書いた本人とは別の目で判定して取り除く |
 | work-create-github-issue | 着手する人に文脈を引き渡す GitHub issue を起票する |
 

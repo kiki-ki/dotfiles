@@ -28,13 +28,9 @@ description: "ドキュメント・README・設計メモ・ADR・PR 本文・iss
 
 書き終えたら、次の順に点検して直す。
 
-1. 日本語の文書は textlint で機械的に点検する。プロジェクトに設定（`.textlintrc*`）があればそれを使う。なければ次を実行し、設定やパッケージをリポジトリに足さない。PR 本文のようにファイルでない文章は、一時ファイルに書いてから点検する。指摘は候補として扱い、直して読みやすくなるものだけ直す。
-   ```sh
-   npx -y -p textlint -p textlint-rule-preset-ja-technical-writing textlint --preset ja-technical-writing <file>
-   ```
-2. [references/ai-tells.md](references/ai-tells.md) を上から当てる。
-3. 日本語なら [references/japanese-sentences.md](references/japanese-sentences.md) を当てる。
-4. 見出しと各段落の最初の文だけを上から読み、1 で決めた判断・実行に届くかを確かめる。足りなければ足し、消しても読み手が困らない文は消す。
+1. [references/ai-tells.md](references/ai-tells.md) を上から当てる。
+2. 日本語なら [references/japanese-sentences.md](references/japanese-sentences.md) を当てる。
+3. 見出しと各段落の最初の文だけを上から読み、1 で決めた判断・実行に届くかを確かめる。足りなければ足し、消しても読み手が困らない文は消す。
 
 規則に従うとかえって読みにくくなる文は、別の方法で直すか、そのままにする。規則は読み手のためにある。
 

@@ -17,7 +17,7 @@ require("lazy").setup({
     lazy = false,
     version = false,
   },
-  install = { colorscheme = { "github_dark", "habamax" } },
+  install = { colorscheme = { "github_dark_default", "habamax" } },
   checker = { enabled = true, notify = false },
   performance = {
     rtp = {

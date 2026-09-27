@@ -20,6 +20,8 @@ rust = "latest"
 "aqua:herdrdev/herdr" = "latest"
 "aqua:rossmacarthur/sheldon" = "latest"
 "aqua:BurntSushi/ripgrep" = "latest"
+"aqua:neovim/neovim" = "latest"
+"aqua:dandavison/delta" = "latest"
 
 "github:max-sixty/worktrunk" = { version = "latest", exe = "wt" }
 "github:seachicken/gh-poi" = { version = "latest", bin = "gh-poi" }

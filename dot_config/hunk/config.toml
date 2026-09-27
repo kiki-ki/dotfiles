@@ -1,0 +1,5 @@
+theme = "github-dark-default"
+transparent_background = true
+
+[vcs]
+watch = true

@@ -8,24 +8,34 @@ local function copy(text, title)
   vim.notify(text, vim.log.levels.INFO, { title = title })
 end
 
+local function copy_path(mods, title)
+  local path = vim.fn.expand("%" .. mods)
+  if path == "" then
+    return vim.notify("No file in this buffer", vim.log.levels.WARN)
+  end
+  copy(path, title)
+end
+
+-- Snacks.gitbrowse builds a broken URL instead of failing for a file git does not track
+local function is_tracked(file)
+  return file ~= ""
+    and vim.system({ "git", "-C", vim.fs.dirname(file), "ls-files", "--error-unmatch", file }):wait().code == 0
+end
+
 vim.keymap.set("n", "<leader>fy", function()
-  copy(vim.fn.expand("%:."), "Copied relative path")
+  copy_path(":.", "Copied relative path")
 end, { desc = "Copy Relative Path" })
 
 vim.keymap.set("n", "<leader>fY", function()
-  copy(vim.fn.expand("%:p"), "Copied absolute path")
+  copy_path(":p", "Copied absolute path")
 end, { desc = "Copy Absolute Path" })
 
 vim.keymap.set({ "n", "x" }, "<leader>gy", function()
-  local s, e = vim.fn.line("v"), vim.fn.line(".")
-  -- Leave visual mode first so Snacks.gitbrowse does not send ":" to read the marks, which flashes the noice cmdline
-  if vim.fn.mode():find("[vV]") then
-    vim.api.nvim_feedkeys(vim.keycode("<Esc>"), "nx", false)
+  if not is_tracked(vim.fn.expand("%:p")) then
+    return vim.notify("Not a file tracked by git", vim.log.levels.WARN)
   end
   Snacks.gitbrowse({
     what = "permalink",
-    line_start = math.min(s, e),
-    line_end = math.max(s, e),
     open = function(url)
       copy(url, "Copied permalink")
     end,

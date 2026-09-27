@@ -1,0 +1,10 @@
+#!/bin/sh
+# snacks.image only calls mmdc, whose mermaid-cli needs Chromium: render with mmdr and drop the options it lacks
+while [ $# -gt 0 ]; do
+  case $1 in
+    -i) in=$2; shift ;;
+    -o) out=$2; shift ;;
+  esac
+  shift
+done
+exec mmdr -i "$in" -o "$out" -e png

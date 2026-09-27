@@ -1,0 +1,4 @@
+{{- /* hunk generates this skill from its CLI; link the installed copy so it follows upgrades. Empty (no link) until mise installs hunk */ -}}
+{{- if lookPath "hunk" -}}
+{{ output "hunk" "skill" "path" | trim | dir }}
+{{- end -}}

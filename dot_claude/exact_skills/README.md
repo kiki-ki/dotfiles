@@ -26,4 +26,4 @@ Claude Code のユーザースキル。chezmoi で `~/.claude/skills/` に反映
 ## 出典
 
 - principle-*、meta-reflect、work-no-comments、work-technical-writing は [pstack](https://github.com/cursor/plugins/tree/main/pstack)（Lauren Tan、MIT、コミット `12d587df`）を翻訳・改変したもの。ライセンス全文は [LICENSE-pstack](LICENSE-pstack)。
-- work-hunk-review は [hunk](https://github.com/modem-dev/hunk)（Modem Labs、MIT、v0.22.0 に同梱の `skills/hunk-review`）を、名前だけ変えてそのまま使っている。ライセンス全文は [LICENSE-hunk](LICENSE-hunk)。
+- work-hunk-review は、[hunk](https://github.com/modem-dev/hunk) がインストールと一緒に入れる `hunk-review` スキルへのシンボリックリンク（`hunk skill path` から張る）。hunk の CLI から生成されるので、写さずにリンクして hunk の更新に追従させる。hunk を更新したら `chezmoi apply ~/.claude/skills` でリンクを張り直す。

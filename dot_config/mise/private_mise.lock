@@ -245,6 +245,26 @@ checksum = "sha256:d3a0da21374962625a2ee992110979bc1fa33424d7b6aea58a70405e26544
 url = "https://github.com/starship/starship/releases/download/v1.24.2/starship-aarch64-apple-darwin.tar.gz"
 url_api = "https://api.github.com/repos/starship/starship/releases/assets/334568411"
 
+[[tools."github:kiki-ki/go-qo"]]
+version = "0.5.0"
+backend = "github:kiki-ki/go-qo"
+specifiers = ["latest"]
+
+[tools."github:kiki-ki/go-qo"."platforms.linux-arm64"]
+checksum = "sha256:a37acd04290c9bb9836b9bc20af3aee8b41fb17901a8b10a922236ea6e3aa2b0"
+url = "https://github.com/kiki-ki/go-qo/releases/download/v0.5.0/qo_0.5.0_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/kiki-ki/go-qo/releases/assets/581719206"
+
+[tools."github:kiki-ki/go-qo"."platforms.linux-x64"]
+checksum = "sha256:164cbe6c35c3c7ceae7f51584aafdf9b4b1f886dfa52b853e343f6dac9f872f9"
+url = "https://github.com/kiki-ki/go-qo/releases/download/v0.5.0/qo_0.5.0_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/kiki-ki/go-qo/releases/assets/581719205"
+
+[tools."github:kiki-ki/go-qo"."platforms.macos-arm64"]
+checksum = "sha256:27c8f2538ee40125d99d8e347ad789d5920cc32c493f1b2e1d62c28b946de0b5"
+url = "https://github.com/kiki-ki/go-qo/releases/download/v0.5.0/qo_0.5.0_darwin_arm64.tar.gz"
+url_api = "https://api.github.com/repos/kiki-ki/go-qo/releases/assets/581719208"
+
 [[tools."github:max-sixty/worktrunk"]]
 version = "0.28.1"
 backend = "github:max-sixty/worktrunk"

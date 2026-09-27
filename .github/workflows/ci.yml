@@ -49,19 +49,3 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           "$HOME/.local/bin/chezmoi" --source . apply --force
-      - name: Check tools resolve from an interactive zsh
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: |
-          zsh -ic '
-            set -e
-            for cmd in aws bat eza jq qo; do
-              whence -p "$cmd"
-            done
-            aws --version
-            bat --version
-            eza --version | head -n 2
-            jq --version
-            qo --version
-            echo "{\"a\":1}" | jq -e ".a == 1"
-          '

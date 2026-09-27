@@ -5,7 +5,8 @@ return {
     vim.env.PATH = vim.fn.stdpath("config") .. "/bin:" .. vim.env.PATH
   end,
   opts = {
-    image = { enabled = true },
+    -- Not attached to documents by default: the Markdown preview attaches itself so the edited buffer stays plain
+    image = { enabled = true, doc = { enabled = false } },
     picker = { sources = { files = { hidden = true }, grep = { hidden = true }, explorer = { hidden = true } } },
   },
 }

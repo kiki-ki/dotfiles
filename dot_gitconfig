@@ -3,7 +3,7 @@
   name = kiki-ki
 
 [core]
-  editor = vi
+  editor = nvim
   ignorecase = false
   pager = less
   hooksPath = ~/.config/git/hooks

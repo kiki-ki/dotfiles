@@ -1,0 +1,6 @@
+transparent_background = true
+sidebar = true
+agent_notes = true
+
+[vcs]
+watch = true

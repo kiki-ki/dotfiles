@@ -6,3 +6,4 @@ CLAUDE.md
 .gitignore
 scripts/
 .claude/skills/synced
+.config/nvim/lazy-lock.json

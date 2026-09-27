@@ -1,8 +1,11 @@
 #!/bin/bash
 set -eu
 
+{{/* nvim config and lazy-lock.json change often and need neither brew nor mise */ -}}
 {{ range glob (joinPath .chezmoi.sourceDir "dot_config/**/*.*") -}}
+{{ if not (hasPrefix (joinPath $.chezmoi.sourceDir "dot_config/nvim/") .) -}}
 # hash: {{ trimPrefix (printf "%s/" $.chezmoi.sourceDir) . | include | sha256sum }}
+{{ end -}}
 {{ end -}}
 {{ if eq .chezmoi.os "darwin" -}}
 {{ include "scripts/macos.sh" }}

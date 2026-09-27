@@ -145,6 +145,46 @@ checksum = "sha256:75f4905c2e3d00666d81dffdd001bb2a9a8e0ad4e4ac8cecfc17a7401b99e
 url = "https://github.com/junegunn/fzf/releases/download/v0.70.0/fzf-0.70.0-darwin_arm64.tar.gz"
 url_api = "https://api.github.com/repos/junegunn/fzf/releases/assets/365142661"
 
+[[tools."aqua:modem-dev/hunk"]]
+version = "0.22.0"
+backend = "aqua:modem-dev/hunk"
+specifiers = ["latest"]
+
+[tools."aqua:modem-dev/hunk"."platforms.linux-arm64"]
+checksum = "sha256:da9f156427bce9a08609de66b310ba58f111ea31d6638ca7cdb08cf4a69d9e16"
+url = "https://github.com/modem-dev/hunk/releases/download/v0.22.0/hunkdiff-linux-arm64.tar.gz"
+url_api = "https://api.github.com/repos/modem-dev/hunk/releases/assets/554957249"
+
+[tools."aqua:modem-dev/hunk"."platforms.linux-x64"]
+checksum = "sha256:5f280374f2ab0fc4c48266a9909ee1b0e0c59d77dd99a340f1c26f2125d2229b"
+url = "https://github.com/modem-dev/hunk/releases/download/v0.22.0/hunkdiff-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/modem-dev/hunk/releases/assets/554957247"
+
+[tools."aqua:modem-dev/hunk"."platforms.macos-arm64"]
+checksum = "sha256:0f562fdd6ab346c7d91c4755e3d9409fce1d2f72da81efd52bdb7e4431c4b05e"
+url = "https://github.com/modem-dev/hunk/releases/download/v0.22.0/hunkdiff-darwin-arm64.tar.gz"
+url_api = "https://api.github.com/repos/modem-dev/hunk/releases/assets/554957248"
+
+[[tools."aqua:neovim/neovim"]]
+version = "0.12.5"
+backend = "aqua:neovim/neovim"
+specifiers = ["latest"]
+
+[tools."aqua:neovim/neovim"."platforms.linux-arm64"]
+checksum = "sha256:1aa5ca085249580ae0f91eb14f27ec0919773ff2d99a163d03f3d6c21ac29725"
+url = "https://github.com/neovim/neovim/releases/download/v0.12.5/nvim-linux-arm64.tar.gz"
+url_api = "https://api.github.com/repos/neovim/neovim/releases/assets/526503739"
+
+[tools."aqua:neovim/neovim"."platforms.linux-x64"]
+checksum = "sha256:bce0f56eda1f1b1db6eee8f4133d7a38813ea07933837dd1777411ca384c6875"
+url = "https://github.com/neovim/neovim/releases/download/v0.12.5/nvim-linux-x86_64.tar.gz"
+url_api = "https://api.github.com/repos/neovim/neovim/releases/assets/526503737"
+
+[tools."aqua:neovim/neovim"."platforms.macos-arm64"]
+checksum = "sha256:65fb000099e47ca1b762584c484cc833f40e30851a0ec450d4174e16317c1f9b"
+url = "https://github.com/neovim/neovim/releases/download/v0.12.5/nvim-macos-arm64.tar.gz"
+url_api = "https://api.github.com/repos/neovim/neovim/releases/assets/526503741"
+
 [[tools."aqua:rossmacarthur/sheldon"]]
 version = "0.8.5"
 backend = "aqua:rossmacarthur/sheldon"
@@ -164,6 +204,26 @@ url_api = "https://api.github.com/repos/rossmacarthur/sheldon/releases/assets/27
 checksum = "sha256:6e47f10a25f165b095eb2bde1ab617d4d34ad6f3ff2ca984167ca94fadd52730"
 url = "https://github.com/rossmacarthur/sheldon/releases/download/0.8.5/sheldon-0.8.5-aarch64-apple-darwin.tar.gz"
 url_api = "https://api.github.com/repos/rossmacarthur/sheldon/releases/assets/275183435"
+
+[[tools."aqua:sharkdp/fd"]]
+version = "10.5.0"
+backend = "aqua:sharkdp/fd"
+specifiers = ["latest"]
+
+[tools."aqua:sharkdp/fd"."platforms.linux-arm64"]
+checksum = "sha256:c0ee43802e3313a317c5af2f4eabd6ba13eeedd595af9775f05e18a13ac4f52c"
+url = "https://github.com/sharkdp/fd/releases/download/v10.5.0/fd-v10.5.0-aarch64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/sharkdp/fd/releases/assets/530482307"
+
+[tools."aqua:sharkdp/fd"."platforms.linux-x64"]
+checksum = "sha256:a1259cd129636efbc3fef123525c1b49e88fe5088c012630983c310e52fdfa95"
+url = "https://github.com/sharkdp/fd/releases/download/v10.5.0/fd-v10.5.0-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/sharkdp/fd/releases/assets/530481615"
+
+[tools."aqua:sharkdp/fd"."platforms.macos-arm64"]
+checksum = "sha256:b67e1836c468e42e411984b56e52fa7abec08c2bd22c867398e7cc134aac5e12"
+url = "https://github.com/sharkdp/fd/releases/download/v10.5.0/fd-v10.5.0-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/sharkdp/fd/releases/assets/530481346"
 
 [[tools."aqua:starship/starship"]]
 version = "1.24.2"

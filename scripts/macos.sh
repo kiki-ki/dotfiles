@@ -4,7 +4,7 @@
 echo "🚀 start: setup for macOS..."
 
 if [ "$SHELL" != "$(command -v zsh)" ]; then
-  chsh -s "$(command -v zsh)"
+  sudo chsh -s "$(command -v zsh)" "$(whoami)"
 fi
 
 ### Homebrew ###

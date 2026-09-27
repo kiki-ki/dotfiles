@@ -28,3 +28,4 @@ jobs:
       - name: Check the source state renders and applies
         run: |
           "$HOME/.local/bin/chezmoi" --source . --destination "$(mktemp -d)" apply --dry-run
+

@@ -245,11 +245,6 @@ checksum = "sha256:d3a0da21374962625a2ee992110979bc1fa33424d7b6aea58a70405e26544
 url = "https://github.com/starship/starship/releases/download/v1.24.2/starship-aarch64-apple-darwin.tar.gz"
 url_api = "https://api.github.com/repos/starship/starship/releases/assets/334568411"
 
-[[tools."cargo:cctx"]]
-version = "0.1.6"
-backend = "cargo:cctx"
-specifiers = ["latest"]
-
 [[tools."github:max-sixty/worktrunk"]]
 version = "0.28.1"
 backend = "github:max-sixty/worktrunk"
@@ -346,8 +341,3 @@ provenance = "github-attestations"
 checksum = "sha256:e0d4e5066aef3248c22e08a07546bfd5edeaca904c91fadc296be720998ec2ec"
 url = "https://github.com/astral-sh/python-build-standalone/releases/download/20260804/cpython-3.14.6+20260804-aarch64-apple-darwin-install_only_stripped.tar.gz"
 provenance = "github-attestations"
-
-[[tools.rust]]
-version = "stable"
-backend = "core:rust"
-specifiers = ["latest"]

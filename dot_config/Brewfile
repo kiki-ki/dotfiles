@@ -1,12 +1,9 @@
 cask_args appdir: "/Applications"
 
-brew "awscli"
-brew "bat"
 brew "eza"
 brew "go"
 brew "googleworkspace-cli"
 brew "grep"
-brew "jq"
 brew "kubernetes-cli"
 brew "less"
 brew "shellcheck"

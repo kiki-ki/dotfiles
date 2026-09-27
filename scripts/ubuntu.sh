@@ -16,14 +16,12 @@ else
 
   sudo apt-get update
   sudo apt-get install -y \
-    bat \
     build-essential \
     curl \
     file \
     git \
     gpg \
     grep \
-    jq \
     less \
     lsof \
     procps \
@@ -42,24 +40,11 @@ else
   export PATH="$HOME/.local/share/mise/shims:$PATH"
   mise install
 
-  # bat
-  if command -v batcat >/dev/null 2>&1 && ! command -v bat >/dev/null 2>&1; then
-    ln -s "$(command -v batcat)" "$LOCAL_BIN/bat"
-  fi
-
   # shell
   if command -v zsh >/dev/null 2>&1; then
     if [ "$SHELL" != "$(command -v zsh)" ]; then
        sudo chsh -s "$(command -v zsh)" "$(whoami)"
     fi
-  fi
-
-  # awscli
-  if ! command -v aws >/dev/null 2>&1; then
-    curl "https://awscli.amazonaws.com/awscli-exe-linux-$ARCH.zip" -o "awscliv2.zip"
-    unzip -q awscliv2.zip
-    ./aws/install --update --bin-dir "$LOCAL_BIN" --install-dir "$HOME/.local/aws-cli"
-    rm -rf awscliv2.zip aws
   fi
 
   # eza

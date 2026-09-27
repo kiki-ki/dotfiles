@@ -8,13 +8,15 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold" }, {
   end,
 })
 
+local function highlight_ideographic_space()
+  local warn = vim.api.nvim_get_hl(0, { name = "WarningMsg", link = false }).fg
+  vim.api.nvim_set_hl(0, "IdeographicSpace", { bg = warn })
+end
 vim.api.nvim_create_autocmd("ColorScheme", {
   group = vim.api.nvim_create_augroup("ideographic_space", { clear = true }),
-  callback = function()
-    vim.api.nvim_set_hl(0, "IdeographicSpace", { bg = "#073642" })
-  end,
+  callback = highlight_ideographic_space,
 })
-vim.api.nvim_set_hl(0, "IdeographicSpace", { bg = "#073642" })
+highlight_ideographic_space()
 local function match_ideographic_space()
   if not vim.w.ideographic_space_match then
     vim.w.ideographic_space_match = vim.fn.matchadd("IdeographicSpace", "[\\u3000\\u00A0\\u2000-\\u200B\\uFEFF]")

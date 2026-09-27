@@ -13,17 +13,8 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "plugins" },
   },
-  defaults = {
-    lazy = false,
-    version = false,
-  },
   -- Write the lock straight into the chezmoi source so :Lazy update shows up as a repo diff
   lockfile = "{{ joinPath .chezmoi.sourceDir "dot_config/nvim/lazy-lock.json" }}",
   install = { colorscheme = { "github_dark_default", "habamax" } },
   checker = { enabled = true, notify = false },
-  performance = {
-    rtp = {
-      disabled_plugins = { "gzip", "tarPlugin", "tohtml", "tutor", "zipPlugin" },
-    },
-  },
 })

@@ -14,7 +14,13 @@ return {
         ["*"] = {
           keys = {
             { "K", false },
-            { "gh", function() return vim.lsp.buf.hover() end, desc = "Hover" },
+            {
+              "gh",
+              function()
+                return vim.lsp.buf.hover()
+              end,
+              desc = "Hover",
+            },
           },
         },
       },

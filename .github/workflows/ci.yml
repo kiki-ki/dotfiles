@@ -28,3 +28,40 @@ jobs:
       - name: Check the source state renders and applies
         run: |
           "$HOME/.local/bin/chezmoi" --source . --destination "$(mktemp -d)" apply --dry-run
+
+  setup-ubuntu:
+    name: Setup on ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        runner:
+          - ubuntu-latest
+          - ubuntu-24.04-arm
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install chezmoi
+        run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin"
+      - name: Apply to $HOME, running the setup script as on a fresh machine
+        env:
+          # Avoids the unauthenticated GitHub API rate limit in mise's aqua and github backends
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          "$HOME/.local/bin/chezmoi" --source . apply --force
+      - name: Check tools resolve from an interactive zsh
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          zsh -ic '
+            set -e
+            for cmd in aws bat eza jq qo; do
+              whence -p "$cmd"
+            done
+            aws --version
+            bat --version
+            eza --version | head -n 2
+            jq --version
+            qo --version
+            echo "{\"a\":1}" | jq -e ".a == 1"
+          '

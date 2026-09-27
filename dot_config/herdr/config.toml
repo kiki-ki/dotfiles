@@ -13,6 +13,7 @@ status_indicators = "symbols"
 claude = [["state_icon", "workspace"], [{ token = "terminal_title_stripped", dim = true }]]
 
 [experimental]
+kitty_graphics = true
 switch_ascii_input_source_in_prefix = true
 reveal_hidden_cursor_for_cjk_ime = true
 cjk_ime_agents = ["claude"]

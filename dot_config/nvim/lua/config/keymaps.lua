@@ -1,1 +1,5 @@
 vim.keymap.set("i", "jj", "<Esc>")
+vim.keymap.set({ "n", "v" }, "J", "3j")
+vim.keymap.set({ "n", "v" }, "K", "3k")
+vim.keymap.set({ "n", "v" }, "H", "^")
+vim.keymap.set({ "n", "v" }, "L", "$")

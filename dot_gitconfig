@@ -5,14 +5,8 @@
 [core]
   editor = nvim
   ignorecase = false
-  pager = delta
+  pager = less
   hooksPath = ~/.config/git/hooks
-
-[interactive]
-  diffFilter = delta --color-only
-
-[delta]
-  navigate = true
 
 [pull]
   rebase = false

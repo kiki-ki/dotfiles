@@ -26,15 +26,3 @@ vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter" }, {
 })
 -- LazyVim loads this file after VimEnter when nvim starts without a file argument
 match_ideographic_space()
-
--- Neovim maps K to hover per buffer when an LSP attaches before our global K exists; keep K as 3k
-vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("keep_k_motion", { clear = true }),
-  callback = function(ev)
-    for _, map in ipairs(vim.api.nvim_buf_get_keymap(ev.buf, "n")) do
-      if map.lhs == "K" and map.desc == "vim.lsp.buf.hover()" then
-        vim.keymap.del("n", "K", { buffer = ev.buf })
-      end
-    end
-  end,
-})

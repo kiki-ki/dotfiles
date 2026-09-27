@@ -7,7 +7,6 @@ lockfile_platforms = ["macos-arm64", "linux-x64", "linux-arm64"]
 node = "latest"
 pnpm = "latest"
 python = "latest"
-rust = "latest"
 
 "aqua:starship/starship" = "latest"
 "aqua:junegunn/fzf" = "latest"

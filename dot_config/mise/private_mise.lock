@@ -341,8 +341,3 @@ provenance = "github-attestations"
 checksum = "sha256:e0d4e5066aef3248c22e08a07546bfd5edeaca904c91fadc296be720998ec2ec"
 url = "https://github.com/astral-sh/python-build-standalone/releases/download/20260804/cpython-3.14.6+20260804-aarch64-apple-darwin-install_only_stripped.tar.gz"
 provenance = "github-attestations"
-
-[[tools.rust]]
-version = "stable"
-backend = "core:rust"
-specifiers = ["latest"]

@@ -1,0 +1,43 @@
+# Mirrors when the setup script reruns: its hash covers dot_config/ except nvim/
+on:
+  push:
+    branches:
+      - main
+    paths: &paths
+      - ".chezmoiscripts/**"
+      - "scripts/**"
+      - "dot_config/**"
+      - "!dot_config/nvim/**"
+      - ".github/workflows/setup.yml"
+  pull_request:
+    paths: *paths
+
+name: "Setup"
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  setup:
+    name: Setup on ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        runner:
+          - ubuntu-latest
+          - ubuntu-24.04-arm
+          - macos-latest
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install chezmoi
+        run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin"
+      - name: Apply to $HOME, running the setup script as on a fresh machine
+        env:
+          # Avoids the unauthenticated GitHub API rate limit in mise's aqua and github backends
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          "$HOME/.local/bin/chezmoi" --source . apply --force

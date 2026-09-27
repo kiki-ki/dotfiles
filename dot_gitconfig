@@ -5,8 +5,14 @@
 [core]
   editor = vi
   ignorecase = false
-  pager = less
+  pager = delta
   hooksPath = ~/.config/git/hooks
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true
 
 [pull]
   rebase = false

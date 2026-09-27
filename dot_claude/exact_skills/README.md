@@ -28,4 +28,4 @@ Claude Code のユーザースキル。chezmoi で `~/.claude/skills/` に反映
 
 - principle-*、meta-reflect、work-no-comments、work-technical-writing は [pstack](https://github.com/cursor/plugins/tree/main/pstack)（Lauren Tan、MIT、コミット `12d587df`）を翻訳・改変したもの。ライセンス全文は [LICENSE-pstack](LICENSE-pstack)。
 - work-hunk-review は、[hunk](https://github.com/modem-dev/hunk) がインストールと一緒に入れる `hunk-review` スキルへのシンボリックリンク（`hunk skill path` から張る）。hunk の CLI から生成されるので、写さずにリンクして hunk の更新に追従させる。hunk を更新したら `chezmoi apply ~/.claude/skills` でリンクを張り直す。
-- work-herdr は、[herdr](https://herdr.dev) が `herdr --skill` で出力するスキルを、apply のたびにテンプレートから書き出したもの。herdr はスキルをファイルとして置かないのでリンクできない。herdr を更新したら `chezmoi apply ~/.claude/skills` で書き出し直す。
+- work-herdr は、[herdr](https://github.com/herdrdev/herdr)（Apache-2.0、`v0.9.1`）の `skills/herdr/SKILL.md` をそのまま写したもの。ライセンス全文は [LICENSE-herdr](LICENSE-herdr)。herdr を更新したら、その版の `SKILL.md` で置き換える。

@@ -1,4 +1,0 @@
-{{- /* herdr prints its skill from the CLI instead of installing a file, so regenerate it on apply to follow upgrades. Empty (not created) until mise installs herdr */ -}}
-{{- if lookPath "herdr" -}}
-{{ output "herdr" "--skill" }}
-{{- end -}}

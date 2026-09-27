@@ -22,6 +22,10 @@ rust = "latest"
 "aqua:BurntSushi/ripgrep" = "latest"
 "aqua:neovim/neovim" = "latest"
 "aqua:dandavison/delta" = "latest"
+"aqua:tree-sitter/tree-sitter" = "latest"
+"aqua:sharkdp/fd" = "latest"
+"aqua:jesseduffield/lazygit" = "latest"
+"aqua:modem-dev/hunk" = "latest"
 
 "github:max-sixty/worktrunk" = { version = "latest", exe = "wt" }
 "github:seachicken/gh-poi" = { version = "latest", bin = "gh-poi" }

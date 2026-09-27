@@ -22,8 +22,10 @@ Claude Code のユーザースキル。chezmoi で `~/.claude/skills/` に反映
 | work-technical-writing | 読み手が一度読めば判断や作業に移れる文書を、過不足のない量で書く |
 | work-create-github-issue | 着手する人に文脈を引き渡す GitHub issue を起票する |
 | work-hunk-review | 起動中の hunk のセッションを操作し、差分の行にレビューのコメントや強調を付ける |
+| work-herdr | herdr のペイン・タブ・ワークスペースを操作し、別のエージェントやコマンドを動かす |
 
 ## 出典
 
 - principle-*、meta-reflect、work-no-comments、work-technical-writing は [pstack](https://github.com/cursor/plugins/tree/main/pstack)（Lauren Tan、MIT、コミット `12d587df`）を翻訳・改変したもの。ライセンス全文は [LICENSE-pstack](LICENSE-pstack)。
 - work-hunk-review は、[hunk](https://github.com/modem-dev/hunk) がインストールと一緒に入れる `hunk-review` スキルへのシンボリックリンク（`hunk skill path` から張る）。hunk の CLI から生成されるので、写さずにリンクして hunk の更新に追従させる。hunk を更新したら `chezmoi apply ~/.claude/skills` でリンクを張り直す。
+- work-herdr は、[herdr](https://herdr.dev) が `herdr --skill` で出力するスキルを、apply のたびにテンプレートから書き出したもの。herdr はスキルをファイルとして置かないのでリンクできない。herdr を更新したら `chezmoi apply ~/.claude/skills` で書き出し直す。

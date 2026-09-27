@@ -5,7 +5,8 @@ return {
     -- Render only in the side preview, so the buffer being edited keeps its raw markup
     enabled = false,
     overrides = { preview = { enabled = true } },
-    code = { sign = false, width = "block", right_pad = 1 },
+    -- A hidden closing fence would also hide the diagram snacks.image draws below it
+    code = { sign = false, width = "block", right_pad = 1, border = "thin" },
     heading = { sign = false, icons = {} },
     checkbox = { enabled = false },
   },

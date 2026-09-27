@@ -92,6 +92,8 @@
       "Bash(rm -r*)",
       "Bash(rm -fr*)",
       "Bash(sudo *)",
+      "Bash(pkill *)",
+      "Bash(killall *)",
       "Bash(chmod *)",
       "Bash(chown *)",
       "Edit(~/.ssh/**)",

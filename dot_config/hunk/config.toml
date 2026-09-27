@@ -1,5 +1,7 @@
 theme = "github-dark-default"
 transparent_background = true
+sidebar = true
+agent_notes = true
 
 [vcs]
 watch = true

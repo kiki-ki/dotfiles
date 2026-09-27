@@ -62,11 +62,6 @@ else
     rm -rf awscliv2.zip aws
   fi
 
-  # go-qo
-  if ! command -v qo >/dev/null 2>&1; then
-    curl --proto '=https' --tlsv1.2 -sfL https://raw.githubusercontent.com/kiki-ki/go-qo/main/install.sh | env BINDIR="$LOCAL_BIN" sh
-  fi
-
   # eza
   if ! command -v eza >/dev/null 2>&1; then
     curl --proto '=https' --tlsv1.2 -fL "https://github.com/eza-community/eza/releases/latest/download/eza_$ARCH-unknown-linux-gnu.tar.gz" | tar xz -C "$LOCAL_BIN"

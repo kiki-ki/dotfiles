@@ -302,6 +302,26 @@ checksum = "sha256:d3a0da21374962625a2ee992110979bc1fa33424d7b6aea58a70405e26544
 url = "https://github.com/starship/starship/releases/download/v1.24.2/starship-aarch64-apple-darwin.tar.gz"
 url_api = "https://api.github.com/repos/starship/starship/releases/assets/334568411"
 
+[[tools."github:1jehuang/mermaid-rs-renderer"]]
+version = "0.3.1"
+backend = "github:1jehuang/mermaid-rs-renderer"
+specifiers = ["latest"]
+
+[tools."github:1jehuang/mermaid-rs-renderer"."platforms.linux-arm64"]
+checksum = "sha256:a74a121a2dd3bc8d30c17c954b3a036e7467a53b21532e889601a26cc6dc39d9"
+url = "https://github.com/1jehuang/mermaid-rs-renderer/releases/download/v0.3.1/mmdr-aarch64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/1jehuang/mermaid-rs-renderer/releases/assets/468271084"
+
+[tools."github:1jehuang/mermaid-rs-renderer"."platforms.linux-x64"]
+checksum = "sha256:e1da47b758769bff21b82a480fad640a3b893a90fc0dc321551486f8b50c7200"
+url = "https://github.com/1jehuang/mermaid-rs-renderer/releases/download/v0.3.1/mmdr-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/1jehuang/mermaid-rs-renderer/releases/assets/468271082"
+
+[tools."github:1jehuang/mermaid-rs-renderer"."platforms.macos-arm64"]
+checksum = "sha256:562d0250cb8588adefe398a23e4bbdf67f242849ea8d888c38268bcc3edf3223"
+url = "https://github.com/1jehuang/mermaid-rs-renderer/releases/download/v0.3.1/mmdr-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/1jehuang/mermaid-rs-renderer/releases/assets/468271095"
+
 [[tools."github:kiki-ki/go-qo"]]
 version = "0.5.0"
 backend = "github:kiki-ki/go-qo"

@@ -56,6 +56,24 @@ require("lazy").setup({
     end,
   },
   {
+    "folke/snacks.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      picker = {},
+      explorer = {},
+    },
+    keys = {
+      { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart find files" },
+      { "<leader>ff", function() Snacks.picker.files() end, desc = "Find files" },
+      { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
+      { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
+      { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent files" },
+      { "<leader>e", function() Snacks.explorer() end, desc = "File explorer" },
+      { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git status" },
+    },
+  },
+  {
     "coder/claudecode.nvim",
     dependencies = { "folke/snacks.nvim" },
     config = true,

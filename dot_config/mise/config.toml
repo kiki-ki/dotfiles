@@ -9,8 +9,6 @@ pnpm = "latest"
 python = "latest"
 rust = "latest"
 
-"cargo:cctx" = "latest"
-
 "aqua:starship/starship" = "latest"
 "aqua:junegunn/fzf" = "latest"
 "aqua:cli/cli" = "latest"

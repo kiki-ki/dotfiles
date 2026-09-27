@@ -103,9 +103,10 @@
     "defaultMode": "auto"
   },
   "model": "opus",
-  "language": "Japanese",
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.py"
-  }
+  },
+  "language": "Japanese",
+  "preferredNotifChannel": "ghostty"
 }

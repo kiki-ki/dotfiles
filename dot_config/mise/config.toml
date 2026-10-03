@@ -24,6 +24,5 @@ python = "latest"
 "aqua:jqlang/jq" = "latest"
 "aqua:aws/aws-cli" = "latest"
 
-"github:max-sixty/worktrunk" = { version = "latest", exe = "wt" }
 "github:seachicken/gh-poi" = { version = "latest", bin = "gh-poi" }
 "github:kiki-ki/go-qo" = { version = "latest", exe = "qo" }

@@ -45,11 +45,6 @@ if command -v go >/dev/null 2>&1; then
   export PATH="$PATH":"$(go env GOPATH)"/bin
 fi
 
-# wt (worktrunk)
-if command -v wt >/dev/null 2>&1; then
-  eval "$(command wt config shell init zsh)"
-fi
-
 ### History ###
 
 export HISTFILE="$HOME/.zsh_history"

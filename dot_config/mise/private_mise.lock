@@ -322,26 +322,6 @@ checksum = "sha256:27c8f2538ee40125d99d8e347ad789d5920cc32c493f1b2e1d62c28b946de
 url = "https://github.com/kiki-ki/go-qo/releases/download/v0.5.0/qo_0.5.0_darwin_arm64.tar.gz"
 url_api = "https://api.github.com/repos/kiki-ki/go-qo/releases/assets/581719208"
 
-[[tools."github:max-sixty/worktrunk"]]
-version = "0.28.1"
-backend = "github:max-sixty/worktrunk"
-specifiers = ["latest"]
-
-[tools."github:max-sixty/worktrunk"."platforms.linux-arm64"]
-checksum = "sha256:da78884a4403912b9abd54cbad2715efea4c3d216eb7ca3080387f99c885a0b1"
-url = "https://github.com/max-sixty/worktrunk/releases/download/v0.28.1/worktrunk-aarch64-unknown-linux-musl.tar.xz"
-url_api = "https://api.github.com/repos/max-sixty/worktrunk/releases/assets/364023407"
-
-[tools."github:max-sixty/worktrunk"."platforms.linux-x64"]
-checksum = "sha256:978620acbf49409da6c4c3ee9145886e0ceb106fbd69b10ed04859e9db1a9945"
-url = "https://github.com/max-sixty/worktrunk/releases/download/v0.28.1/worktrunk-x86_64-unknown-linux-musl.tar.xz"
-url_api = "https://api.github.com/repos/max-sixty/worktrunk/releases/assets/364023418"
-
-[tools."github:max-sixty/worktrunk"."platforms.macos-arm64"]
-checksum = "sha256:10731a850214dc4114d37a788e075a9c97123dc88841537c617c7118965c5cb7"
-url = "https://github.com/max-sixty/worktrunk/releases/download/v0.28.1/worktrunk-aarch64-apple-darwin.tar.xz"
-url_api = "https://api.github.com/repos/max-sixty/worktrunk/releases/assets/364023401"
-
 [[tools."github:seachicken/gh-poi"]]
 version = "0.18.4"
 backend = "github:seachicken/gh-poi"

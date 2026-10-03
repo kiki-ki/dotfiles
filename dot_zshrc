@@ -78,15 +78,6 @@ function _gum_commit() {
   git commit -m "$TYPE$SCOPE: $SUMMARY"
 }
 
-function _cc_session_preview() {
-  local sid=$1 title=$2 h=$3
-  jq -r "select(.sessionId == \"$sid\") | [.project, (.timestamp/1000 | strftime(\"%Y-%m-%d %H:%M\")), .display] | @tsv" "$h" | {
-    IFS=$'\t' read -r project date _
-    printf '\033[1m📁 %s\033[0m\n📅 %s\n📝 %s\n─────────────────────────────\n' "$project" "$date" "$title"
-    cut -f3
-  }
-}
-
 ### Aliases ###
 
 # cd

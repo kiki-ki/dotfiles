@@ -1,7 +1,16 @@
+{{- /* Without DOTFILES_MACHINE only common plugins are enabled, so a missing variable never leaks work or personal plugins */ -}}
 {{- $settings := includeTemplate "claude-settings.json" . | fromJson -}}
-{{- $work := and (hasKey . "work") .work -}}
+{{- $machine := env "DOTFILES_MACHINE" -}}
+{{- $plugins := .claudePlugins.common -}}
+{{- if eq $machine "work" -}}
+{{-   $plugins = concat $plugins .claudePlugins.work -}}
+{{- else if eq $machine "personal" -}}
+{{-   $plugins = concat $plugins .claudePlugins.personal -}}
+{{- else if $machine -}}
+{{-   fail (printf "DOTFILES_MACHINE must be work or personal, got %q" $machine) -}}
+{{- end -}}
 {{- $enabled := dict -}}
-{{- range concat .claudePlugins.common (ternary .claudePlugins.work .claudePlugins.personal $work) -}}
+{{- range $plugins -}}
 {{-   $_ := set $enabled . true -}}
 {{- end -}}
 {{- $_ := set $settings "enabledPlugins" $enabled -}}

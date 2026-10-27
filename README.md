@@ -14,7 +14,7 @@ Apply only the files you changed, e.g. `chezmoi apply ~/.zshrc`. A bare `chezmoi
 
 Add CLI tools used on both OSes to [mise](dot_config/mise/config.toml), and macOS-only ones to the [Brewfile](dot_config/Brewfile).
 
-`chezmoi init` asks whether the machine is for work and saves the answer as `work` in `~/.config/chezmoi/chezmoi.toml`. Claude Code plugins for each kind of machine are listed in [.chezmoidata/claude.yaml](.chezmoidata/claude.yaml) and written to `~/.claude/settings.json` on apply, which overwrites plugins added with `/plugin`. Listing a plugin enables it but does not install it, so run `/plugin install` once on each machine.
+Claude Code plugins are listed in [.chezmoidata/claude.yaml](.chezmoidata/claude.yaml) and written to `~/.claude/settings.json` on apply, which overwrites plugins added with `/plugin`. `common` plugins are always enabled; `work` or `personal` ones only when `DOTFILES_MACHINE` is set to that value, e.g. exported in `~/.zshrc.local`. Listing a plugin enables it but does not install it, so run `/plugin install` once on each machine.
 
 ## Machine-local settings
 

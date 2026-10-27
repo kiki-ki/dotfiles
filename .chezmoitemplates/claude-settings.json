@@ -110,9 +110,5 @@
     "command": "~/.claude/statusline.py"
   },
   "language": "Japanese",
-  "preferredNotifChannel": "ghostty",
-  "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true,
-    "pyright-lsp@claude-plugins-official": true
-  }
+  "preferredNotifChannel": "ghostty"
 }

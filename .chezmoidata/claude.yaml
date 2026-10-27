@@ -1,0 +1,6 @@
+claudePlugins:
+  common:
+    - gopls-lsp@claude-plugins-official
+    - pyright-lsp@claude-plugins-official
+  work: []
+  personal: []

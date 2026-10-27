@@ -1,0 +1,8 @@
+{{- $settings := includeTemplate "claude-settings.json" . | fromJson -}}
+{{- $work := and (hasKey . "work") .work -}}
+{{- $enabled := dict -}}
+{{- range concat .claudePlugins.common (ternary .claudePlugins.work .claudePlugins.personal $work) -}}
+{{-   $_ := set $enabled . true -}}
+{{- end -}}
+{{- $_ := set $settings "enabledPlugins" $enabled -}}
+{{- toPrettyJson "  " $settings }}

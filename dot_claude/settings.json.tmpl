@@ -1,10 +1,13 @@
-{{- /* Machine-specific plugins come from claudePlugins in the untracked chezmoi.toml so they never reach other machines */ -}}
+{{- /* Machine-specific plugins come from claude.enabledPlugins in the untracked chezmoi.toml so they never reach other machines */ -}}
 {{- $settings := includeTemplate "claude-settings.json" . | fromJson -}}
-{{- $plugins := get . "claudePlugins" | default list -}}
-{{- if not (kindIs "slice" $plugins) -}}
-{{-   fail "claudePlugins in chezmoi.toml must be a list of plugin names" -}}
+{{- $plugins := dig "claude" "enabledPlugins" dict . -}}
+{{- if not (kindIs "map" $plugins) -}}
+{{-   fail "claude.enabledPlugins in chezmoi.toml must be a table of plugin = true or false" -}}
 {{- end -}}
-{{- range $plugins -}}
-{{-   $_ := set $settings.enabledPlugins . true -}}
+{{- range $name, $enabled := $plugins -}}
+{{-   if not (kindIs "bool" $enabled) -}}
+{{-     fail (printf "claude.enabledPlugins.%q in chezmoi.toml must be true or false" $name) -}}
+{{-   end -}}
 {{- end -}}
+{{- $_ := mergeOverwrite $settings.enabledPlugins $plugins -}}
 {{- toPrettyJson "  " $settings }}

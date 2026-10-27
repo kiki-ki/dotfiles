@@ -360,24 +360,27 @@ checksum = "sha256:1901d539912c02afa10d1cc126943a8855a7eedebe830119463470db5e6c5
 url = "https://nodejs.org/dist/v26.12.1/node-v26.12.1-darwin-arm64.tar.gz"
 
 [[tools.pnpm]]
-version = "10.30.2"
+version = "12.15.0"
 backend = "aqua:pnpm/pnpm"
 specifiers = ["latest"]
 
 [tools.pnpm."platforms.linux-arm64"]
-checksum = "sha256:bc25fcce6c05ea551d78d2b72c85b8068df569f93fdc15f7f6acc00288024eff"
-url = "https://github.com/pnpm/pnpm/releases/download/v10.30.2/pnpm-linux-arm64"
-url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/361103462"
+checksum = "sha256:d7ce93a2c7d847d3a34bd3f559b60c14f578b1320c17cc352a2c5c5fdf956117"
+url = "https://github.com/pnpm/pnpm/releases/download/v12.15.0/pnpm-linux-arm64.tar.gz"
+url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/662173352"
+provenance = "github-attestations"
 
 [tools.pnpm."platforms.linux-x64"]
-checksum = "sha256:8e0953608faa1df32187e7a8ff73e2c148b28b52c3860e9bde0c13d08da38bc9"
-url = "https://github.com/pnpm/pnpm/releases/download/v10.30.2/pnpm-linux-x64"
-url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/361103464"
+checksum = "sha256:55b5ed0092bd11176c1669598e231ae52e7cedac59de6efd0d415730f37d0598"
+url = "https://github.com/pnpm/pnpm/releases/download/v12.15.0/pnpm-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/662173360"
+provenance = "github-attestations"
 
 [tools.pnpm."platforms.macos-arm64"]
-checksum = "sha256:96f7968c82559ba7ecd279171491fd505d57a39f87d23cd0fe3d3e0781bae311"
-url = "https://github.com/pnpm/pnpm/releases/download/v10.30.2/pnpm-macos-arm64"
-url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/361103458"
+checksum = "sha256:6a41a2877773e97f19832067187cc6fc82e186d8a2cf91fec4b4c1a5fbd6ef27"
+url = "https://github.com/pnpm/pnpm/releases/download/v12.15.0/pnpm-darwin-arm64.tar.gz"
+url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/662173343"
+provenance = "github-attestations"
 
 [[tools.python]]
 version = "3.14.6"

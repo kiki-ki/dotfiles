@@ -1,6 +1,8 @@
 # shellcheck shell=zsh
 
 export PATH="$HOME/.local/bin:$PATH"
+# macOS has no XDG default, so tools like pnpm otherwise read ~/Library instead of ~/.config
+export XDG_CONFIG_HOME="$HOME/.config"
 
 ### Init ###
 

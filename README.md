@@ -14,8 +14,6 @@ Apply only the files you changed, e.g. `chezmoi apply ~/.zshrc`. A bare `chezmoi
 
 Add CLI tools used on both OSes to [mise](dot_config/mise/config.toml), and macOS-only ones to the [Brewfile](dot_config/Brewfile).
 
-Claude Code plugins are enabled by `enabledPlugins` in [claude-settings.json](.chezmoitemplates/claude-settings.json) plus `claude.enabledPlugins` in the machine's chezmoi config (see below), and apply overwrites plugins added with `/plugin`. Enabling a plugin does not install it, so run `/plugin install` once on each machine.
-
 ## Machine-local settings
 
 Read if present and not tracked here:
@@ -31,3 +29,5 @@ Read if present and not tracked here:
     "datadog@claude-plugins-official" = true
     "pyright-lsp@claude-plugins-official" = false
 ```
+
+To add a Claude Code plugin, list it in `enabledPlugins` of [claude-settings.json](.chezmoitemplates/claude-settings.json) or in the chezmoi config above, apply, and run `/plugin install` once on each machine. A plugin installed with `/plugin` alone is dropped on the next apply.

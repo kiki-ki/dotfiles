@@ -1,7 +1,6 @@
 cask_args appdir: "/Applications"
 
 brew "eza"
-brew "go"
 brew "googleworkspace-cli"
 brew "grep"
 brew "kubernetes-cli"

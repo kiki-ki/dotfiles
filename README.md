@@ -20,3 +20,14 @@ Read if present and not tracked here:
 
 - `~/.zshrc.local`: sourced at the end of `.zshrc`
 - `~/.gitconfig_shared`: included from `.gitconfig`
+- `~/.config/chezmoi/chezmoi.toml`: template data for this machine
+
+```toml
+# ~/.config/chezmoi/chezmoi.toml
+[data.claude.enabledPlugins]
+    # Merged into enabledPlugins of ~/.claude/settings.json; false disables a shared plugin here
+    "datadog@claude-plugins-official" = true
+    "pyright-lsp@claude-plugins-official" = false
+```
+
+To add a Claude Code plugin, list it in `enabledPlugins` of [claude-settings.json](.chezmoitemplates/claude-settings.json) or in the chezmoi config above, apply, and run `/plugin install` once on each machine. A plugin installed with `/plugin` alone is dropped on the next apply.

@@ -1,0 +1,8 @@
+{{- /* Machine-specific plugins come from claude.enabledPlugins in the untracked chezmoi.toml so they never reach other machines */ -}}
+{{- $settings := include ".chezmoitemplates/claude-settings.json" | fromJson -}}
+{{- $plugins := dig "claude" "enabledPlugins" dict . -}}
+{{- if not (kindIs "map" $plugins) -}}
+{{-   fail "claude.enabledPlugins in chezmoi.toml must be a table of plugin = true or false" -}}
+{{- end -}}
+{{- $_ := mergeOverwrite $settings.enabledPlugins $plugins -}}
+{{- toPrettyJson "  " $settings }}

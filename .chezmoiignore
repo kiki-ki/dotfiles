@@ -7,6 +7,3 @@ CLAUDE.md
 scripts/
 .claude/skills/synced
 .config/nvim/lazy-lock.json
-{{ if ne .chezmoi.os "darwin" }}
-Library
-{{ end }}

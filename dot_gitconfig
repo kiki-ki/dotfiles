@@ -7,6 +7,7 @@
   ignorecase = false
   pager = less
   hooksPath = ~/.config/git/hooks
+  untrackedCache = true
 
 [pull]
   rebase = false

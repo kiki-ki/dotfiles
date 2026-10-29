@@ -28,6 +28,7 @@ python = "latest"
 "aqua:sharkdp/bat" = "latest"
 "aqua:jqlang/jq" = "latest"
 "aqua:aws/aws-cli" = "latest"
+"aqua:astral-sh/uv" = "latest"
 
 "github:seachicken/gh-poi" = { version = "latest", bin = "gh-poi" }
 "github:kiki-ki/go-qo" = "latest"

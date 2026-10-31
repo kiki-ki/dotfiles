@@ -31,3 +31,5 @@ Read if present and not tracked here:
 ```
 
 To add a Claude Code plugin, list it in `enabledPlugins` of [claude-settings.json](.chezmoitemplates/claude-settings.json) or in the chezmoi config above, apply, and run `/plugin install` once on each machine. A plugin installed with `/plugin` alone is dropped on the next apply.
+
+A plugin from a marketplace in `extraKnownMarketplaces`, such as [kikit](https://github.com/kiki-ki/kikit), also needs `claude plugin marketplace add <owner>/<repo>` once per machine before the install, because the `claude plugin` CLI does not see the declared marketplace until then. That command rewrites `~/.claude/settings.json` and drops `autoUpdate`, so run `chezmoi apply --force ~/.claude/settings.json` afterward.

@@ -111,8 +111,18 @@
   },
   "language": "Japanese",
   "preferredNotifChannel": "ghostty",
+  "extraKnownMarketplaces": {
+    "kikit": {
+      "source": {
+        "source": "github",
+        "repo": "kiki-ki/kikit"
+      },
+      "autoUpdate": true
+    }
+  },
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true,
+    "kikit@kikit": true,
     "pyright-lsp@claude-plugins-official": true
   }
 }

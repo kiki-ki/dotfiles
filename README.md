@@ -23,8 +23,14 @@ Read if present and not tracked here:
 
 ## Claude Code settings
 
-[claude-settings.json](.chezmoitemplates/claude-settings.json) holds only what every machine shares. On apply, it is merged into `~/.claude/settings.json`: its values win, its lists replace the existing ones, and keys only in `~/.claude/settings.json` stay. So a plugin installed with `/plugin` on one machine stays on that machine. A key deleted from claude-settings.json also stays until you remove it from `~/.claude/settings.json`.
+[claude-settings.json](.chezmoitemplates/claude-settings.json) holds only the settings every machine shares. `chezmoi apply` merges it into `~/.claude/settings.json`:
 
-To add a plugin to every machine, list it in `enabledPlugins` of claude-settings.json, apply, and run `/plugin install` once on each machine.
+- Its values win, and its lists, such as `permissions.allow`, replace the existing ones.
+- Keys only in `~/.claude/settings.json` stay, such as a plugin installed with `/plugin` on one machine.
+- A key deleted from claude-settings.json stays in `~/.claude/settings.json` until you remove it there.
 
-A plugin from a marketplace in `extraKnownMarketplaces`, such as [kikit](https://github.com/kiki-ki/kikit), also needs `claude plugin marketplace add <owner>/<repo>` once per machine before the install, because the `claude plugin` CLI does not see the declared marketplace until then. That command drops `autoUpdate` from `~/.claude/settings.json`, and the next `chezmoi apply ~/.claude/settings.json` restores it.
+To add a plugin to every machine, list it in `enabledPlugins` of claude-settings.json, then on each machine:
+
+1. If the plugin comes from a marketplace in `extraKnownMarketplaces`, such as [kikit](https://github.com/kiki-ki/kikit), run `claude plugin marketplace add <owner>/<repo>`. The `claude plugin` CLI does not see the marketplace until then.
+2. Run `chezmoi apply ~/.claude/settings.json`.
+3. Run `/plugin install <plugin>@<marketplace>`.

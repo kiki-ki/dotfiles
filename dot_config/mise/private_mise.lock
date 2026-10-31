@@ -409,6 +409,11 @@ version = "1.1.414"
 backend = "npm:pyright"
 specifiers = ["latest"]
 
+[[tools."npm:textlint"]]
+version = "15.8.0"
+backend = "npm:textlint"
+specifiers = ["latest"]
+
 [[tools.pnpm]]
 version = "12.15.0"
 backend = "aqua:pnpm/pnpm"

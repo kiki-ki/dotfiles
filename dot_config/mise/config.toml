@@ -3,6 +3,7 @@ disable_backends = ["asdf", "vfox"]
 lockfile = true
 lockfile_platforms = ["macos-arm64", "linux-x64", "linux-arm64"]
 minimum_release_age = "3d"
+npm.package_manager = "pnpm"
 
 [tools]
 go = "latest"
@@ -11,6 +12,7 @@ pnpm = "latest"
 python = "latest"
 
 "npm:pyright" = "latest"
+"npm:textlint" = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
 
 "aqua:starship/starship" = "latest"

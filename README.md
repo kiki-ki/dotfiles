@@ -34,5 +34,3 @@ To add a plugin to every machine, list it in `enabledPlugins` of claude-settings
 1. If the plugin comes from a marketplace in `extraKnownMarketplaces`, such as [kikit](https://github.com/kiki-ki/kikit), run `claude plugin marketplace add <owner>/<repo>`. The `claude plugin` CLI does not see the marketplace until then.
 2. Run `chezmoi apply ~/.claude/settings.json`.
 3. Run `/plugin install <plugin>@<marketplace>`.
-
-The `textlint` that kikit's technical-writing skill runs is installed from [package.json](dot_local/share/textlint/package.json) into `~/.local/share/textlint` with pnpm and linked to `~/.local/bin/textlint`. Keep its versions in line with [kikit's package.json](https://github.com/kiki-ki/kikit/blob/main/package.json).

@@ -25,9 +25,9 @@ Read if present and not tracked here:
 
 [claude-settings.json](.chezmoitemplates/claude-settings.json) holds only the settings every machine shares. `chezmoi apply` merges it into `~/.claude/settings.json`:
 
-- Its values win, and its lists, such as `permissions.allow`, replace the existing ones.
-- Keys only in `~/.claude/settings.json` stay, such as a plugin installed with `/plugin` on one machine.
-- A key deleted from claude-settings.json stays in `~/.claude/settings.json` until you remove it there.
+- Each key in it replaces the same key in `~/.claude/settings.json`, including everything nested under it.
+- `enabledPlugins` and `extraKnownMarketplaces` are the exceptions: they are merged, so plugins and marketplaces added with `/plugin` on one machine stay.
+- Top-level keys that are not in claude-settings.json stay. A key deleted from claude-settings.json therefore stays in `~/.claude/settings.json` until you remove it there.
 
 To add a plugin to every machine, list it in `enabledPlugins` of claude-settings.json, then on each machine:
 

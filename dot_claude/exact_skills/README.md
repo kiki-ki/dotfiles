@@ -2,30 +2,14 @@
 
 Claude Code のユーザースキル。chezmoi で `~/.claude/skills/` に反映される。
 
-1 スキル 1 責務とし、必要になったものだけを足す。層は名前の prefix で表す。
-
-- `principle-`: どの作業にも効かせる原則
-- `meta-`: スキルや CLAUDE.md、hook などの設定を直す
-- `work-`: 特定の作業の手順
+ここに置くのは、このマシンに入れたツールに依存するスキルだけにする。どの環境でも使う原則と作業の手順は、plugin の [kikit](https://github.com/kiki-ki/kikit) に置き、`kikit:` を付けて呼ぶ。
 
 | スキル | 説明 |
 |---|---|
-| principle-laziness-protocol | 先に消し、問題を解く最小の変更に寄せる |
-| principle-prove-it-works | 完了と言う前に、代理指標ではなく本物で確かめ、結果を示す |
-| principle-fix-root-causes | 症状ではなく根本原因で直す |
-| principle-sequence-verifiable-units | 作業とコミットを、確かめられる小さな単位の列にする |
-| principle-encode-lessons-in-structure | 繰り返す指示を lint・hook・スクリプトなどの仕組みにする |
-| principle-build-the-lever | 手作業の代わりに、作業をする・確かめる道具を作る |
-| principle-guard-the-context-window | 大量の出力はサブエージェントに回し、繰り返し実行するものは費用を先に見積もる |
-| meta-reflect | セッションから学びを見つけ、仕組み・スキル・CLAUDE.md への修正に振り分ける |
-| work-no-comments | コードをなぞるだけのコメントを、書いた本人とは別の目で判定して取り除く |
-| work-technical-writing | 読み手が一度読めば判断や作業に移れる文書を、過不足のない量で書く |
-| work-create-github-issue | 着手する人に文脈を引き渡す GitHub issue を起票する |
 | work-hunk-review | 起動中の hunk のセッションを操作し、差分の行にレビューのコメントや強調を付ける |
 | work-herdr | herdr のペイン・タブ・ワークスペースを操作し、別のエージェントやコマンドを動かす |
 
 ## 出典
 
-- principle-*、meta-reflect、work-no-comments、work-technical-writing は [pstack](https://github.com/cursor/plugins/tree/main/pstack)（Lauren Tan、MIT、コミット `12d587df`）を翻訳・改変したもの。ライセンス全文は [LICENSE-pstack](LICENSE-pstack)。
 - work-hunk-review は、[hunk](https://github.com/modem-dev/hunk) がインストールと一緒に入れる `hunk-review` スキルへのシンボリックリンク（`hunk skill path` から張る）。hunk の CLI から生成されるので、写さずにリンクして hunk の更新に追従させる。hunk を更新したら `chezmoi apply ~/.claude/skills` でリンクを張り直す。
 - work-herdr は、[herdr](https://github.com/herdrdev/herdr)（Apache-2.0、`v0.9.1`）の `skills/herdr/SKILL.md` をそのまま写したもの。ライセンス全文は [LICENSE-herdr](LICENSE-herdr)。herdr を更新したら、その版の `SKILL.md` で置き換える。

@@ -30,6 +30,8 @@ Read if present and not tracked here:
     "pyright-lsp@claude-plugins-official" = false
 ```
 
-To add a Claude Code plugin, list it in `enabledPlugins` of [claude-settings.json](.chezmoitemplates/claude-settings.json) or in the chezmoi config above, apply, and run `/plugin install` once on each machine. A plugin installed with `/plugin` alone is dropped on the next apply.
+To add a Claude Code plugin, list it in `enabledPlugins` of [claude-settings.json](.chezmoitemplates/claude-settings.json) or in the chezmoi config above, apply, and run `/plugin install` once on each machine. A plugin installed with `/plugin` alone also stays, but is not tracked here.
 
-A plugin from a marketplace in `extraKnownMarketplaces`, such as [kikit](https://github.com/kiki-ki/kikit), also needs `claude plugin marketplace add <owner>/<repo>` once per machine before the install, because the `claude plugin` CLI does not see the declared marketplace until then. That command rewrites `~/.claude/settings.json` and drops `autoUpdate`, so run `chezmoi apply --force ~/.claude/settings.json` afterward.
+On apply, each key in claude-settings.json replaces the one in `~/.claude/settings.json`, except `enabledPlugins` and `extraKnownMarketplaces`, which are merged with what `/plugin` wrote. To turn off a shared plugin, set it to `false` rather than deleting it. A key deleted from claude-settings.json stays in `~/.claude/settings.json` until you remove it there.
+
+A plugin from a marketplace in `extraKnownMarketplaces`, such as [kikit](https://github.com/kiki-ki/kikit), also needs `claude plugin marketplace add <owner>/<repo>` once per machine before the install, because the `claude plugin` CLI does not see the declared marketplace until then. That command drops `autoUpdate` from `~/.claude/settings.json`, and the next `chezmoi apply ~/.claude/settings.json` restores it.

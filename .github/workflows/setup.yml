@@ -1,4 +1,4 @@
-# Mirrors when the setup script reruns: its hash covers dot_config/ except nvim/
+# Mirrors when the run scripts rerun: setup's hash covers dot_config/ except nvim/, textlint's covers dot_local/share/textlint/
 on:
   push:
     branches:
@@ -8,6 +8,7 @@ on:
       - "scripts/**"
       - "dot_config/**"
       - "!dot_config/nvim/**"
+      - "dot_local/share/textlint/**"
       - ".github/workflows/setup.yml"
   pull_request:
     paths: *paths

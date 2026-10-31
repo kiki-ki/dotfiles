@@ -1,0 +1,7 @@
+#!/bin/bash
+set -eu
+
+# hash: {{ include "dot_local/share/textlint/package.json" | sha256sum }}
+# hash: {{ include "dot_local/share/textlint/pnpm-lock.yaml" | sha256sum }}
+cd "$HOME/.local/share/textlint"
+mise exec -- pnpm install --frozen-lockfile

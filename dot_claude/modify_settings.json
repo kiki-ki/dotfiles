@@ -1,20 +1,7 @@
 {{- /* chezmoi:modify-template */ -}}
-{{- /* Shared keys replace the live ones, except enabledPlugins and extraKnownMarketplaces, which keep what /plugin wrote; keys only in the live file stay */ -}}
-{{- $settings := dict -}}
+{{- $live := dict -}}
 {{- if trim .chezmoi.stdin -}}
-{{-   $settings = fromJson .chezmoi.stdin -}}
+{{-   $live = fromJson .chezmoi.stdin -}}
 {{- end -}}
 {{- $shared := include ".chezmoitemplates/claude-settings.json" | fromJson -}}
-{{- range $key, $value := $shared -}}
-{{-   if and (has $key (list "enabledPlugins" "extraKnownMarketplaces")) (kindIs "map" (get $settings $key)) -}}
-{{-     $value = mergeOverwrite (get $settings $key) $value -}}
-{{-   end -}}
-{{-   $_ := set $settings $key $value -}}
-{{- end -}}
-{{- /* Machine-specific plugins come from claude.enabledPlugins in the untracked chezmoi.toml so they never reach other machines */ -}}
-{{- $plugins := dig "claude" "enabledPlugins" dict . -}}
-{{- if not (kindIs "map" $plugins) -}}
-{{-   fail "claude.enabledPlugins in chezmoi.toml must be a table of plugin = true or false" -}}
-{{- end -}}
-{{- $_ := mergeOverwrite $settings.enabledPlugins $plugins -}}
-{{- toPrettyJson "  " $settings }}
+{{- toPrettyJson "  " (mergeOverwrite $live $shared) }}

@@ -20,16 +20,17 @@ Read if present and not tracked here:
 
 - `~/.zshrc.local`: sourced at the end of `.zshrc`
 - `~/.gitconfig_shared`: included from `.gitconfig`
-- `~/.config/chezmoi/chezmoi.toml`: template data for this machine
 
-```toml
-# ~/.config/chezmoi/chezmoi.toml
-[data.claude.enabledPlugins]
-    # Merged into enabledPlugins of ~/.claude/settings.json; false disables a shared plugin here
-    "datadog@claude-plugins-official" = true
-    "pyright-lsp@claude-plugins-official" = false
-```
+## Claude Code settings
 
-To add a Claude Code plugin, list it in `enabledPlugins` of [claude-settings.json](.chezmoitemplates/claude-settings.json) or in the chezmoi config above, apply, and run `/plugin install` once on each machine. A plugin installed with `/plugin` alone is dropped on the next apply.
+[claude-settings.json](.chezmoitemplates/claude-settings.json) holds only the settings every machine shares. `chezmoi apply` merges it into `~/.claude/settings.json`:
 
-A plugin from a marketplace in `extraKnownMarketplaces`, such as [kikit](https://github.com/kiki-ki/kikit), also needs `claude plugin marketplace add <owner>/<repo>` once per machine before the install, because the `claude plugin` CLI does not see the declared marketplace until then. That command rewrites `~/.claude/settings.json` and drops `autoUpdate`, so run `chezmoi apply --force ~/.claude/settings.json` afterward.
+- Each key in it replaces the same key in `~/.claude/settings.json`, including everything nested under it.
+- `enabledPlugins` and `extraKnownMarketplaces` are the exceptions: they are merged, so plugins and marketplaces added with `/plugin` on one machine stay.
+- Top-level keys that are not in claude-settings.json stay. A key deleted from claude-settings.json therefore stays in `~/.claude/settings.json` until you remove it there.
+
+To add a plugin to every machine, list it in `enabledPlugins` of claude-settings.json, then on each machine:
+
+1. If the plugin comes from a marketplace in `extraKnownMarketplaces`, such as [kikit](https://github.com/kiki-ki/kikit), run `claude plugin marketplace add <owner>/<repo>`. The `claude plugin` CLI does not see the marketplace until then.
+2. Run `chezmoi apply ~/.claude/settings.json`.
+3. Run `/plugin install <plugin>@<marketplace>`.

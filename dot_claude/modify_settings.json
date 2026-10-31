@@ -1,0 +1,13 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- $live := dict -}}
+{{- if trim .chezmoi.stdin -}}
+{{-   $live = fromJson .chezmoi.stdin -}}
+{{- end -}}
+{{- $shared := include ".chezmoitemplates/claude-settings.json" | fromJson -}}
+{{- range $key, $value := $shared -}}
+{{-   if and (has $key (list "enabledPlugins" "extraKnownMarketplaces")) (kindIs "map" (get $live $key)) -}}
+{{-     $value = mergeOverwrite (get $live $key) $value -}}
+{{-   end -}}
+{{-   $_ := set $live $key $value -}}
+{{- end -}}
+{{- toPrettyJson "  " $live }}

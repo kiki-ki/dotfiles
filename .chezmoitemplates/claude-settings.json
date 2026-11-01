@@ -94,7 +94,8 @@
       "Bash(gh release create*)",
       "Bash(git push *--tags*)",
       "Bash(git push *--follow-tags*)",
-      "Bash(git push * refs/tags/*)",
+      "Bash(git push *refs/tags/*)",
+      "Bash(git push * tag *)",
       "Bash(gh pr merge*)"
     ],
     "deny": [

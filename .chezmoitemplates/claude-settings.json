@@ -37,6 +37,7 @@
       "Bash(gh pr *)",
       "Bash(gh issue *)",
       "Bash(gh run *)",
+      "Bash(gh workflow *)",
       "Bash(gh repo view*)",
       "Bash(gh repo clone*)",
       "Bash(gh auth status*)",
@@ -67,6 +68,18 @@
       "Bash(rm -f /tmp/*)",
       "Bash(rm -f /var/folders/*)"
     ],
+    "ask": [
+      "Bash(gh workflow run*)",
+      "Bash(gh workflow enable*)",
+      "Bash(gh workflow disable*)",
+      "Bash(gh run rerun*)",
+      "Bash(gh run cancel*)",
+      "Bash(gh run delete*)",
+      "Bash(gh release create*)",
+      "Bash(git push *--tags*)",
+      "Bash(git push *--follow-tags*)",
+      "Bash(git push * refs/tags/*)"
+    ],
     "deny": [
       "Bash(curl *|*bash*)",
       "Bash(curl *|*sh*)",
@@ -86,6 +99,8 @@
       "Bash(gh pr merge*)",
       "Bash(gh pr close*)",
       "Bash(gh issue close*)",
+      "Bash(gh api *actions/*)",
+      "Bash(gh api *dispatches*)",
       "Bash(find *-exec *)",
       "Bash(find *-execdir *)",
       "Bash(find *-delete*)",

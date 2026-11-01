@@ -138,6 +138,8 @@
       "Bash(git switch * -f*)",
       "Bash(git switch *--force*)",
       "Bash(git switch *--discard-changes*)",
+      "Bash(git checkout -b * -f*)",
+      "Bash(git checkout -b *--force*)",
       "Bash(git stash clear*)",
       "Bash(git reflog expire*)",
       "Bash(gh api *actions/*)",

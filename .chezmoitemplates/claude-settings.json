@@ -73,7 +73,6 @@
       "Bash(chezmoi managed*)",
       "Bash(chezmoi cat *)",
       "Bash(chezmoi source-path*)",
-      "Bash(chezmoi execute-template *)",
       "Bash(chezmoi data*)",
       "Bash(chezmoi verify*)",
       "Bash(tr *)",

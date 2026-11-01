@@ -100,7 +100,7 @@
       "Edit(~/.aws/**)",
       "Edit(~/.kube/**)",
       "Edit(~/.gnupg/**)",
-      "Edit(/etc/**)"
+      "Edit(//etc/**)"
     ],
     "defaultMode": "auto"
   },

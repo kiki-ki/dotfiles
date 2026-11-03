@@ -10,6 +10,7 @@ brew "stern"
 brew "tree"
 
 cask "ankerwork"
+cask "claude"
 cask "clipy"
 cask "gcloud-cli"
 cask "ghostty"

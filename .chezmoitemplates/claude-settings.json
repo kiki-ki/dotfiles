@@ -168,6 +168,9 @@
   },
   "language": "Japanese",
   "preferredNotifChannel": "ghostty",
+  "attribution": {
+    "sessionUrl": false
+  },
   "extraKnownMarketplaces": {
     "kikit": {
       "source": {
